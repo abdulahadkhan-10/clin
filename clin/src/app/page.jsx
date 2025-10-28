@@ -1,4 +1,4 @@
-import EventsPage from "../component/event"; // adjust path if needed
+import EventsPage from "../component/event/event"; // adjust path if needed
 
 export default function Home() {
   return (
