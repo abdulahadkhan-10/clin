@@ -18,7 +18,7 @@ const EventsPage = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[white] drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] text-center">
             Events
           </h1>
-        </div>
+        </div>  
       </div>
 
       {/* ========= DESCRIPTION SECTION ========= */}
