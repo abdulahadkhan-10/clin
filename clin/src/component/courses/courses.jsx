@@ -4,7 +4,7 @@ import { Poltawski_Nowy } from "next/font/google";
 
 const poltawski = Poltawski_Nowy({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"], // choose weights you need
+  weight: ["400", "500", "600", "700"],
 });
 
 const courses = [
@@ -12,25 +12,25 @@ const courses = [
     title: "Medical Writing",
     duration: "4 Weeks",
     img: "/medicalwriting.png",
-    desc: "Eligibility : Post-Graduation / Life Science / Pharmacy / Medical / Dental",
+    desc: "Eligibility : Post-Graduation in Life Sciences / Pharmaceutical Sciences , Graduation in Medical , Dental",
   },
   {
     title: "Clinical Data Management",
     duration: "5 Weeks",
     img: "/clinicaldata.png",
-    desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences / Medical / Dental",
+    desc: "Eligibility : Graduation / Post-Graduation in Life Sciences / Pharmaceutical Sciences , Medical , Dental",
   },
   {
     title: "Regulatory Affairs",
     duration: "4 Weeks",
     img: "/regulatory.png",
-    desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences / Medical / Dental",
+    desc: "Eligibility : Graduation / Post-Graduation in Life Sciences / Pharmaceutical Sciences , Medical , Dental",
   },
   {
     title: "Signal Detection & Medical Review",
-    duration: "4 Weeks",
+    duration: "3 Weeks",
     img: "/signalreview.png",
-    desc: "Eligibility : Freshers and Life Science Professionals / Medical / Dental",
+    desc: "Eligibility : Freshers and Life Science Professionals / Medical , Dental",
   },
   {
     title: "Empower Teams With ClinXcel’s Industry-Ready Training",
@@ -42,13 +42,13 @@ const courses = [
     title: "Clinical Research",
     duration: "4 Weeks",
     img: "/clinicalresearch.png",
-    desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences / Medical / Dental",
+    desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences / Medical , Dental",
   },
   {
     title: "Pharmacovigilance (Safety)",
     duration: "5 Weeks",
     img: "/pharmacovigilance.png",
-    desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences / Medical / Dental",
+    desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences / Medical , Dental",
   },
   {
     title: "Soft Skills Training Modules by ClinXcel",
@@ -60,94 +60,193 @@ const courses = [
 
 export default function CoursesSection() {
   return (
-    <section className="w-full flex flex-col items-center py-10 sm:py-14 px-4 md:px-10 bg-white">
-      {/* === Header Background Image Section === */}
-      <div className="relative w-full max-w-7xl text-center overflow-hidden ">
+    <section className="w-full flex flex-col items-center py-10 sm:py-12 px-6 md:px-1 bg-white">
+      {/* === Header === */}
+      <div className="relative w-full text-center overflow-hidden">
         <div
-          className="bg-cover bg-center flex justify-center items-center h-32 sm:h-40 md:h-48 lg:h-32"
-          style={{
-            backgroundImage: "url('/image 180.png')", // Courses background
-          }}
+          className="bg-cover bg-center flex justify-center items-center h-40 sm:h-48 md:h-56 lg:h-30"
+          style={{ backgroundImage: "url('/image 180.png')" }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white drop-shadow-xl">
-            <span className="font-['Poltawski_Nowy']">Courses</span>
-          </h2>
+          {/* Hero Content */}
+          <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
+            <h1
+              className="font-bold leading-none"
+              style={{
+                fontFamily: "Poltawski Nowy, serif",
+                fontWeight: 700,
+                fontSize: "clamp(45px, 12vw, 100px)", // ✅ Responsive text size
+                color: "#FFFFFF",
+                WebkitTextStroke: "1px #76CD61", // ✅ Green border
+                textStroke: "3px #76CD61",
+                letterSpacing: "0",
+                textShadow: "0 0 20px rgba(118, 205, 97, 0.5)",
+                textTransform: "lowercase",
+              }}
+            >
+              courses
+            </h1>
+          </div>
         </div>
       </div>
 
-      {/* === Small Space Between === */}
-      <div className="h-2 sm:h-3"></div>
-
-      {/* === Paragraph Background Section === */}
+      {/* === Description === */}
       <div
-  className="relative w-full max-w-7xl p-7 mx-auto  overflow-hidden shadow-md"
-  style={{
-    backgroundImage: "url('/Rectangle 7358.png')", // your background
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
->
-  {/* Overlay */}
-  {/* <div className="absolute inset-0 bg-black/50"></div> */}
-
-    <div
-      className={`relative z-10 text-white p-5 sm:p-8 md:p-10 lg:p-12 text-justify rounded-b-md min-h-[220px] sm:min-h-[250px] md:min-h-[280px] lg:min-h-[300px] ${poltawski.className}`}
-    >
-      <p className="leading-relaxed italic text-[17px] sm:text-[19px] md:text-[21px] lg:text-[22px] xl:text-[23px] font-medium">
-        At{" "}
-        <span className="font-semibold not-italic text-[19px] sm:text-[21px] md:text-[23px] lg:text-[24px]">
-          ClinXcel
-        </span>
-        , we are a dedicated team of industry and training experts with over{" "}
-        <span className="font-semibold not-italic">20 years of experience</span> in the
-        clinical research domain. Our mission is to build a highly skilled workforce
-        that can meet the growing demands of the life sciences and healthcare
-        industries. We have successfully trained more than{" "}
-        <span className="font-semibold not-italic">3,000 students</span>, equipping them
-        with practical, industry-relevant knowledge and skills.
-      </p>
-    </div>
-
-    </div>
-
+        className="relative w-full max-w-[95rem] p-7 px-2 mx-auto overflow-hidden shadow-md mt-6"
+        style={{
+          backgroundImage: "url('/Rectangle 7358.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div
+          className={`relative z-10 text-white p-6 sm:p-8 md:p-10 text-justify rounded-b-md ${poltawski.className}`}
+        >
+          <p className="leading-relaxed italic text-[17px] sm:text-[19px] md:text-[21px] font-medium">
+            At{" "}
+            <span className="font-semibold not-italic text-[21px]">
+              ClinXcel
+            </span>
+            , we are a dedicated team of industry and training experts with over{" "}
+            <span className="font-semibold not-italic">
+              20 years of experience
+            </span>{" "}
+            in the clinical research domain. Our mission is to build a highly
+            skilled workforce that can meet the growing demands of the life
+            sciences and healthcare industries. We have successfully trained
+            more than{" "}
+            <span className="font-semibold not-italic">3,000 students</span>,
+            equipping them with practical, industry-relevant knowledge and
+            skills.
+          </p>
+        </div>
+      </div>
 
       {/* === Popular Services === */}
       <div className="w-full max-w-7xl mt-14 sm:mt-20">
-        <div className="flex justify-center mb-8 sm:mb-10">
-          <div className="bg-[#d4f4ec] px-8 sm:px-10 py-3 rounded-xl shadow-sm">
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#003c35] italic">
-              Popular Services
-            </h3>
-          </div>
-        </div>
+        {/* === Title === */}
+        <div className="mb-10 flex justify-start px-4 sm:px-6 md:px-10">
+  <div
+    className="relative flex items-center justify-center rounded-[40px] shadow-md py-4 sm:py-6"
+    style={{
+      background: "linear-gradient(100deg, #72CB63 50%, #77C2C3 50%)",
+      width: "100%",
+      maxWidth: "550px",
+      height: "70px",
+    }}
+  >
+    <h2
+      className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl italic font-semibold text-center"
+      style={{
+        color: "#000000",
+        fontFamily: "Poltawski Nowy, serif",
+        fontWeight: 700,
+        lineHeight: "100%",
+      }}
+    >
+      <span className="font-extrabold">Popular</span> Services
+    </h2>
+  </div>
+</div>
+
 
         {/* === Cards Grid === */}
-        <div className="grid gap-6 sm:gap-8 md:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center">
-          {courses.map((course, index) => (
-            <div
-              key={index}
-              className="relative bg-white border border-gray-200 shadow-md rounded-xl p-5 sm:p-6 w-[95%] sm:w-[90%] md:w-[88%] lg:w-[85%] transition-transform transform hover:-translate-y-2 hover:shadow-lg"
-            >
-              <div className="flex items-center justify-center mb-4">
-                <img
-                  src={course.img}
-                  alt={course.title}
-                  className="w-14 h-14 sm:w-16 sm:h-16 object-contain"
-                />
-              </div>
-              <h4 className="text-base sm:text-lg font-semibold text-gray-800 text-center mb-2">
-                {course.title}
-              </h4>
-              <p className="text-sm sm:text-base text-gray-600 text-center">
-                {course.desc}
-              </p>
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">
+  {courses.map((course, index) => (
+    <div
+      key={index}
+      className="relative text-white shadow-lg transition-transform hover:scale-[1.03] duration-300"
+      style={{
+        backgroundColor: "#000000CC",
+        borderRadius: "50.15px",
+        width: "100%",
+        maxWidth: "420px",
+        minHeight: "400px",
+      }}
+    >
+      {/* === Duration Capsule === */}
+      <div className="absolute top-[5px] -right-[10px] flex flex-col items-center">
+        <div
+          className="relative flex items-center justify-center font-semibold text-white"
+          style={{
+            width: "70px",
+            height: "160px",
+            backgroundColor: "#000000",
+            border: "5px solid #FFFFFF",
+            borderRadius: "49.6px",
+            writingMode: "vertical-rl",
+            textOrientation: "upright",
+            fontSize: "18px",
+            opacity: 1,
+          }}
+        >
+          <span className="tracking-tight">{course.duration}</span>
 
-              <div className="absolute top-3 right-3 bg-black text-white text-[10px] sm:text-xs px-2 sm:px-3 py-[2px] sm:py-1 rounded-full rotate-90">
-                EXPERT
-              </div>
-            </div>
-          ))}
+          {/* Green Accent Bar */}
+ <div
+  className="absolute right-[0px] top-1/2 -translate-y-1/2 bg-[#72CB63]"
+  style={{
+    width: "10px",
+    height: "70px", // ✅ medium size
+    borderRadius: "50px", // ✅ full rounded capsule
+  }}
+></div>
+
+
         </div>
+      </div>
+
+      {/* === Image (Shifted Left) === */}
+      <div className="px-5 pt-5">
+        <img
+          src={course.img}
+          alt={course.title}
+          className="object-cover rounded-[30px]"
+          style={{
+            width: "85%", // smaller width
+            height: "170px", // smaller height
+            marginLeft: "-10px", // shifted slightly to the left
+          }}
+        />
+      </div>
+
+      {/* === Text === */}
+      <div className="px-6 pt-4 pb-6">
+        <h3
+          style={{
+            color: "#72CB63",
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: 700,
+            fontSize: "22px",
+            lineHeight: "28px",
+            marginBottom: "10px", // ✅ added small space between title & description
+          }}
+        >
+          {course.title}
+        </h3>
+
+
+
+
+        <p
+          style={{
+            color: "#FFFFFF",
+            fontFamily: "Poltawski Nowy, serif",
+            fontWeight: 700,
+            fontStyle: "italic",
+            fontSize: "16px",
+            lineHeight: "22px",
+            textAlign: "justify",
+          }}
+        >
+          {course.desc}
+        </p>
+      </div>
+    </div>
+  ))}
+</div>
+
+
+
       </div>
     </section>
   );
