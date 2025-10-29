@@ -23,9 +23,9 @@ const Navbar = () => {
       <ul className="flex items-center space-x-10 text-black font-semibold text-lg">
         <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
         <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-        <li><Link href="/events" className="hover:text-white transition-colors">Events</Link></li>
+        <li><Link href="/event" className="hover:text-white transition-colors">Events</Link></li>
         <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
-        <li><Link href="/blogs" className="hover:text-white transition-colors">Blogs</Link></li>
+        <li><Link href="/blog" className="hover:text-white transition-colors">Blogs</Link></li>
       </ul>
 
       {/* Right Contact Us Button */}
