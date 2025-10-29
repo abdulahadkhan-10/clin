@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AboutUsHome() {
   return (
@@ -41,9 +42,12 @@ export default function AboutUsHome() {
             industry-relevant knowledge and skills.
           </p>
 
-          <button className="bg-black text-white font-bold px-8 py-3 rounded-full hover:bg-gray-800 transition-all shadow-lg mt-6">
-            Explore More
-          </button>
+          <Link href="/about">
+  <button className="bg-black text-white font-bold px-8 py-3 rounded-full hover:bg-gray-800 transition-all shadow-lg mt-6 cursor-pointer">
+    Explore More
+  </button>
+</Link>
+
         </div>
       </div>
     </section>
