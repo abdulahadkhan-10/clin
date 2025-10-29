@@ -13,30 +13,47 @@ const EventsPage = () => {
   return (
     <div className="flex flex-col items-center bg-white min-h-screen py-10">
       {/* ========= HEADER SECTION ========= */}
-      <div className="relative w-full max-w-7xl text-center overflow-hidden">
-        <div
-          className="bg-cover bg-center flex justify-center items-center h-32 sm:h-40 md:h-48 lg:h-32"
-          style={{
-            backgroundImage: "url('/image 180.png')", // Event background
-          }}
-        >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-xl font-['Poltawski_Nowy']">
-            Event
-          </h2>
-        </div>
-      </div>
+      <div className="relative w-full text-center overflow-hidden">
+  <div
+    className="bg-cover bg-center flex justify-center items-center h-32 sm:h-40 md:h-48 lg:h-32"
+    style={{
+      backgroundImage: "url('/image 180.png')", // Event background
+    }}
+  >
+    
+                {/* Hero Content */}
+                <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+                    <h1
+                        className="font-bold"
+                        style={{
+                            fontFamily: "Poltawski Nowy, serif",
+                            fontWeight: 700,
+                            fontSize: "100px",
+                            lineHeight: "100%",
+                            color: "#FFFFFF",
+                            WebkitTextStroke: "1px #76CD61", // ✅ Green border on text
+                            textStroke: "3px #76CD61",       // Fallback for non-WebKit
+                            letterSpacing: "0",
+                            textShadow: "0 0 20px rgba(118, 205, 97, 0.5)", // optional glow
+                        }}
+                    >
+                      Event
+                    </h1>
+                </div>
+  </div>
+</div>
+
 
       {/* ========= DESCRIPTION SECTION ========= */}
-      <div className="relative w-full max-w-7xl mt-6 px-4 sm:px-6 lg:px-8">
-        {/* Background image */}
-        <img
-          src="/Rectangle 7358.png"
-          alt="Description Background"
-          className="absolute inset-0 w-full h-full object-cover  opacity-90"
-        />
-
+      <div className="relative w-full mt-6 px-4 sm:px-6 lg:px-8">
+  {/* Background image */}
+  <img
+    src="/Rectangle 7358.png"
+    alt="Description Background"
+    className="absolute inset-0 w-full h-full object-cover"
+  />
         {/* Content */}
-        <div
+      <div
       className={`relative z-10 text-white p-5 sm:p-8 md:p-10 lg:p-12 text-justify rounded-b-md min-h-[220px] sm:min-h-[250px] md:min-h-[280px] lg:min-h-[300px] ${poltawski.className}`}
     >
       <p className="leading-relaxed italic text-[17px] sm:text-[19px] md:text-[21px] lg:text-[22px] xl:text-[23px] font-medium">
