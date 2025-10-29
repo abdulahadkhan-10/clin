@@ -5,47 +5,44 @@ import { Globe } from "lucide-react";
 const EventsPage = () => {
   return (
     <div className="flex flex-col items-center bg-white min-h-screen py-10">
+      <section className="w-full flex flex-col items-center py-10 sm:py-14 px-4 md:px-10 bg-white"></section>
       {/* ========= HEADER SECTION ========= */}
-      <div className="relative w-full max-w-5xl">
-        {/* Header Background */}
-        <img
-          src="/image 180.png" // ✅ Replace with your header image
-          alt="Events Header"
-          className="w-full h-44 md:h-56 lg:h-64 object-cover rounded-t-md shadow-md"
-        />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center rounded-t-md">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[white] drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] text-center">
-            Events
-          </h1>
-        </div>  
+      {/* === Header Background Image Section === */}
+      <div className="relative w-full max-w-7xl text-center overflow-hidden">
+        <div
+          className="bg-cover bg-center flex justify-center items-center h-32 sm:h-40 md:h-48 lg:h-22"
+          style={{
+            backgroundImage: "url('/image 180.png')", // Events background
+          }}
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white drop-shadow-xl">
+            <span className="text-[#bfffe9]">Events</span>
+          </h2>
+        </div>
       </div>
 
       {/* ========= DESCRIPTION SECTION ========= */}
-      <div className="relative w-full max-w-5xl mt-4 px-4 sm:px-6 lg:px-0">
-        {/* Background image */}
-        <img
-          src="/Rectangle 7358.png" // ✅ Replace with your background image
-          alt="Description Background"
-          className="absolute inset-0 w-full h-full object-cover rounded-b-md"
-        />
+      <div
+        className="relative w-full max-w-7xl p-7 mx-auto  overflow-hidden shadow-md"
+        style={{
+          backgroundImage: "url('/Rectangle 7358.png')", // your background
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
 
 
         {/* Content */}
-        <div className="relative text-white p-6 sm:p-8 md:p-10 text-justify rounded-b-md min-h-[260px] md:min-h-[280px] lg:min-h-[300px]">
+        <div className="relative z-10 text-white p-6 sm:p-8 md:p-10 text-justify">
           <p className="leading-relaxed italic font-serif text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px]">
-            At <span className="font-semibold not-italic">ClinXcel</span>, we
-            are a dedicated team of industry and training experts with over{" "}
-            <span className="font-semibold not-italic">
-              20 years of experience
-            </span>{" "}
-            in the clinical research domain. Our mission is to build a highly
-            skilled workforce that can meet the growing demands of the life
-            sciences and healthcare industries. We have successfully trained
-            more than{" "}
-            <span className="font-semibold not-italic">3,000 students</span>,
-            equipping them with practical, industry-relevant knowledge and
-            skills.
+            At <span className="font-semibold not-italic">ClinXcel</span>, we are a
+            dedicated team of industry and training experts with over{" "}
+            <span className="font-semibold not-italic">20 years of experience</span>{" "}
+            in the clinical research domain. Our mission is to build a highly skilled
+            workforce that can meet the growing demands of the life sciences and
+            healthcare industries. We have successfully trained more than{" "}
+            <span className="font-semibold not-italic">3,000 students</span>, equipping
+            them with practical, industry-relevant knowledge and skills.
           </p>
         </div>
       </div>
