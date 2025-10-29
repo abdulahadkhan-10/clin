@@ -1,6 +1,6 @@
 import "./globals.css";
-import Navbar from "@/component/layout/Navbar";
-import Footer from "../component/layout/Footer";
+import Navbar from "@/component/layout/Navbar.jsx";
+import Footer from "../component/layout/Footer.jsx";
 
 export const metadata = {
   title: "Your Website Title",
