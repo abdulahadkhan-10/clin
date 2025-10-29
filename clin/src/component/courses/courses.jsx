@@ -1,46 +1,60 @@
 "use client";
 import React from "react";
+import { Poltawski_Nowy } from "next/font/google";
+
+const poltawski = Poltawski_Nowy({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], // choose weights you need
+});
 
 const courses = [
   {
     title: "Medical Writing",
-    desc: "Explore Regulatory & Scientific Writing with hands-on experience in Clinical Documentation.",
+    duration: "4 Weeks",
     img: "/medicalwriting.png",
+    desc: "Eligibility : Post-Graduation / Life Science / Pharmacy / Medical / Dental",
   },
   {
     title: "Clinical Data Management",
-    desc: "Gain expertise in Data Handling, Processing & Review using industry tools.",
+    duration: "5 Weeks",
     img: "/clinicaldata.png",
+    desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences / Medical / Dental",
   },
   {
     title: "Regulatory Affairs",
-    desc: "Understand global Regulatory Frameworks, Drug Approval Processes, and Compliance.",
+    duration: "4 Weeks",
     img: "/regulatory.png",
+    desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences / Medical / Dental",
   },
   {
     title: "Signal Detection & Medical Review",
-    desc: "Master Safety Data Review, Signal Management, and Pharmacovigilance.",
+    duration: "4 Weeks",
     img: "/signalreview.png",
+    desc: "Eligibility : Freshers and Life Science Professionals / Medical / Dental",
   },
   {
     title: "Empower Teams With ClinXcel’s Industry-Ready Training",
-    desc: "Transform careers through advanced, project-based professional training.",
+    duration: "1 Year",
     img: "/training.png",
+    desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences",
   },
   {
     title: "Clinical Research",
-    desc: "Learn the essentials of Clinical Operations, Protocols, and GCP guidelines.",
+    duration: "4 Weeks",
     img: "/clinicalresearch.png",
+    desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences / Medical / Dental",
   },
   {
     title: "Pharmacovigilance (Safety)",
-    desc: "Develop core skills in Drug Safety, Case Processing, and Signal Evaluation.",
+    duration: "5 Weeks",
     img: "/pharmacovigilance.png",
+    desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences / Medical / Dental",
   },
   {
-    title: "Soft Skills Training Modules",
-    desc: "Enhance communication, teamwork, and professional confidence in clinical careers.",
+    title: "Soft Skills Training Modules by ClinXcel",
+    duration: "4 Weeks",
     img: "/softskills.png",
+    desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences",
   },
 ];
 
@@ -50,13 +64,13 @@ export default function CoursesSection() {
       {/* === Header Background Image Section === */}
       <div className="relative w-full max-w-7xl text-center overflow-hidden ">
         <div
-          className="bg-cover bg-center flex justify-center items-center h-32 sm:h-40 md:h-48 lg:h-22"
+          className="bg-cover bg-center flex justify-center items-center h-32 sm:h-40 md:h-48 lg:h-32"
           style={{
             backgroundImage: "url('/image 180.png')", // Courses background
           }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white drop-shadow-xl">
-            <span className="text-[#bfffe9]">Courses</span>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white drop-shadow-xl">
+            <span className="font-['Poltawski_Nowy']">Courses</span>
           </h2>
         </div>
       </div>
@@ -76,19 +90,25 @@ export default function CoursesSection() {
   {/* Overlay */}
   {/* <div className="absolute inset-0 bg-black/50"></div> */}
 
-  <div className="relative z-10 text-white p-6 sm:p-8 md:p-10 text-justify">
-    <p className="leading-relaxed italic font-serif text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px]">
-      At <span className="font-semibold not-italic">ClinXcel</span>, we are a
-      dedicated team of industry and training experts with over{" "}
-      <span className="font-semibold not-italic">20 years of experience</span>{" "}
-      in the clinical research domain. Our mission is to build a highly skilled
-      workforce that can meet the growing demands of the life sciences and
-      healthcare industries. We have successfully trained more than{" "}
-      <span className="font-semibold not-italic">3,000 students</span>, equipping
-      them with practical, industry-relevant knowledge and skills.
-    </p>
-  </div>
-</div>
+    <div
+      className={`relative z-10 text-white p-5 sm:p-8 md:p-10 lg:p-12 text-justify rounded-b-md min-h-[220px] sm:min-h-[250px] md:min-h-[280px] lg:min-h-[300px] ${poltawski.className}`}
+    >
+      <p className="leading-relaxed italic text-[17px] sm:text-[19px] md:text-[21px] lg:text-[22px] xl:text-[23px] font-medium">
+        At{" "}
+        <span className="font-semibold not-italic text-[19px] sm:text-[21px] md:text-[23px] lg:text-[24px]">
+          ClinXcel
+        </span>
+        , we are a dedicated team of industry and training experts with over{" "}
+        <span className="font-semibold not-italic">20 years of experience</span> in the
+        clinical research domain. Our mission is to build a highly skilled workforce
+        that can meet the growing demands of the life sciences and healthcare
+        industries. We have successfully trained more than{" "}
+        <span className="font-semibold not-italic">3,000 students</span>, equipping them
+        with practical, industry-relevant knowledge and skills.
+      </p>
+    </div>
+
+    </div>
 
 
       {/* === Popular Services === */}
