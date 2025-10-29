@@ -1,30 +1,41 @@
+"use client";
+
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between px-6 py-2 rounded-full shadow-md bg-gradient-to-r from-green-400 to-cyan-500">
-      {/* Logo */}
-      <div className="flex items-center space-x-2">
-        <img
-          src="/logo.svg" // replace with your logo path
-          alt="Logo"
-          className="w-10 h-10 rounded-full bg-black p-1"
+    <nav className="flex items-center justify-between px-8 py-3 w-full rounded-full shadow-lg bg-gradient-to-r from-green-400 to-cyan-600 mx-auto my-4">
+      
+      {/* Left Logo - pressed to left */}
+      <div className="flex-shrink-0">
+        <Image
+          src="/logo.svg"
+          alt="ClinXcel Logo"
+          width={60}
+          height={60}
+          className="object-contain"
         />
       </div>
 
-      {/* Menu Links */}
-      <ul className="flex items-center space-x-8 text-black font-semibold">
-        <li className="hover:text-white cursor-pointer">Home</li>
-        <li className="hover:text-white cursor-pointer">About Us</li>
-        <li className="hover:text-white cursor-pointer">Events</li>
-        <li className="hover:text-white cursor-pointer">Services</li>
-        <li className="hover:text-white cursor-pointer">Blogs</li>
+      {/* Center Menu */}
+      <ul className="flex items-center space-x-10 text-black font-semibold text-lg">
+        <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
+        <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+        <li><Link href="/event" className="hover:text-white transition-colors">Events</Link></li>
+        <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
+        <li><Link href="/blog" className="hover:text-white transition-colors">Blogs</Link></li>
       </ul>
 
-      {/* Contact Button */}
-      <button className="bg-white text-black font-semibold px-4 py-1 rounded-full shadow hover:bg-gray-100">
+      {/* Right Contact Us Button */}
+      <Link
+        href="/contact"
+        className="bg-white text-black font-bold px-6 py-2 rounded-full shadow-md hover:bg-gray-100 transition-colors"
+      >
         Contact Us
-      </button>
+      </Link>
+
     </nav>
   );
 };
