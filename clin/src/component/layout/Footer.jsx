@@ -22,6 +22,7 @@ const Footer = () => {
               alt="ClinXcel Logo"
               width={64}
               height={64}
+              
               className="rounded-lg"
             />
           </div>
