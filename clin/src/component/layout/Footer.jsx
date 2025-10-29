@@ -3,26 +3,23 @@ import React from "react";
 import { Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import "../../app/globals.css";
- // ✅ Optional, only if your fonts/styles are global
 
 const Footer = () => {
   return (
     <footer
-      className="bg-gradient-to-r from-green-400 to-cyan-500 text-black pt-16 pb-0 mt-10 relative overflow-hidden"
+      className="bg-gradient-to-r from-green-400 to-cyan-500 text-black pt-14 pb-0 mt-10 relative overflow-hidden"
       style={{ fontFamily: "'Poltawski Nowy', serif" }}
     >
-      {/* ✅ Move Google Font import to <Head> in layout.jsx or globals.css */}
-      
-      <div className="container mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-10 relative z-10 pb-20">
+      {/* --- Main Footer Content --- */}
+      <div className="container mx-auto px-6 sm:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 relative z-10 pb-16">
         {/* Address & Contact */}
-        <div>
-          <div className="flex items-center mb-5">
+        <div className="text-center sm:text-left">
+          <div className="flex justify-center sm:justify-start mb-5">
             <Image
               src="/logo.svg"
               alt="ClinXcel Logo"
               width={64}
               height={64}
-              
               className="rounded-lg"
             />
           </div>
@@ -33,17 +30,17 @@ const Footer = () => {
           </div>
 
           <div className="mt-5 space-y-3 text-base font-semibold">
-            <p className="flex items-center gap-2">
+            <p className="flex justify-center sm:justify-start items-center gap-2">
               <Phone size={18} /> 8369919288 / 7021235702
             </p>
-            <p className="flex items-center gap-2">
+            <p className="flex justify-center sm:justify-start items-center gap-2">
               <Mail size={18} /> info@clinexcel.in
             </p>
           </div>
         </div>
 
         {/* Useful Links */}
-        <div>
+        <div className="text-center sm:text-left">
           <h3 className="text-xl font-bold mb-5">Useful Links</h3>
           <ul className="space-y-3 text-base font-semibold">
             <li className="hover:text-white cursor-pointer transition-colors">• Home</li>
@@ -55,7 +52,7 @@ const Footer = () => {
         </div>
 
         {/* Our Services */}
-        <div>
+        <div className="text-center sm:text-left">
           <h3 className="text-xl font-bold mb-5">Our Services</h3>
           <ul className="space-y-3 text-base font-semibold">
             <li className="hover:text-white cursor-pointer transition-colors">• Regular Training</li>
@@ -65,12 +62,12 @@ const Footer = () => {
         </div>
 
         {/* Newsletter */}
-        <div>
+        <div className="text-center sm:text-left">
           <h3 className="text-xl font-bold mb-5">Our Newsletter</h3>
           <p className="text-base mb-5 leading-relaxed font-semibold">
             Subscribe To Our Newsletter And Receive The Latest News About Our Products And Services!
           </p>
-          <div className="flex space-x-4">
+          <div className="flex justify-center sm:justify-start space-x-4">
             <a href="mailto:info@clinexcel.in" className="hover:opacity-80 transition-opacity">
               <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-lg">
                 <Mail size={20} className="text-red-500" />
@@ -96,26 +93,19 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Decorative Cloud Border */}
-      <div className="absolute bottom-12 left-0 right-0 z-0">
-        <svg
-          viewBox="0 0 1200 100"
-          className="w-full h-auto text-white fill-current"
-          preserveAspectRatio="none"
-        >
-          <path d="M0,100 C150,60 350,30 600,50 C850,70 1050,30 1200,70 L1200,100 Z" />
-          <path
-            d="M0,100 C200,80 400,50 600,70 C800,90 1000,50 1200,90 L1200,100 Z"
-            opacity="0.5"
-          />
-          <path
-            d="M0,100 C300,70 500,60 600,75 C700,90 900,60 1200,80 L1200,100 Z"
-            opacity="0.3"
-          />
-        </svg>
+      {/* --- Union SVG Divider --- */}
+      <div className="relative z-10 w-full">
+        <Image
+          src="/Union.svg"
+          alt="Union Divider"
+          width={1728}
+          height={195}
+          className="w-full h-auto object-cover"
+          priority
+        />
       </div>
 
-      {/* Copyright */}
+      {/* --- Copyright Section --- */}
       <div className="bg-black text-white text-center py-4 text-sm font-semibold relative z-10">
         © Copyright{" "}
         <a href="#" className="font-bold hover:text-gray-300 transition-colors">
