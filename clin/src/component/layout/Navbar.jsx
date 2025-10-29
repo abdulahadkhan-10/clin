@@ -84,6 +84,13 @@ const Navbar = () => {
               style={{ zIndex: 9999 }}
             >
               <Link
+                href="/consulting"
+                className="block px-5 py-2 text-black hover:bg-cyan-50 hover:text-cyan-600 font-medium transition-colors"
+                onClick={() => setServicesOpen(false)}
+              >
+                Pharmacovigilance Consulting
+              </Link>
+              <Link
                 href="/corporate"
                 className="block px-5 py-2 text-black hover:bg-cyan-50 hover:text-cyan-600 font-medium transition-colors"
                 onClick={() => setServicesOpen(false)}
@@ -97,14 +104,13 @@ const Navbar = () => {
               >
                 Soft Skills Training
               </Link>
-              <Link
-                href="/consulting"
-                className="block px-5 py-2 text-black hover:bg-cyan-50 hover:text-cyan-600 font-medium transition-colors"
-                onClick={() => setServicesOpen(false)}
-              >
-                Pharmacovigilance Consulting
-              </Link>
+              
             </div>
+          </li>
+           <li>
+            <Link href="/courses" className="hover:text-white transition-colors">
+              Courses
+            </Link>
           </li>
 
           <li>
@@ -184,6 +190,16 @@ const Navbar = () => {
               }`}
             >
               <Link
+                href="/consulting"
+                className="block text-black hover:text-cyan-600 transition-colors text-sm py-2"
+                onClick={() => {
+                  setMenuOpen(false);
+                  setMobileServicesOpen(false);
+                }}
+              >
+                Pharmacovigilance Consulting
+              </Link>
+              <Link
                 href="/corporate"
                 className="block text-black hover:text-cyan-600 transition-colors text-sm py-2"
                 onClick={() => {
@@ -203,18 +219,18 @@ const Navbar = () => {
               >
                 Soft Skills Training
               </Link>
-              <Link
-                href="/consulting"
-                className="block text-black hover:text-cyan-600 transition-colors text-sm py-2"
-                onClick={() => {
-                  setMenuOpen(false);
-                  setMobileServicesOpen(false);
-                }}
-              >
-                Pharmacovigilance Consulting
-              </Link>
+              
             </div>
           </div>
+
+          <Link
+            href="/courses"
+            className="block text-black hover:text-cyan-600 transition-colors"
+            onClick={() => setMenuOpen(false)}
+          >
+            cources
+
+            </Link>
 
           <Link
             href="/blog"

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Mail, Phone, ChevronDown } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import "../../app/globals.css";
 
 const Footer = () => {
@@ -22,13 +23,15 @@ const Footer = () => {
         {/* Address & Contact */}
         <div className="text-center sm:text-left">
           <div className="flex justify-center sm:justify-start mb-5">
-            <Image
-              src="/logo.svg"
-              alt="ClinXcel Logo"
-              width={64}
-              height={64}
-              className="rounded-lg"
-            />
+            <Link href="/">
+              <Image
+                src="/logo.svg"
+                alt="ClinXcel Logo"
+                width={64}
+                height={64}
+                className="rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+              />
+            </Link>
           </div>
           <div className="text-base leading-relaxed space-y-1.5 font-medium">
             <p>M. N Road, Sonapur lane</p>
@@ -37,12 +40,12 @@ const Footer = () => {
           </div>
 
           <div className="mt-5 space-y-3 text-base font-semibold">
-            <p className="flex justify-center sm:justify-start items-center gap-2">
+            <a href="tel:8369919288" className="flex justify-center sm:justify-start items-center gap-2 hover:text-white transition-colors">
               <Phone size={18} /> 8369919288 / 7021235702
-            </p>
-            <p className="flex justify-center sm:justify-start items-center gap-2">
+            </a>
+            <a href="mailto:info@clinexcel.in" className="flex justify-center sm:justify-start items-center gap-2 hover:text-white transition-colors">
               <Mail size={18} /> info@clinexcel.in
-            </p>
+            </a>
           </div>
         </div>
 
@@ -67,20 +70,20 @@ const Footer = () => {
                 : "max-h-0"
             }`}
           >
-            <li className="hover:text-white cursor-pointer transition-colors">
-              • Home
+            <li>
+              <Link href="/" className="hover:text-white cursor-pointer transition-colors block">
+                • Home
+              </Link>
             </li>
-            <li className="hover:text-white cursor-pointer transition-colors">
-              • About us
+            <li>
+              <Link href="/about" className="hover:text-white cursor-pointer transition-colors block">
+                • About us
+              </Link>
             </li>
-            <li className="hover:text-white cursor-pointer transition-colors">
-              • Services
-            </li>
-            <li className="hover:text-white cursor-pointer transition-colors">
-              • Terms of service
-            </li>
-            <li className="hover:text-white cursor-pointer transition-colors">
-              • Privacy policy
+            <li>
+              <Link href="/services" className="hover:text-white cursor-pointer transition-colors block">
+                • Services
+              </Link>
             </li>
           </ul>
         </div>
@@ -106,14 +109,20 @@ const Footer = () => {
                 : "max-h-0"
             }`}
           >
-            <li className="hover:text-white cursor-pointer transition-colors">
-              • Regular Training
+            <li>
+              <Link href="/consulting" className="hover:text-white cursor-pointer transition-colors block">
+                • Pharmacovigilance Consulting
+              </Link>
             </li>
-            <li className="hover:text-white cursor-pointer transition-colors">
-              • Corporate Training
+            <li>
+              <Link href="/corporate" className="hover:text-white cursor-pointer transition-colors block">
+                • Corporate Training
+              </Link>
             </li>
-            <li className="hover:text-white cursor-pointer transition-colors">
-              • Soft Skills Training
+            <li>
+              <Link href="/soft-skills" className="hover:text-white cursor-pointer transition-colors block">
+                • Soft Skills Training
+              </Link>
             </li>
           </ul>
         </div>
@@ -183,7 +192,7 @@ const Footer = () => {
             <Image src="/facebook.svg" alt="Facebook" width={22} height={22} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/clinxcel-academy-of-clinical-research/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform"
@@ -196,9 +205,9 @@ const Footer = () => {
       {/* --- Copyright Section --- */}
       <div className="bg-black text-white text-center py-4 text-sm font-semibold relative z-10">
         © Copyright{" "}
-        <a href="#" className="font-bold hover:text-gray-300 transition-colors">
+        <Link href="/" className="font-bold hover:text-gray-300 transition-colors">
           ClinXcel
-        </a>{" "}
+        </Link>{" "}
         All Rights Reserved | Designed by{" "}
         <span className="font-bold">Find Solution</span>
       </div>
