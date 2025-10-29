@@ -1,37 +1,51 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 
-export default function VisionMission() {
+export default function AboutUsHome() {
   return (
-    <main className="min-h-screen bg-gradient-to-r from-[#C7EFFF] to-[#8BE3CC] flex flex-col items-center justify-center font-serif px-6 md:px-20 py-16">
-      {/* Container */}
-      <div className="w-full max-w-6xl flex flex-col md:flex-row shadow-2xl rounded-lg overflow-hidden relative bg-white">
-        {/* Vision Section */}
-        <div className="md:w-1/2 p-10 bg-gradient-to-r from-white to-[#D6F3FF] relative">
-          <h2 className="text-3xl font-bold text-black mb-4">Our <span className="italic font-semibold">Vision</span></h2>
-          <p className="text-gray-800 text-justify leading-relaxed font-medium">
-            To equip aspiring professionals and industry leaders with the
-            specialized skills, knowledge, and practical experience necessary
-            to excel in the life sciences and healthcare industries, thereby
-            creating a sustainable and skilled workforce that meets global
-            industry standards.
-          </p>
-
-          {/* Decorative diagonal bar */}
-          <div className="absolute top-0 right-[-20px] h-full w-[30px] bg-gray-200 transform skew-x-[20deg]" />
+    <section 
+      className="relative w-full py-16 px-6 md:px-20"
+      style={{
+        background: 'linear-gradient(90deg, #FFFFFF 0%, #038BB0 70.19%, #6EB563 100%)'
+      }}
+    >
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+        
+        {/* Left Side - Image with Rounded Border */}
+        <div className="lg:w-1/2 relative">
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+            <Image
+              src="/homeAb.svg"
+              alt="Medical Science Doctor"
+              width={600}
+              height={450}
+              className="w-full h-auto object-cover"
+            />
+          </div>
         </div>
 
-        {/* Mission Section */}
-        <div className="md:w-1/2 p-10 bg-gradient-to-r from-[#0099CC] to-[#32D583] text-white">
-          <h2 className="text-3xl font-bold mb-4 text-center">Our <span className="italic font-semibold">Mission</span></h2>
-          <p className="text-justify leading-relaxed italic font-medium">
-            To be a leading educational and training institute in the clinical
-            research field, fostering innovation, excellence, and leadership
-            while bridging the gap between academia and industry, ultimately
-            contributing to the growth of a healthier and more informed world.
+        {/* Right Side - Content */}
+        <div className="lg:w-1/2 text-white space-y-6">
+          <h2 className="text-5xl md:text-6xl font-bold italic mb-6">
+            About <span className="font-serif italic">Us</span>
+          </h2>
+          
+          <p className="text-base md:text-lg leading-relaxed italic">
+            At <span className="font-bold">ClinXcel</span>, we are a dedicated team of industry 
+            and training experts with over <span className="font-semibold">20 years of experience</span> in 
+            the clinical research domain. Our mission is to build a highly skilled 
+            workforce that can meet the growing demands of the life sciences and 
+            healthcare industries. We have successfully trained more than{" "}
+            <span className="font-semibold">3,000 students</span>, equipping them with practical, 
+            industry-relevant knowledge and skills.
           </p>
+
+          <button className="bg-black text-white font-bold px-8 py-3 rounded-full hover:bg-gray-800 transition-all shadow-lg mt-6">
+            Explore More
+          </button>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

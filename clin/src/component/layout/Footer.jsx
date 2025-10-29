@@ -1,10 +1,17 @@
 "use client";
-import React from "react";
-import { Mail, Phone } from "lucide-react";
+import React, { useState } from "react";
+import { Mail, Phone, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import "../../app/globals.css";
 
 const Footer = () => {
+  // ✅ States for mobile dropdowns
+  const [openSection, setOpenSection] = useState(null);
+
+  const toggleSection = (section) => {
+    setOpenSection(openSection === section ? null : section);
+  };
+
   return (
     <footer
       className="bg-gradient-to-r from-green-400 to-cyan-500 text-black pt-14 pb-0 mt-10 relative overflow-hidden"
@@ -41,59 +48,106 @@ const Footer = () => {
 
         {/* Useful Links */}
         <div className="text-center sm:text-left">
-          <h3 className="text-xl font-bold mb-5">Useful Links</h3>
-          <ul className="space-y-3 text-base font-semibold">
-            <li className="hover:text-white cursor-pointer transition-colors">• Home</li>
-            <li className="hover:text-white cursor-pointer transition-colors">• About us</li>
-            <li className="hover:text-white cursor-pointer transition-colors">• Services</li>
-            <li className="hover:text-white cursor-pointer transition-colors">• Terms of service</li>
-            <li className="hover:text-white cursor-pointer transition-colors">• Privacy policy</li>
+          <button
+            className="flex justify-between items-center w-full sm:cursor-default sm:pb-0 pb-3 border-b sm:border-none"
+            onClick={() => toggleSection("links")}
+          >
+            <h3 className="text-xl font-bold">Useful Links</h3>
+            <ChevronDown
+              size={20}
+              className={`sm:hidden transition-transform ${
+                openSection === "links" ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+          <ul
+            className={`space-y-3 text-base font-semibold sm:block transition-all duration-300 overflow-hidden ${
+              openSection === "links" || typeof window === "undefined"
+                ? "max-h-96 mt-4"
+                : "max-h-0"
+            }`}
+          >
+            <li className="hover:text-white cursor-pointer transition-colors">
+              • Home
+            </li>
+            <li className="hover:text-white cursor-pointer transition-colors">
+              • About us
+            </li>
+            <li className="hover:text-white cursor-pointer transition-colors">
+              • Services
+            </li>
+            <li className="hover:text-white cursor-pointer transition-colors">
+              • Terms of service
+            </li>
+            <li className="hover:text-white cursor-pointer transition-colors">
+              • Privacy policy
+            </li>
           </ul>
         </div>
 
         {/* Our Services */}
         <div className="text-center sm:text-left">
-          <h3 className="text-xl font-bold mb-5">Our Services</h3>
-          <ul className="space-y-3 text-base font-semibold">
-            <li className="hover:text-white cursor-pointer transition-colors">• Regular Training</li>
-            <li className="hover:text-white cursor-pointer transition-colors">• Corporate Training</li>
-            <li className="hover:text-white cursor-pointer transition-colors">• Soft Skills Training</li>
+          <button
+            className="flex justify-between items-center w-full sm:cursor-default sm:pb-0 pb-3 border-b sm:border-none"
+            onClick={() => toggleSection("services")}
+          >
+            <h3 className="text-xl font-bold">Our Services</h3>
+            <ChevronDown
+              size={20}
+              className={`sm:hidden transition-transform ${
+                openSection === "services" ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+          <ul
+            className={`space-y-3 text-base font-semibold sm:block transition-all duration-300 overflow-hidden ${
+              openSection === "services" || typeof window === "undefined"
+                ? "max-h-96 mt-4"
+                : "max-h-0"
+            }`}
+          >
+            <li className="hover:text-white cursor-pointer transition-colors">
+              • Regular Training
+            </li>
+            <li className="hover:text-white cursor-pointer transition-colors">
+              • Corporate Training
+            </li>
+            <li className="hover:text-white cursor-pointer transition-colors">
+              • Soft Skills Training
+            </li>
           </ul>
         </div>
 
         {/* Newsletter */}
         <div className="text-center sm:text-left">
-          <h3 className="text-xl font-bold mb-5">Our Newsletter</h3>
-          <p className="text-base mb-5 leading-relaxed font-semibold">
-            Subscribe To Our Newsletter And Receive The Latest News About Our Products And Services!
-          </p>
-          <div className="flex justify-center sm:justify-start space-x-4">
-            <a href="mailto:info@clinexcel.in" className="hover:opacity-80 transition-opacity">
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-lg">
-                <Mail size={20} className="text-red-500" />
-              </div>
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80 transition-opacity"
-            >
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-lg">
-                <svg
-                  className="w-5 h-5 text-blue-600"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </div>
-            </a>
+          <button
+            className="flex justify-between items-center w-full sm:cursor-default sm:pb-0 pb-3 border-b sm:border-none"
+            onClick={() => toggleSection("newsletter")}
+          >
+            <h3 className="text-xl font-bold">Our Newsletter</h3>
+            <ChevronDown
+              size={20}
+              className={`sm:hidden transition-transform ${
+                openSection === "newsletter" ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+          <div
+            className={`text-base font-semibold leading-relaxed sm:block transition-all duration-300 overflow-hidden ${
+              openSection === "newsletter" || typeof window === "undefined"
+                ? "max-h-96 mt-4"
+                : "max-h-0"
+            }`}
+          >
+            <p className="mb-5">
+              Subscribe To Our Newsletter And Receive The Latest News About Our
+              Products And Services!
+            </p>
           </div>
         </div>
       </div>
 
-      {/* --- Union SVG Divider --- */}
+      {/* --- Union SVG Divider + Floating Social Icons --- */}
       <div className="relative z-10 w-full">
         <Image
           src="/Union.svg"
@@ -103,6 +157,40 @@ const Footer = () => {
           className="w-full h-auto object-cover"
           priority
         />
+
+        {/* Floating Social Icons on SVG */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex space-x-5 z-20">
+          <a
+            href="https://www.instagram.com/clinxcel/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform"
+          >
+            <Image src="/instagram.svg" alt="Instagram" width={22} height={22} />
+          </a>
+          <a
+            href="mailto:info@clinexcel.in"
+            className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform"
+          >
+            <Image src="/mail.svg" alt="Gmail" width={22} height={22} />
+          </a>
+          <a
+            href="https://www.facebook.com/clinxcel"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform"
+          >
+            <Image src="/facebook.svg" alt="Facebook" width={22} height={22} />
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform"
+          >
+            <Image src="/linkedin.svg" alt="LinkedIn" width={22} height={22} />
+          </a>
+        </div>
       </div>
 
       {/* --- Copyright Section --- */}
