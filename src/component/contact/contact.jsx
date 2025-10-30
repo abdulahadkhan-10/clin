@@ -73,7 +73,7 @@ const ContactPage = () => {
       </div>
       <div className="w-full min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-100 to-green-100 py-10">
         {/* Contact Details Card */}
-        <div className="absolute inset-0 mt-272 flex items-center justify-start">
+        <div className="absolute inset-0 mt-269 flex items-center justify-start">
           <div className="relative left-[5%] lg:left-[8%] xl:left-[10%] bg-[#5FC4CC] p-8 rounded-[25px] shadow-2xl w-[85%] sm:w-[55%] md:w-[45%] lg:w-[40%] xl:w-[38%] border-[6px] border-white z-20">
             <h2 className="text-2xl sm:text-3xl font-bold text-black mb-6 border-b-4 border-black pb-2 inline-block">
               Contact Details
@@ -100,7 +100,7 @@ const ContactPage = () => {
         </div>
 
         {/* Outer Container */}
-        <div className="relative flex justify-end w-full min-h-screen mr-27">
+        <div className="relative flex justify-end w-full min-h-screen mr-28">
           {/* Background Shape */}
           <img
             src="/contact3.svg"

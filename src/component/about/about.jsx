@@ -67,27 +67,27 @@ const MissionVision = () => {
     <div className="relative w-full max-w-6xl mx-auto my-16 shadow-2xl rounded-lg overflow-hidden border border-gray-100">
       <div className="flex flex-col md:flex-row h-full">
         {/* Vision */}
-        <div className="relative p-6 sm:p-10 md:p-12 md:w-1/2 bg-blue-200 text-gray-800 flex flex-col justify-center items-start z-10">
+        <div className="relative p-6 sm:p-10 md:p-12 md:w-1/2 bg-[linear-gradient(90deg,#FFFFFF_0%,#038BB0_127.57%,#6EB563_181.74%)] text-gray-800 flex flex-col justify-center items-start z-10">
           <p className="text-base sm:text-lg mb-6 leading-relaxed italic text-left">
             {vision}
           </p>
-          <h2 className="text-3xl sm:text-4xl font-serif italic font-bold mt-auto self-end">
+          <h2 className="text-3xl sm:text-4xl font-serif italic font-bold mt-auto self-center">
             Our Vision
           </h2>
         </div>
 
         {/* Mission */}
-        <div className="relative p-6 sm:p-10 md:p-12 md:w-1/2 bg-gradient-to-br from-blue-500 to-green-500 text-white flex flex-col justify-center items-end z-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif italic font-bold mb-6 mt-auto self-start">
+        <div className="relative p-6 sm:p-10 md:p-12 md:w-1/2 bg-[linear-gradient(90deg,#FFFFFF_-71.4%,#038BB0_48.91%,#6EB563_100%)] text-white flex flex-col justify-center items-end z-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif italic font-bold mb-6 mt-auto self-center">
             Our Mission
           </h2>
-          <p className="text-base sm:text-lg leading-relaxed italic text-right">
+          <p className="text-base sm:text-lg leading-relaxed italic text-right\">
             {mission}
           </p>
         </div>
 
         {/* Separator */}
-        <div className="absolute top-0 bottom-0 left-1/2 w-1.5 bg-white transform -translate-x-1/2 -skew-x-3 hidden md:block z-30"></div>
+        <div className="absolute top-0 bottom-0 left-1/2 w-14 bg-[#D9D9D9] transform -translate-x-1/2 -skew-x-10 hidden md:block z-30"></div>
       </div>
     </div>
   );
@@ -96,11 +96,11 @@ const MissionVision = () => {
 // ------------------------- FOUNDER MESSAGE -------------------------
 const FounderMessage = () => {
   return (
-    <div className="relative w-full max-w-7xl mx-auto my-16 bg-white rounded-lg shadow-xl overflow-hidden border border-gray-200 flex flex-col md:flex-row">
+    <div className="relative w-full max-w-8xl mx-auto my-16 bg-white overflow-hidden flex flex-col md:flex-row">
       {/* Left Section */}
       <div className="relative md:w-1/3 bg-gray-50 flex flex-col justify-between items-center p-6 sm:p-10">
         {/* Title box */}
-        <div className="absolute top-0 left-0 w-[90%] border-4 border-[#1F97B6] text-black px-3 py-2 rounded-tr-3xl bg-white">
+        <div className="absolute top-0 left-0 w-[90%] border-4 border-[#1F97B6] border-l-0 text-black px-3 py-2 rounded-tr-3xl bg-white">
           <h3 className="text-base sm:text-lg text-center font-semibold tracking-wide leading-snug">
             A MESSAGE OF VISION <br /> FROM THE FOUNDER
           </h3>
