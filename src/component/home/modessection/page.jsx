@@ -5,7 +5,6 @@ const ModesSection = () => {
     {
       id: 1,
       title: "ONLINE",
-      titleVertical: true,
       description:
         "Access our expert-led courses from anywhere with interactive sessions, recorded lectures, and virtual assignments.",
       bgColor: "#E8F5F3",
@@ -14,7 +13,6 @@ const ModesSection = () => {
     {
       id: 2,
       title: "OFFLINE",
-      titleVertical: true,
       description:
         "Engage in face-to-face learning with hands-on experience in a dedicated classroom setting at our campuses or partner institutions.",
       bgColor: "#E8F5F3",
@@ -23,7 +21,6 @@ const ModesSection = () => {
     {
       id: 3,
       title: "HYBRID",
-      titleVertical: true,
       description:
         "A perfect blend of online convenience and offline interaction, providing the flexibility to balance learning with real-world applications.",
       bgColor: "#E8F5F3",
@@ -59,22 +56,19 @@ const ModesSection = () => {
               <div className="flex h-full">
                 {/* Left Side - Vertical Title */}
                 <div
-                  className="flex items-center justify-center px-5  mt-1 ml-1 mb-1 mr-1 sm:px-4 border-5 "
+                  className="flex items-center justify-center px-4 py-2 sm:px-5 bg-white"
                   style={{
-                    // backgroundColor: mode.borderColor,
-                    backgroundColor: "#FFFFFF",
-                    borderColor: mode.borderColor,
-                    minWidth: "50px",
+                    borderRight: `4px solid ${mode.borderColor}`,
                     writingMode: "vertical-rl",
                     textOrientation: "upright",
+                    minWidth: "45px",
                   }}
                 >
                   <h3
-                    className="text-2xl sm:text-3xl font-bold text-gray-900 italic tracking-wider"
+                    className="text-xl sm:text-2xl font-bold text-gray-900 italic tracking-wider"
                     style={{
                       fontFamily: "Poltawski Nowy",
                       fontWeight: 700,
-                      //   transform: 'rotate(180deg)',
                       letterSpacing: "0.1em",
                     }}
                   >
@@ -83,14 +77,14 @@ const ModesSection = () => {
                 </div>
 
                 {/* Right Side - Description */}
-                <div className="flex-1 p-5 sm:p-6 flex items-center">
+                <div className="flex-1 p-4 sm:p-6 flex items-center">
                   <p
-                    className="text-3xl sm:text-2xl text-gray-800 leading-relaxed italic"
+                    className="text-base sm:text-lg md:text-xl text-gray-800 leading-relaxed italic"
                     style={{
                       fontFamily: "Poltawski Nowy",
-                      fontWeight: 700,
+                      fontWeight: 600,
                       textAlign: "justify",
-                      lineHeight: "1.8",
+                      lineHeight: "1.7",
                     }}
                   >
                     {mode.description}
