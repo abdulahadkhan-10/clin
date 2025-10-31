@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useRef, useState } from "react";
 import { Poltawski_Nowy } from "next/font/google";
 
@@ -61,33 +60,50 @@ const courses = [
 
 export default function Services() {
   const scrollRef = useRef(null);
-  const [isClient, setIsClient] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
+  // ✅ Render only after mounting — prevents hydration mismatch
   useEffect(() => {
-    // ✅ Only run scroll animation after client hydration completes
-    setIsClient(true);
+    setIsMounted(true);
   }, []);
 
   useEffect(() => {
-    if (!isClient || !scrollRef.current) return;
+    if (!isMounted || !scrollRef.current) return;
 
     const scrollContainer = scrollRef.current;
     let animationFrameId;
     const scrollSpeed = 0.8;
 
-    const scroll = () => {
+    const autoScroll = () => {
       if (scrollContainer) {
         scrollContainer.scrollLeft += scrollSpeed;
         if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
           scrollContainer.scrollLeft = 0;
         }
       }
-      animationFrameId = requestAnimationFrame(scroll);
+      animationFrameId = requestAnimationFrame(autoScroll);
     };
 
-    animationFrameId = requestAnimationFrame(scroll);
+    animationFrameId = requestAnimationFrame(autoScroll);
     return () => cancelAnimationFrame(animationFrameId);
-  }, [isClient]);
+  }, [isMounted]);
+
+  // ✅ Prevent SSR render entirely (solves hydration mismatch)
+  if (!isMounted) {
+    return (
+      <section className="w-full py-10 sm:py-12 px-6 sm:px-10 md:px-16 bg-white">
+        <h2
+          className="text-4xl sm:text-5xl md:text-6xl italic font-extrabold relative inline-block"
+          style={{
+            fontFamily: "Times New Roman, serif",
+            color: "#0B132B",
+          }}
+        >
+          Services
+        </h2>
+      </section>
+    );
+  }
 
   const scrollingCourses = [...courses, ...courses];
 
@@ -117,15 +133,14 @@ export default function Services() {
         </h2>
       </div>
 
-      {/* === Horizontal Scroll Animation === */}
+      {/* === Auto-Scrolling Courses === */}
       <div
         ref={scrollRef}
         className="w-full flex gap-8 sm:gap-10 overflow-hidden no-scrollbar"
-        style={{ scrollBehavior: "smooth" }}
       >
         {scrollingCourses.map((course, index) => (
           <div
-            key={index}
+            key={`${course.title}-${index}`}
             className="relative text-white shadow-lg transition-transform hover:scale-[1.05] duration-300"
             style={{
               backgroundColor: "#000000CC",
@@ -163,7 +178,7 @@ export default function Services() {
             </div>
 
             {/* === Image === */}
-            <div className="px-4 pt-4">
+            <div className="px-4 pt-4 flex justify-center">
               <img
                 src={course.img}
                 alt={course.title}
@@ -171,7 +186,6 @@ export default function Services() {
                 style={{
                   width: "85%",
                   height: "140px",
-                  marginLeft: "-8px",
                 }}
               />
             </div>

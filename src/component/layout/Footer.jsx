@@ -1,17 +1,19 @@
 "use client";
-import React, { useState } from "react";
-import { Mail, Phone, ChevronDown } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import "../../app/globals.css";
 
 const Footer = () => {
-  // ✅ States for mobile dropdowns
-  const [openSection, setOpenSection] = useState(null);
+  const [isClient, setIsClient] = useState(false);
 
-  const toggleSection = (section) => {
-    setOpenSection(openSection === section ? null : section);
-  };
+  useEffect(() => {
+    // Prevent hydration mismatch
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return null;
 
   return (
     <footer
@@ -40,10 +42,16 @@ const Footer = () => {
           </div>
 
           <div className="mt-5 space-y-3 text-base font-semibold">
-            <a href="tel:8369919288" className="flex justify-center sm:justify-start items-center gap-2 hover:text-white transition-colors">
+            <a
+              href="tel:8369919288"
+              className="flex justify-center sm:justify-start items-center gap-2 hover:text-white transition-colors"
+            >
               <Phone size={18} /> 8369919288 / 7021235702
             </a>
-            <a href="mailto:info@clinexcel.in" className="flex justify-center sm:justify-start items-center gap-2 hover:text-white transition-colors">
+            <a
+              href="mailto:info@clinexcel.in"
+              className="flex justify-center sm:justify-start items-center gap-2 hover:text-white transition-colors"
+            >
               <Mail size={18} /> info@clinexcel.in
             </a>
           </div>
@@ -51,37 +59,29 @@ const Footer = () => {
 
         {/* Useful Links */}
         <div className="text-center sm:text-left">
-          <button
-            className="flex justify-between items-center w-full sm:cursor-default sm:pb-0 pb-3 border-b sm:border-none"
-            onClick={() => toggleSection("links")}
-          >
-            <h3 className="text-xl font-bold">Useful Links</h3>
-            <ChevronDown
-              size={20}
-              className={`sm:hidden transition-transform ${
-                openSection === "links" ? "rotate-180" : ""
-              }`}
-            />
-          </button>
-          <ul
-            className={`space-y-3 text-base font-semibold sm:block transition-all duration-300 overflow-hidden ${
-              openSection === "links" || typeof window === "undefined"
-                ? "max-h-96 mt-4"
-                : "max-h-0"
-            }`}
-          >
+          <h3 className="text-xl font-bold mb-4">Useful Links</h3>
+          <ul className="space-y-3 text-base font-semibold">
             <li>
-              <Link href="/" className="hover:text-white cursor-pointer transition-colors block">
+              <Link
+                href="/"
+                className="hover:text-white cursor-pointer transition-colors block"
+              >
                 • Home
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-white cursor-pointer transition-colors block">
+              <Link
+                href="/about"
+                className="hover:text-white cursor-pointer transition-colors block"
+              >
                 • About us
               </Link>
             </li>
             <li>
-              <Link href="/services" className="hover:text-white cursor-pointer transition-colors block">
+              <Link
+                href="/services"
+                className="hover:text-white cursor-pointer transition-colors block"
+              >
                 • Services
               </Link>
             </li>
@@ -90,37 +90,29 @@ const Footer = () => {
 
         {/* Our Services */}
         <div className="text-center sm:text-left">
-          <button
-            className="flex justify-between items-center w-full sm:cursor-default sm:pb-0 pb-3 border-b sm:border-none"
-            onClick={() => toggleSection("services")}
-          >
-            <h3 className="text-xl font-bold">Our Services</h3>
-            <ChevronDown
-              size={20}
-              className={`sm:hidden transition-transform ${
-                openSection === "services" ? "rotate-180" : ""
-              }`}
-            />
-          </button>
-          <ul
-            className={`space-y-3 text-base font-semibold sm:block transition-all duration-300 overflow-hidden ${
-              openSection === "services" || typeof window === "undefined"
-                ? "max-h-96 mt-4"
-                : "max-h-0"
-            }`}
-          >
+          <h3 className="text-xl font-bold mb-4">Our Services</h3>
+          <ul className="space-y-3 text-base font-semibold">
             <li>
-              <Link href="/consulting" className="hover:text-white cursor-pointer transition-colors block">
+              <Link
+                href="/consulting"
+                className="hover:text-white cursor-pointer transition-colors block"
+              >
                 • Pharmacovigilance Consulting
               </Link>
             </li>
             <li>
-              <Link href="/corporate" className="hover:text-white cursor-pointer transition-colors block">
+              <Link
+                href="/corporate"
+                className="hover:text-white cursor-pointer transition-colors block"
+              >
                 • Corporate Training
               </Link>
             </li>
             <li>
-              <Link href="/soft-skills" className="hover:text-white cursor-pointer transition-colors block">
+              <Link
+                href="/soft-skills"
+                className="hover:text-white cursor-pointer transition-colors block"
+              >
                 • Soft Skills Training
               </Link>
             </li>
@@ -129,25 +121,8 @@ const Footer = () => {
 
         {/* Newsletter */}
         <div className="text-center sm:text-left">
-          <button
-            className="flex justify-between items-center w-full sm:cursor-default sm:pb-0 pb-3 border-b sm:border-none"
-            onClick={() => toggleSection("newsletter")}
-          >
-            <h3 className="text-xl font-bold">Our Newsletter</h3>
-            <ChevronDown
-              size={20}
-              className={`sm:hidden transition-transform ${
-                openSection === "newsletter" ? "rotate-180" : ""
-              }`}
-            />
-          </button>
-          <div
-            className={`text-base font-semibold leading-relaxed sm:block transition-all duration-300 overflow-hidden ${
-              openSection === "newsletter" || typeof window === "undefined"
-                ? "max-h-96 mt-4"
-                : "max-h-0"
-            }`}
-          >
+          <h3 className="text-xl font-bold mb-4">Our Newsletter</h3>
+          <div className="text-base font-semibold leading-relaxed">
             <p className="mb-5">
               Subscribe To Our Newsletter And Receive The Latest News About Our
               Products And Services!
@@ -156,19 +131,19 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* --- Union SVG Divider + Floating Social Icons --- */}
-      <div className="relative z-10 w-full">
+      {/* --- Divider + Floating Social Icons --- */}
+      <div className="relative z-10 w-full mt-6">
         <Image
           src="/Union.svg"
           alt="Union Divider"
           width={1728}
           height={195}
-          className="w-full h-auto object-cover"
+          className="w-full h-auto object-cover -mb-2"
           priority
         />
 
-        {/* Floating Social Icons on SVG */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex space-x-5 z-20">
+        {/* Floating Social Icons */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-5 z-20">
           <a
             href="https://www.instagram.com/clinxcel/"
             target="_blank"
@@ -205,7 +180,10 @@ const Footer = () => {
       {/* --- Copyright Section --- */}
       <div className="bg-black text-white text-center py-4 text-sm font-semibold relative z-10">
         © Copyright{" "}
-        <Link href="/" className="font-bold hover:text-gray-300 transition-colors">
+        <Link
+          href="/"
+          className="font-bold hover:text-gray-300 transition-colors"
+        >
           ClinXcel
         </Link>{" "}
         All Rights Reserved | Designed by{" "}
