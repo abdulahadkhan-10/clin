@@ -30,7 +30,7 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Decorative top bar */}
-      <div className="h-2 bg-gradient-to-r from-green-400 to-teal-500 w-full"></div>
+      
       
       {/* Header */}
       <div className="px-8 py-8">
@@ -212,8 +212,6 @@ const ContactPage = () => {
         </div>
       </div>
 
-      {/* Bottom decorative bar */}
-      <div className="h-2 bg-gradient-to-r from-green-400 to-teal-500 w-full"></div>
     </div>
   );
 };

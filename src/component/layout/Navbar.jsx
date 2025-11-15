@@ -91,11 +91,13 @@ const Navbar = () => {
 
       {/* SEPARATED SERVICES DROPDOWN */}
       {servicesOpen && (
-        <div
-          ref={dropdownRef}
-          className="absolute top-[95px] left-1/2 ml-45 transform -translate-x-1/2 
-                     bg-white rounded-lg shadow-xl py-3 min-w-[280px] z-[20000]"
-        >
+  <div
+    ref={dropdownRef}
+    onMouseDown={(e) => e.stopPropagation()}   // <-- ADD THIS LINE
+    className="absolute top-[95px] left-1/2 ml-45 transform -translate-x-1/2 
+               bg-white rounded-lg shadow-xl py-3 min-w-[280px] z-[20000]"
+  >
+
           <Link href="/consulting" className="block px-5 py-2 text-black hover:bg-gray-100">
             Pharmacovigilance Consulting
           </Link>
@@ -119,7 +121,7 @@ const Navbar = () => {
             <summary className="flex justify-center items-center gap-1">
               Services
             </summary>
-            <div className="mt-3">
+<div className="mt-3">
               <Link href="/consulting" className="block py-2">Pharmacovigilance Consulting</Link>
               <Link href="/corporate" className="block py-2">Corporate Training</Link>
               <Link href="/soft-skills" className="block py-2">Soft Skills Training</Link>

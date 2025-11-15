@@ -89,12 +89,12 @@ export default function PharmacovigilanceConsulting() {
 {/* SOME FEATURES TITLE (Exactly like your screenshot) */}
 <div className="relative w-full mt-10 mb-10">
 
-  {/* Left Decorative Image */}
+  {/* Left Decorative Image
   <img
     src="/d1.png"
     alt="Decorative"
     className="absolute left-0 top-1/2 -translate-y-1/2 w-40 opacity-80 pointer-events-none"
-  />
+  /> */}
 
   {/* Green Bar */}
   <div className="bg-[#7CBF8A] w-full py-3 rounded-md shadow-md flex justify-center">
