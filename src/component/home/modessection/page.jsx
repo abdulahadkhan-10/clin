@@ -1,102 +1,99 @@
+"use client";
 import React from "react";
 
-const ModesSection = () => {
+export default function ModesSection() {
   const modes = [
     {
       id: 1,
       title: "ONLINE",
       description:
-        "Access our expert-led courses from anywhere with interactive sessions, recorded lectures, and virtual assignments.",
-      bgColor: "#E8F5F3",
-      borderColor: "#3FA9BA",
+        "Access our expert-led courses from anywhere, with interactive sessions, recorded lectures, and virtual assignments.",
     },
     {
       id: 2,
       title: "OFFLINE",
       description:
-        "Engage in face-to-face learning with hands-on experience in a dedicated classroom setting at our campuses or partner institutions.",
-      bgColor: "#E8F5F3",
-      borderColor: "#3FA9BA",
+        "Engage in face-to-face learning with hands-on experience in a dedicated classroom setting.",
     },
     {
       id: 3,
       title: "HYBRID",
       description:
-        "A perfect blend of online convenience and offline interaction, providing the flexibility to balance learning with real-world applications.",
-      bgColor: "#E8F5F3",
-      borderColor: "#3FA9BA",
+        "A perfect blend of online convenience and offline interaction for flexible learning.",
     },
   ];
 
   return (
-    <div className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <div className="py-20 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="mb-10 sm:mb-12 lg:mb-16">
-          <h2
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 inline-block pb-3 border-b-4 border-gray-900"
-            style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}
-          >
-            Modes
-          </h2>
-        </div>
+        
+        {/* Title */}
+        <h2
+          className="text-6xl font-bold text-gray-900 inline-block pb-3 border-b-4 border-gray-900 mb-16"
+          style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}
+        >
+          Modes
+        </h2>
 
-        {/* Modes Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+        {/* Grid - SAME size on all screens */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 place-items-center">
           {modes.map((mode) => (
             <div
               key={mode.id}
-              className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border-4"
-              style={{
-                backgroundColor: mode.bgColor,
-                borderColor: mode.borderColor,
-                minHeight: "200px",
-              }}
+              className="group w-full h-[28rem]"
+              style={{ perspective: "1400px" }}
             >
-              <div className="flex h-full">
-                {/* Left Side - Vertical Title */}
-                <div
-                  className="flex items-center justify-center px-4 py-2 sm:px-5 bg-white"
-                  style={{
-                    borderRight: `4px solid ${mode.borderColor}`,
-                    writingMode: "vertical-rl",
-                    textOrientation: "upright",
-                    minWidth: "45px",
-                  }}
-                >
-                  <h3
-                    className="text-xl sm:text-2xl font-bold text-gray-900 italic tracking-wider"
-                    style={{
-                      fontFamily: "Poltawski Nowy",
-                      fontWeight: 700,
-                      letterSpacing: "0.1em",
-                    }}
-                  >
-                    {mode.title}
-                  </h3>
+              <div className="relative w-full h-full duration-700 transform-style preserve-3d group-hover:rotate-y-180">
+
+                {/* FRONT */}
+                <div className="absolute w-full h-full backface-hidden flex items-center justify-center">
+                  <div className="w-80 h-72 bg-gradient-to-r from-green-200 to-teal-200 clip-hex flex items-center justify-center border-4 border-teal-500 shadow-2xl">
+                    <h3
+                      className="text-4xl font-bold tracking-wider"
+                      style={{ fontFamily: "Poltawski Nowy" }}
+                    >
+                      {mode.title}
+                    </h3>
+                  </div>
                 </div>
 
-                {/* Right Side - Description */}
-                <div className="flex-1 p-4 sm:p-6 flex items-center">
-                  <p
-                    className="text-base sm:text-lg md:text-xl text-gray-800 leading-relaxed italic"
-                    style={{
-                      fontFamily: "Poltawski Nowy",
-                      fontWeight: 600,
-                      textAlign: "justify",
-                      lineHeight: "1.7",
-                    }}
-                  >
-                    {mode.description}
-                  </p>
+                {/* BACK */}
+                <div className="absolute w-full h-full rotate-y-180 backface-hidden flex items-center justify-center">
+                  <div className="w-80 h-72 bg-gradient-to-r from-teal-300 to-green-300 clip-hex flex items-center justify-center px-8 text-center border-4 border-teal-600 shadow-2xl">
+                    <p
+                      className="text-xl font-medium leading-relaxed"
+                      style={{ fontFamily: "Poltawski Nowy" }}
+                    >
+                      {mode.description}
+                    </p>
+                  </div>
                 </div>
+
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Hexagon Clip Path */}
+      <style>{`
+        .clip-hex {
+          clip-path: polygon(
+            25% 6.7%,
+            75% 6.7%,
+            100% 50%,
+            75% 93.3%,
+            25% 93.3%,
+            0% 50%
+          );
+        }
+        .preserve-3d {
+          transform-style: preserve-3d;
+        }
+        .backface-hidden {
+          backface-visibility: hidden;
+        }
+      `}</style>
     </div>
   );
-};
-
-export default ModesSection;
+}

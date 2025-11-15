@@ -1,18 +1,30 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function MedicalBanner() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
 
-  const bgImages = [
-    "/medical-banner.png",
-    "/bg-image-2.png",
-    "/bg-image-1.png",
-    "/bg-image-3.png",
+  const slides = [
+    {
+      image: "/image1.png",
+      lines: ["WELCOME TO", "CLINXCEL"],
+    },
+    {
+      image: "/image2.png",
+      lines: ["SHAPING THE", "NEXT ERA OF", "PHARMA GROWTH"],
+    },
+    {
+      image: "/image3.png",
+      lines: ["YOUR", "WELLNESS", "IS OUR", "PRIORITY"],
+    },
+    {
+      image: "/image4.png",
+      lines: ["EXPLORING", "THE FUTURE OF", "HEALTH & SCIENCE"],
+    },
   ];
 
-  // ✅ Ensures client and server renders match
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -20,130 +32,124 @@ export default function MedicalBanner() {
   useEffect(() => {
     if (!isMounted) return;
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % bgImages.length);
-    }, 3000);
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
+    }, 3500);
     return () => clearInterval(interval);
-  }, [bgImages.length, isMounted]);
+  }, [slides.length, isMounted]);
 
-  // ✅ Prevent hydration error by rendering a static frame on SSR
   if (!isMounted) {
     return (
-      <div className="relative w-full overflow-hidden shadow-xl mt-8 md:mt-12 mb-8 md:mb-16 min-h-[350px] md:min-h-[450px] bg-cover bg-center"
-        style={{ backgroundImage: `url('${bgImages[0]}')` }}>
-        <div className="absolute inset-0 bg-black opacity-30"></div>
+      <div
+        className="relative w-full overflow-hidden shadow-xl mt-8 md:mt-12 mb-8 md:mb-16 min-h-[350px] md:min-h-[450px] bg-cover bg-center"
+        style={{ backgroundImage: `url('${slides[0].image}')` }}
+      >
+        <div className="absolute inset-0 bg-black opacity-20"></div>
       </div>
     );
   }
+
+  const lineVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
+    }),
+    exit: { opacity: 0, y: -30, transition: { duration: 0.4 } },
+  };
+
+  const franklinFont = {
+    fontFamily:
+      '"Franklin Gothic Demi", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif',
+    letterSpacing: "0.5px",
+  };
 
   return (
     <div className="relative w-full overflow-hidden shadow-xl mt-8 md:mt-12 mb-8 md:mb-16">
       {/* === Background Slideshow === */}
       <div className="absolute inset-0 z-0">
-        {bgImages.map((src, index) => (
+        {slides.map((slide, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
               index === currentIndex ? "opacity-100" : "opacity-0"
             } bg-cover bg-center`}
-            style={{ backgroundImage: `url('${src}')` }}
+            style={{ backgroundImage: `url('${slide.image}')` }}
           >
-            <div className="absolute inset-0 bg-black opacity-30"></div>
+            {/* lighter overlay for image clarity */}
+            <div className="absolute inset-0 bg-black opacity-25"></div>
           </div>
         ))}
       </div>
 
-      {/* === Responsive Container === */}
+      {/* === Banner Content === */}
       <div className="relative flex flex-col min-h-[350px] md:min-h-[450px] md:flex-row">
-
         {/* ================= MOBILE VIEW ================= */}
-        <div className="block md:hidden relative w-full p-8 sm:p-10 flex flex-col justify-center text-white z-20">
+        <div className="block md:hidden relative w-full p-6 sm:p-8 flex flex-col justify-center text-white z-20">
           <div
             className="absolute inset-0 z-0"
             style={{
               background:
                 "linear-gradient(to bottom right, #6ec492 0%, #3caea3 50%, #1a6e87 100%)",
               clipPath: "polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%)",
-              opacity: "0.95",
+              opacity: "0.85",
             }}
           ></div>
 
-          <div className="relative z-10 text-center font-serif -translate-y-4 sm:-translate-y-6 backdrop-blur-[4px]">
-            <h2 className="text-3xl sm:text-4xl leading-tight tracking-tight">
-              <span className="text-white italic font-light">Excellence in</span>
-              <br />
-              <span className="font-semibold italic text-white">
-                Medical{" "}
-                <span
-                  className="font-bold"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to right, #00061a 0%, #2fa8ff 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                >
-                  Education
-                </span>
-              </span>
-            </h2>
-
-            <div className="flex  flex-col items-center space-y-3">
-              <p className="bg-white/90 text-black font-medium text-sm px-8 py-3 rounded-full shadow-lg tracking-wide text-center">
-                Transform students into leaders
-              </p>
-              <button className="bg-black text-white text-sm md:text-base px-8 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-gray-800 transition-all duration-300">
-                KNOW MORE
-              </button>
-            </div>
+          <div className="relative z-10 text-center backdrop-blur-[3px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                {slides[currentIndex].lines.map((line, i) => (
+                  <motion.h2
+                    key={i}
+                    custom={i}
+                    variants={lineVariants}
+                    style={franklinFont}
+                    className="text-3xl sm:text-4xl font-semibold text-white leading-snug tracking-tight uppercase"
+                  >
+                    {line}
+                  </motion.h2>
+                ))}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
 
         {/* ================= DESKTOP VIEW ================= */}
         <div
-          className="hidden md:flex relative w-[55%] p-12 lg:p-16 flex-col justify-center text-white z-20 backdrop-blur-[6px]"
+          className="hidden md:flex relative w-[55%] p-10 lg:p-14 flex-col justify-center text-white z-20 backdrop-blur-[5px]"
           style={{
             clipPath: "polygon(0 0, 90% 0, 80% 50%, 90% 100%, 0 100%)",
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-[#68c07e]/90 via-[#469d8b]/85 to-[#1a6e87]/80 opacity-[0.9] z-0"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#68c07e]/80 via-[#469d8b]/75 to-[#1a6e87]/70 opacity-[0.9] z-0"></div>
 
-          <div className="relative z-10 font-serif translate-x-[-20px] -translate-y-[70px]">
-            <h2 className="text-5xl lg:text-6xl leading-tight tracking-tight">
-              <span className="text-white italic font-light">Excellence in</span>
-              <br />
-              <span className="font-semibold italic text-white">
-                Medical{" "}
-                <span
-                  className="font-bold"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to right, #00061a 0%, #2fa8ff 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                >
-                  Education
-                </span>
-              </span>
-            </h2>
-
-            <div className="mt-10 flex flex-col items-center justify-center space-y-5 text-center">
-              <p className="bg-white text-black font-medium text-base md:text-lg px-8 py-3 rounded-full shadow-lg tracking-wide">
-                Transform students into leaders
-              </p>
-              <button className="bg-black text-white text-sm md:text-base px-8 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-gray-800 transition-all duration-300">
-                KNOW MORE
-              </button>
-            </div>
-          </div>
-
-          {/* Decorative Boxes */}
-          <div className="absolute bottom-0 left-6 sm:bottom-2 sm:left-8 md:bottom-4 md:left-10 z-10">
-            <div className="relative w-[210px] h-[200px] sm:w-[230px] sm:h-[220px] md:w-[250px] md:h-[240px]">
-              <div className="absolute border-[3px] sm:border-[4px] border-white w-[95px] h-[95px] sm:w-[110px] sm:h-[110px] md:w-[120px] md:h-[120px] bottom-[-16px] sm:bottom-[-18px] md:bottom-[-20px] left-0"></div>
-              <div className="absolute border-[3px] sm:border-[4px] border-white w-[95px] h-[95px] sm:w-[110px] sm:h-[110px] md:w-[120px] md:h-[120px] bottom-[46px] sm:bottom-[54px] md:bottom-[60px] left-[32px] sm:left-[40px] md:left-[46px]"></div>
-              <div className="absolute border-[3px] sm:border-[4px] border-white w-[95px] h-[95px] sm:w-[110px] sm:h-[110px] md:w-[120px] md:h-[120px] bottom-[10px] sm:bottom-[16px] md:bottom-[20px] left-[68px] sm:left-[78px] md:left-[86px]"></div>
-            </div>
+          <div className="relative z-10 translate-x-[-10px] -translate-y-[60px] text-left">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                {slides[currentIndex].lines.map((line, i) => (
+                  <motion.h2
+                    key={i}
+                    custom={i}
+                    variants={lineVariants}
+                    style={franklinFont}
+                    className="text-4xl lg:text-6xl font-semibold text-white leading-snug tracking-tight uppercase"
+                  >
+                    {line}
+                  </motion.h2>
+                ))}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
 
@@ -153,7 +159,7 @@ export default function MedicalBanner() {
 
       {/* === Slider Dots === */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
-        {bgImages.map((_, index) => (
+        {slides.map((_, index) => (
           <div
             key={index}
             className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-500 ${

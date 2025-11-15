@@ -62,7 +62,6 @@ export default function Services() {
   const scrollRef = useRef(null);
   const [isMounted, setIsMounted] = useState(false);
 
-  // ✅ Render only after mounting — prevents hydration mismatch
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -75,12 +74,12 @@ export default function Services() {
     const scrollSpeed = 0.8;
 
     const autoScroll = () => {
-      if (scrollContainer) {
-        scrollContainer.scrollLeft += scrollSpeed;
-        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
-          scrollContainer.scrollLeft = 0;
-        }
+      scrollContainer.scrollLeft += scrollSpeed;
+
+      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+        scrollContainer.scrollLeft = 0;
       }
+
       animationFrameId = requestAnimationFrame(autoScroll);
     };
 
@@ -88,19 +87,10 @@ export default function Services() {
     return () => cancelAnimationFrame(animationFrameId);
   }, [isMounted]);
 
-  // ✅ Prevent SSR render entirely (solves hydration mismatch)
   if (!isMounted) {
     return (
-      <section className="w-full py-10 sm:py-12 px-6 sm:px-10 md:px-16 bg-white">
-        <h2
-          className="text-4xl sm:text-5xl md:text-6xl italic font-extrabold relative inline-block"
-          style={{
-            fontFamily: "Times New Roman, serif",
-            color: "#0B132B",
-          }}
-        >
-          Services
-        </h2>
+      <section className="py-10 px-6">
+        <h2 className="text-4xl italic font-extrabold">Services</h2>
       </section>
     );
   }
@@ -109,108 +99,101 @@ export default function Services() {
 
   return (
     <section
-      className={`${poltawski.className} w-full flex flex-col items-start py-10 sm:py-12 px-6 sm:px-10 md:px-16 bg-white overflow-hidden`}
+      className="py-10 px-6 md:px-16 overflow-hidden"
+      style={{ fontFamily: "Times New Roman" }}
     >
-      {/* === Heading === */}
-      <div className="text-left mb-10">
-        <h2
-          className="text-4xl sm:text-5xl md:text-6xl italic font-extrabold relative inline-block"
-          style={{
-            fontFamily: "Times New Roman, serif",
-            color: "#0B132B",
-          }}
-        >
+      {/* HEADING */}
+      <div className="mb-10">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl italic font-bold text-[#0B132B] relative">
           Services
-          <span
-            className="absolute left-0 bottom-[-10px] bg-[#0B132B]"
-            style={{
-              width: "100%",
-              height: "3px",
-              borderRadius: "2px",
-              display: "block",
-            }}
-          ></span>
+          <span className="absolute left-0 -bottom-3 w-full h-[3px] bg-[#0B132B] rounded-full"></span>
         </h2>
       </div>
 
-      {/* === Auto-Scrolling Courses === */}
+      {/* CARD SCROLLER */}
       <div
         ref={scrollRef}
-        className="w-full flex gap-8 sm:gap-10 overflow-hidden no-scrollbar"
+        className="flex gap-8 overflow-hidden no-scrollbar"
       >
         {scrollingCourses.map((course, index) => (
           <div
-            key={`${course.title}-${index}`}
-            className="relative text-white shadow-lg transition-transform hover:scale-[1.05] duration-300"
-            style={{
-              backgroundColor: "#000000CC",
-              borderRadius: "40px",
-              width: "260px",
-              minHeight: "340px",
-              flexShrink: 0,
-            }}
-          >
-            {/* === Duration Capsule === */}
-            <div className="absolute top-[5px] -right-[10px] flex flex-col items-center">
-              <div
-                className="relative flex items-center justify-center font-semibold text-white"
-                style={{
-                  width: "60px",
-                  height: "130px",
-                  backgroundColor: "#000000",
-                  border: "4px solid #FFFFFF",
-                  borderRadius: "49.6px",
-                  writingMode: "vertical-rl",
-                  textOrientation: "upright",
-                  fontSize: "16px",
-                }}
-              >
-                <span className="tracking-tight">{course.duration}</span>
-                <div
-                  className="absolute right-[0px] top-1/2 -translate-y-1/2 bg-[#72CB63]"
-                  style={{
-                    width: "8px",
-                    height: "55px",
-                    borderRadius: "50px",
-                  }}
-                ></div>
-              </div>
-            </div>
+  key={index}
+  className="flex-shrink-0 shadow-lg hover:scale-[1.05] transition duration-300 bg-white"
+  style={{
+    width: "300px",
+    height: "400px",
+  }}
+>
 
-            {/* === Image === */}
-            <div className="px-4 pt-4 flex justify-center">
-              <img
-                src={course.img}
-                alt={course.title}
-                className="object-cover rounded-[25px]"
-                style={{
-                  width: "85%",
-                  height: "140px",
-                }}
-              />
-            </div>
+ <div
+  style={{
+    height: "240px",
+    width: "100%",
+    position: "relative",
+    overflow: "hidden",
+    margin: 0,
+    padding: 0,
+  }}
+>
+  <img
+  src={course.img}
+  alt={course.title}
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
 
-            {/* === Text === */}
-            <div className="px-5 pt-3 pb-6">
+    /* Keep top rounded */
+    borderTopLeftRadius: "25px",
+    borderTopRightRadius: "25px",
+
+    /* Make bottom straight */
+    borderBottomLeftRadius: "0px",
+    borderBottomRightRadius: "0px",
+  }}
+/>
+
+
+  {/* Duration */}
+  <div
+    className="absolute top-3 right-3 text-white font-semibold px-4 py-1 text-sm"
+    style={{
+      backgroundColor: "#1CA3A3",
+      borderRadius: "8px",
+    }}
+  >
+    {course.duration}
+  </div>
+</div>
+
+
+            {/* BLACK SECTION FIXED HEIGHT */}
+            <div
+              style={{
+                backgroundColor: "black",
+                height: "150px",
+                padding: "18px",
+                textAlign: "center",
+                borderBottomLeftRadius: "25px",
+                borderBottomRightRadius: "25px",
+              }}
+            >
               <h3
                 style={{
-                  color: "#72CB63",
-                  fontFamily: "Poppins, sans-serif",
-                  fontWeight: 700,
+                  color: "#58B95C",
                   fontSize: "18px",
-                  marginBottom: "8px",
+                  fontWeight: "700",
                 }}
               >
                 {course.title}
               </h3>
+
               <p
                 style={{
-                  color: "#FFFFFF",
-                  fontWeight: 700,
-                  fontStyle: "italic",
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                  textAlign: "justify",
+                  color: "white",
+                  fontSize: "13px",
+                  marginTop: "8px",
+                  lineHeight: "18px",
                 }}
               >
                 {course.desc}
@@ -220,13 +203,11 @@ export default function Services() {
         ))}
       </div>
 
-      {/* Hide scrollbar */}
       <style jsx>{`
         .no-scrollbar::-webkit-scrollbar {
           display: none;
         }
         .no-scrollbar {
-          -ms-overflow-style: none;
           scrollbar-width: none;
         }
       `}</style>
