@@ -9,7 +9,6 @@ const Footer = () => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // Prevent hydration mismatch
     setIsClient(true);
   }, []);
 
@@ -17,71 +16,65 @@ const Footer = () => {
 
   return (
     <footer
-      className="bg-gradient-to-r from-green-400 to-cyan-500 text-black pt-14 pb-0 mt-10 relative overflow-hidden"
+      className="bg-gradient-to-r from-[#58C73F] to-[#237C92] text-white pt-16 pb-0 mt-12 relative overflow-hidden"
       style={{ fontFamily: "'Poltawski Nowy', serif" }}
     >
       {/* --- Main Footer Content --- */}
-      <div className="container mx-auto px-6 sm:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 relative z-10 pb-16">
+      <div className="container mx-auto ml-10 px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 relative z-10 pb-20 text-lg">
+
         {/* Address & Contact */}
         <div className="text-center sm:text-left">
-          <div className="flex justify-center sm:justify-start mb-5">
+          <div className="flex justify-center sm:justify-start mb-6">
             <Link href="/">
               <Image
-                src="/logo.svg"
+                src="/logo1.png"
                 alt="ClinXcel Logo"
-                width={64}
-                height={64}
+                width={135}
+                height={135}
                 className="rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
               />
             </Link>
           </div>
-          <div className="text-base leading-relaxed space-y-1.5 font-medium">
+
+          <div className="leading-relaxed space-y-1 font-medium text-white/90 text-lg">
             <p>M. N Road, Sonapur lane</p>
             <p>Near Manisha Plaza</p>
             <p>Kurla (W), Mumbai - 400070</p>
           </div>
 
-          <div className="mt-5 space-y-3 text-base font-semibold">
+          <div className="mt-6 space-y-3 text-lg font-semibold">
             <a
               href="tel:8369919288"
-              className="flex justify-center sm:justify-start items-center gap-2 hover:text-white transition-colors"
+              className="flex justify-center sm:justify-start items-center gap-2 hover:text-black transition"
             >
-              <Phone size={18} /> 8369919288 / 7021235702
+              <Phone size={20} /> 8369919288 / 7021235702
             </a>
+
             <a
               href="mailto:info@clinexcel.in"
-              className="flex justify-center sm:justify-start items-center gap-2 hover:text-white transition-colors"
+              className="flex justify-center sm:justify-start items-center gap-0 hover:text-black transition"
             >
-              <Mail size={18} /> info@clinexcel.in
+              <Mail size={20} /> info@clinexcel.in
             </a>
           </div>
         </div>
 
         {/* Useful Links */}
         <div className="text-center sm:text-left">
-          <h3 className="text-xl font-bold mb-4">Useful Links</h3>
-          <ul className="space-y-3 text-base font-semibold">
+          <h3 className="text-2xl font-bold mb-4">Useful Links</h3>
+          <ul className="space-y-3 text-lg font-semibold">
             <li>
-              <Link
-                href="/"
-                className="hover:text-white cursor-pointer transition-colors block"
-              >
+              <Link href="/" className="hover:text-black transition">
                 • Home
               </Link>
             </li>
             <li>
-              <Link
-                href="/about"
-                className="hover:text-white cursor-pointer transition-colors block"
-              >
-                • About us
+              <Link href="/about" className="hover:text-black transition">
+                • About Us
               </Link>
             </li>
             <li>
-              <Link
-                href="/services"
-                className="hover:text-white cursor-pointer transition-colors block"
-              >
+              <Link href="/services" className="hover:text-black transition">
                 • Services
               </Link>
             </li>
@@ -90,29 +83,20 @@ const Footer = () => {
 
         {/* Our Services */}
         <div className="text-center sm:text-left">
-          <h3 className="text-xl font-bold mb-4">Our Services</h3>
-          <ul className="space-y-3 text-base font-semibold">
+          <h3 className="text-2xl font-bold mb-4">Our Services</h3>
+          <ul className="space-y-3 text-lg font-semibold">
             <li>
-              <Link
-                href="/consulting"
-                className="hover:text-white cursor-pointer transition-colors block"
-              >
+              <Link href="/consulting" className="hover:text-black transition">
                 • Pharmacovigilance Consulting
               </Link>
             </li>
             <li>
-              <Link
-                href="/corporate"
-                className="hover:text-white cursor-pointer transition-colors block"
-              >
+              <Link href="/corporate" className="hover:text-black transition">
                 • Corporate Training
               </Link>
             </li>
             <li>
-              <Link
-                href="/soft-skills"
-                className="hover:text-white cursor-pointer transition-colors block"
-              >
+              <Link href="/soft-skills" className="hover:text-black transition">
                 • Soft Skills Training
               </Link>
             </li>
@@ -121,73 +105,56 @@ const Footer = () => {
 
         {/* Newsletter */}
         <div className="text-center sm:text-left">
-          <h3 className="text-xl font-bold mb-4">Our Newsletter</h3>
-          <div className="text-base font-semibold leading-relaxed">
-            <p className="mb-5">
-              Subscribe To Our Newsletter And Receive The Latest News About Our
-              Products And Services!
+          <h3 className="text-2xl font-bold mb-4">Our Newsletter</h3>
+          <div className="text-lg font-medium leading-relaxed">
+            <p>
+              Subscribe to our newsletter and get the latest updates on our
+              services, training programs, and industry insights.
             </p>
           </div>
         </div>
       </div>
 
-      {/* --- Divider + Floating Social Icons --- */}
-      <div className="relative z-10 w-full mt-6">
-        <Image
-          src="/Union.svg"
-          alt="Union Divider"
-          width={1728}
-          height={195}
-          className="w-full h-auto object-cover -mb-2"
-          priority
-        />
-
-        {/* Floating Social Icons */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-5 z-20">
-          <a
-            href="https://www.instagram.com/clinxcel/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform"
-          >
-            <Image src="/instagram.svg" alt="Instagram" width={22} height={22} />
-          </a>
-          <a
-            href="mailto:info@clinexcel.in"
-            className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform"
-          >
-            <Image src="/mail.svg" alt="Gmail" width={22} height={22} />
-          </a>
-          <a
-            href="https://www.facebook.com/clinxcel"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform"
-          >
-            <Image src="/facebook.svg" alt="Facebook" width={22} height={22} />
-          </a>
-          <a
-            href="https://www.linkedin.com/company/clinxcel-academy-of-clinical-research/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform"
-          >
-            <Image src="/linkedin.svg" alt="LinkedIn" width={22} height={22} />
-          </a>
-        </div>
-      </div>
-
       {/* --- Copyright Section --- */}
-      <div className="bg-black text-white text-center py-4 text-sm font-semibold relative z-10">
-        © Copyright{" "}
-        <Link
-          href="/"
-          className="font-bold hover:text-gray-300 transition-colors"
-        >
-          ClinXcel
-        </Link>{" "}
-        All Rights Reserved | Designed by{" "}
-        <span className="font-bold">Find Solution</span>
+      <div className="bg-black text-white py-5 text-base font-semibold">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
+
+          {/* Centered Footer Text */}
+          <div className="flex-1 flex justify-center">
+            <p className="text-center text-lg">
+              © Copyright{" "}
+              <Link
+                href="/"
+                className="font-bold text-[#22D3EE] hover:text-[#1BB3C9]"
+              >
+                ClinXcel
+              </Link>{" "}
+              All Rights Reserved | Designed by{" "}
+              <span className="font-bold">Code4Bharat</span>
+            </p>
+          </div>
+
+          {/* Social Icons */}
+          <div className="flex items-center space-x-1 ml-2">
+            {[
+              { href: "https://www.instagram.com/clinxcel/", icon: "/instagram.svg" },
+              { href: "mailto:info@clinexcel.in", icon: "/mail.svg" },
+              { href: "https://www.facebook.com/clinxcel", icon: "/facebook.svg" },
+              { href: "https://www.linkedin.com/company/clinxcel-academy-of-clinical-research/", icon: "/linkedin.svg" },
+            ].map((item, i) => (
+              <a
+                key={i}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full flex items-center justify-center hover:text-black transition"
+              >
+                <Image src={item.icon} alt="Icon" width={20} height={20} />
+              </a>
+            ))}
+          </div>
+
+        </div>
       </div>
     </footer>
   );
