@@ -203,6 +203,7 @@ export default function Services() {
         ))}
       </div>
 
+
       <style jsx>{`
         .no-scrollbar::-webkit-scrollbar {
           display: none;

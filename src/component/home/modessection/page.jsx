@@ -85,11 +85,13 @@ export default function ModesSection() {
             75% 93.3%,
             25% 93.3%,
             0% 50%
+          
           );
         }
         .preserve-3d {
           transform-style: preserve-3d;
         }
+          
         .backface-hidden {
           backface-visibility: hidden;
         }

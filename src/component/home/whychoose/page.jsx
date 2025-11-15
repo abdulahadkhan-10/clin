@@ -11,6 +11,7 @@ export default function WhyClinxcel() {
           Why CLINXCEL?
         </h2>
 
+
         <p className="text-gray-600 leading-relaxed mb-6">
           At ClinXcel, we are a dedicated team of industry and training experts
           with over 20 years of experience in the clinical research domain.

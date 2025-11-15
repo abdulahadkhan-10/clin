@@ -83,6 +83,7 @@ export default function TestimonialsSection() {
                     {item.text}
                   </p>
 
+
                   {/* Stars */}
                   <div className="flex gap-1 mt-3">
                     {[...Array(item.rating)].map((_, i) => (

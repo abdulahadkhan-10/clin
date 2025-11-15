@@ -8,6 +8,7 @@ export default function MissionVision() {
       {/* Dark Gray Top Divider */}
       <div className="border-t border-gray-700"></div>
 
+
       {/* Vision Section */}
       <div className="flex flex-col md:flex-row items-start md:items-center gap-8 pt-8">
         

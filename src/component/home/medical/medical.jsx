@@ -30,6 +30,7 @@ export default function MedicalBanner() {
   }, []);
 
   useEffect(() => {
+    
     if (!isMounted) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % slides.length);
