@@ -30,7 +30,7 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Decorative top bar */}
-      <div className="h-2 bg-white w-full"></div>
+      <div className="h-2 bg-gradient-to-r from-green-400 to-teal-500 w-full"></div>
       
       {/* Header */}
       <div className="px-8 py-8">
@@ -45,7 +45,7 @@ const ContactPage = () => {
           
           {/* Contact Details Card - Left Side with overlap */}
           <div 
-            className="w-full lg:w-[320px] bg-white rounded-3xl p-6 shadow-xl relative z-20 lg:-mr-12"
+            className="w-full lg:w-[320px] bg-[#7DD3DB] rounded-3xl p-6 shadow-xl relative z-20 lg:-mr-12"
             style={{
               boxShadow: '0 20px 50px rgba(125, 211, 219, 0.4)',
               border: '4px solid #7DD3DB'
@@ -213,7 +213,7 @@ const ContactPage = () => {
       </div>
 
       {/* Bottom decorative bar */}
-     
+      <div className="h-2 bg-gradient-to-r from-green-400 to-teal-500 w-full"></div>
     </div>
   );
 };
