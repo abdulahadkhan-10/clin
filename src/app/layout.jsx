@@ -3,7 +3,7 @@ import Navbar from "@/component/layout/Navbar.jsx";
 import Footer from "../component/layout/Footer.jsx";
 
 export const metadata = {
-  title: "Your Website Title",
+  title: "ClinXcel",
   description: "Your site description here",
 };
 

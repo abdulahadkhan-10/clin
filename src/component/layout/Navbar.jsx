@@ -8,17 +8,23 @@ import { Menu, X, ChevronDown } from "lucide-react";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+
   const dropdownRef = useRef(null);
+  const buttonRef = useRef(null);
+  const dropdownContainerRef = useRef(null);
 
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (
+        dropdownContainerRef.current &&
+        !dropdownContainerRef.current.contains(event.target)
+      ) {
         setServicesOpen(false);
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.body.addEventListener("mousedown", handleClickOutside);
+    return () => document.body.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -36,7 +42,7 @@ const Navbar = () => {
           />
         </div>
 
-        {/* GRADIENT NAVBAR BACKGROUND */}
+        {/* GRADIENT NAVBAR */}
         <div
           className="flex-1 py-8 md:py-8 px-6 relative"
           style={{
@@ -48,27 +54,15 @@ const Navbar = () => {
           <div className="flex items-center justify-between">
             <ul className="hidden md:flex items-center space-x-10 text-white font-semibold text-lg mx-auto">
 
-              <li>
-                <Link href="/" className="hover:text-gray-200">Home</Link>
-              </li>
+              <li><Link href="/" className="hover:text-gray-200">Home</Link></li>
+              <li><Link href="/about" className="hover:text-gray-200">About Us</Link></li>
+              <li><Link href="/event" className="hover:text-gray-200">Events</Link></li>
 
-              <li>
-                <Link href="/about" className="hover:text-gray-200">About Us</Link>
-              </li>
-
-              <li>
-                <Link href="/event" className="hover:text-gray-200">Events</Link>
-              </li>
-
-              {/* SERVICES DROPDOWN */}
-              <li
-  className="relative"
-  ref={dropdownRef}
-  onMouseEnter={() => setServicesOpen(true)}
-  onMouseLeave={() => setServicesOpen(false)}
->
+              {/* SERVICES DROPDOWN WITH CLICK ONLY */}
+              <li className="relative" ref={dropdownContainerRef}>
                 <button
-                  onClick={() => setServicesOpen(!servicesOpen)}
+                  ref={buttonRef}
+                  onClick={() => setServicesOpen((prev) => !prev)}
                   className="flex items-center gap-1 hover:text-gray-200"
                 >
                   Services
@@ -79,16 +73,9 @@ const Navbar = () => {
                 </button>
               </li>
 
-              <li>
-                <Link href="/blog" className="hover:text-gray-200">Blogs</Link>
-              </li>
-               <li>
-                <Link href="/courses" className="hover:text-gray-200">Courses</Link>
-              </li>
-
-              <li>
-                <Link href="/contact" className="hover:text-gray-200">Contact</Link>
-              </li>
+              <li><Link href="/blog" className="hover:text-gray-200">Blogs</Link></li>
+              <li><Link href="/courses" className="hover:text-gray-200">Courses</Link></li>
+              <li><Link href="/contact" className="hover:text-gray-200">Contact</Link></li>
             </ul>
 
             {/* Mobile Hamburger */}
@@ -102,25 +89,20 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* SEPARATED DROPDOWN (Fix for clip-path issue) */}
+      {/* SEPARATED SERVICES DROPDOWN */}
       {servicesOpen && (
-        <div className="absolute left-[850px] top-[80px] bg-white rounded-lg shadow-xl py-3 min-w-[250px] z-[20000]">
-          <Link
-            href="/consulting"
-            className="block px-5 py-2 text-black hover:bg-gray-100"
-          >
+        <div
+          ref={dropdownRef}
+          className="absolute top-[95px] left-1/2 ml-45 transform -translate-x-1/2 
+                     bg-white rounded-lg shadow-xl py-3 min-w-[280px] z-[20000]"
+        >
+          <Link href="/consulting" className="block px-5 py-2 text-black hover:bg-gray-100">
             Pharmacovigilance Consulting
           </Link>
-          <Link
-            href="/corporate"
-            className="block px-5 py-2 text-black hover:bg-gray-100"
-          >
+          <Link href="/corporate" className="block px-5 py-2 text-black hover:bg-gray-100">
             Corporate Training
           </Link>
-          <Link
-            href="/soft-skills"
-            className="block px-5 py-2 text-black hover:bg-gray-100"
-          >
+          <Link href="/soft-skills" className="block px-5 py-2 text-black hover:bg-gray-100">
             Soft Skills Training
           </Link>
         </div>
@@ -133,7 +115,6 @@ const Navbar = () => {
           <Link href="/about" onClick={() => setMenuOpen(false)}>About Us</Link>
           <Link href="/event" onClick={() => setMenuOpen(false)}>Events</Link>
 
-          {/* Mobile Services */}
           <details className="cursor-pointer">
             <summary className="flex justify-center items-center gap-1">
               Services
