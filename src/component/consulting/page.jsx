@@ -59,12 +59,12 @@ export default function PharmacovigilanceConsulting() {
       <div className="">
 
         {/* HEADER */}
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-black mb-10 text-left">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-black mt-2 text-left">
           Pharmacovigilance Consulting
         </h1>
 
         {/* INTRO SECTION */}
-        <div className="flex flex-col lg:flex-row gap-12 mb-20 items-center">
+        <div className="flex flex-col lg:flex-row gap-8 mb-10 items-center">
           <p className="flex-1 text-lg sm:text-xl text-gray-800 leading-relaxed text-justify">
             At ClinXcel, we provide comprehensive global Pharmacovigilance
             Consulting services designed to ensure regulatory compliance,

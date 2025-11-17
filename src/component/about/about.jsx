@@ -31,14 +31,7 @@ const WhyChooseUs = () => {
               {/* Arrow pointer to timeline */}
               <div className="absolute left-0 top-1/2 w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-r-8 border-r-teal-300 transform -translate-x-2 -translate-y-1/2 hidden lg:block"></div>
               
-              {/* Logo */}
-              <div className="flex items-center justify-center mb-6">
-                <div className="text-teal-600 font-bold text-2xl">
-                  <span className="text-teal-700">CLIN</span>
-                  <span className="text-teal-500">X</span>
-                  <span className="text-teal-700">EL</span>
-                </div>
-              </div>
+
               
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li>• 20+ years expert faculty.</li>

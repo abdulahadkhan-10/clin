@@ -159,11 +159,11 @@ export default function MedicalBanner() {
       </div>
 
       {/* === Slider Dots === */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1 z-30">
         {slides.map((_, index) => (
           <div
             key={index}
-            className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-500 ${
+            className={`w-3 h-3 sm:w-2 sm:h-2 rounded-full transition-all duration-500 ${
               currentIndex === index
                 ? "bg-white scale-110 shadow-md"
                 : "bg-white/70"

@@ -13,7 +13,7 @@ export default function MissionVision() {
       <div className="flex flex-col md:flex-row items-start md:items-center gap-8 pt-8">
         
         <div className="md:w-1/4 text-left md:text-left">
-          <h3 className="text-4xl font-semibold text-gray-800 leading-tight tracking-wide">
+          <h3 className="text-4xl mb-22 font-semibold text-gray-800 leading-tight tracking-wide">
             Our <br /> Vision
           </h3>
         </div>
@@ -39,7 +39,7 @@ export default function MissionVision() {
       <div className="flex flex-col md:flex-row items-start md:items-center gap-8 pt-8">
         
         <div className="md:w-1/4 text-left md:text-left">
-          <h3 className="text-4xl font-semibold text-gray-800 leading-tight tracking-wide">
+          <h3 className="text-4xl mb-22 font-semibold text-gray-800 leading-tight tracking-wide">
             Our <br /> Mission
           </h3>
         </div>

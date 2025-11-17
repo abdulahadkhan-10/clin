@@ -1,12 +1,5 @@
 "use client";
 import React from "react";
-import { Poltawski_Nowy } from "next/font/google";
-
-const poltawski = Poltawski_Nowy({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
 const courses = [
   {
     title: "Medical Writing",
@@ -63,7 +56,7 @@ export default function CoursesSection() {
     <section className="w-full flex flex-col items-center py-12 sm:py-16 px-4 bg-white">
       
       {/* ======= Header ======= */}
-      <div className="w-full text-center mb-10">
+      <div className="w-full ml-75 mb-10">
         <h1 className="text-4xl sm:text-5xl font-bold tracking-wide text-black uppercase">
           Courses
         </h1>
@@ -71,83 +64,63 @@ export default function CoursesSection() {
 
       {/* ======= Popular Services Heading ======= */}
       <div className="w-full max-w-7xl mb-14 px-4 sm:px-6 md:px-10">
-        <div className="relative inline-block">
-          <h2 className="text-3xl sm:text-5xl md:text-6xl italic font-semibold">
-            <span className="font-extrabold text-[#72CB63]">Popular</span>{" "}
-            Services
-          </h2>
-          <div className="h-[6px] w-3/4 absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#72CB63] rounded-full"></div>
-        </div>
+     <div className="flex mb-8">
+        <button 
+          className="bg-green-500 text-white font-semibold px-12 py-4 rounded-l-lg text-lg relative z-10"
+          style={{
+            clipPath: 'polygon(0 0, calc(100% - 5px) 0, 80% 100%, 0 100%)'
+          }}
+        >
+          Popular
+        </button>
+        <button 
+          className="bg-teal-600 text-white font-semibold px-12 py-4 rounded-r-lg text-lg -ml-9"
+          style={{
+            clipPath: 'polygon(30px 0, 100% 0, 100% 100%, 0 100%)'
+          }}
+        >
+          Services
+        </button>
+      </div>
       </div>
 
       {/* ======= Cards Grid ======= */}
       <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 place-items-center">
         {courses.map((course, index) => (
-          <div
-            key={index}
-            className="relative bg-black bg-opacity-80 shadow-xl rounded-[50px] p-5 transition-all duration-300 hover:scale-[1.045] hover:shadow-2xl"
-            style={{ width: "100%", maxWidth: "420px", minHeight: "430px" }}
-          >
-            {/* ===== Duration ===== */}
-            <div className="absolute -right-5 top-3">
-              <div
-                className="relative text-white font-semibold flex items-center justify-center"
-                style={{
-                  width: "75px",
-                  height: "170px",
-                  backgroundColor: "#000",
-                  border: "5px solid white",
-                  borderRadius: "50px",
-                  writingMode: "vertical-rl",
-                  textOrientation: "upright",
-                  fontSize: "18px",
-                }}
-              >
-                {course.duration}
+       <div
+  key={index}
+  className="w-full max-w-[420px] bg-white rounded-[30px] shadow-xl overflow-hidden relative hover:shadow-2xl transition duration-300"
+>
 
-                {/* Green Accent Bar */}
-                <div
-                  className="absolute right-0 top-1/2 -translate-y-1/2 bg-[#72CB63]"
-                  style={{
-                    width: "12px",
-                    height: "80px",
-                    borderRadius: "50px",
-                  }}
-                ></div>
-              </div>
-            </div>
+  {/* ======= Duration Badge (top-right) ======= */}
+  <div className="absolute top-4 right-4 bg-[#46B1A0] text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
+    {course.duration.toLowerCase()}
+  </div>
 
-            {/* ===== Image ===== */}
-            <div className="w-full flex justify-center">
-              <img
-                src={course.img}
-                alt={course.title}
-                className="rounded-3xl object-cover mt-3"
-                style={{ width: "85%", height: "180px" }}
-              />
-            </div>
+  {/* ======= Image ======= */}
+  <div className="w-full h-[220px] overflow-hidden rounded-t-[30px]">
+    <img
+      src={course.img}
+      alt={course.title}
+      className="w-full h-full object-cover"
+    />
+  </div>
 
-            {/* ===== Text Content ===== */}
-            <div className="mt-5 px-2">
-              <h3 className="text-[#72CB63] text-xl font-extrabold font-[Poppins] mb-3 text-center tracking-wide">
-                {course.title}
-              </h3>
+  {/* ======= Bottom Black Section ======= */}
+  <div className="bg-[#1C1C1C] w-full pt-6 pb-7 px-6 rounded-b-[30px] text-center">
 
-              <p
-                className={`${poltawski.className}`}
-                style={{
-                  color: "#fff",
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  fontStyle: "italic",
-                  fontWeight: 600,
-                  textAlign: "justify",
-                }}
-              >
-                {course.desc}
-              </p>
-            </div>
-          </div>
+    <h3 className="text-[#72CB63] text-2xl font-bold mb-3">
+      {course.title}
+    </h3>
+
+    <p className="text-white text-sm leading-relaxed">
+      {course.desc}
+    </p>
+
+  </div>
+
+</div>
+
         ))}
       </div>
     </section>

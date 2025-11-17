@@ -24,7 +24,7 @@ export default function ModesSection() {
   ];
 
   return (
-    <div className="py-20 px-4 bg-white">
+    <div className="py-12 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         
         {/* Title */}
@@ -47,7 +47,7 @@ export default function ModesSection() {
 
                 {/* FRONT */}
                 <div className="absolute w-full h-full backface-hidden flex items-center justify-center">
-                  <div className="w-80 h-72 bg-gradient-to-r from-green-200 to-teal-200 clip-hex flex items-center justify-center border-4 border-teal-500 shadow-2xl">
+                  <div className="w-80 h-72 bg-[#52C048] clip-hex flex items-center justify-center border-4 border-teal-500 shadow-2xl">
                     <h3
                       className="text-4xl font-bold tracking-wider"
                       style={{ fontFamily: "Poltawski Nowy" }}
@@ -59,7 +59,7 @@ export default function ModesSection() {
 
                 {/* BACK */}
                 <div className="absolute w-full h-full rotate-y-180 backface-hidden flex items-center justify-center">
-                  <div className="w-80 h-72 bg-gradient-to-r from-teal-300 to-green-300 clip-hex flex items-center justify-center px-8 text-center border-4 border-teal-600 shadow-2xl">
+                  <div className="w-80 h-72 bg-[#298589] clip-hex flex items-center justify-center px-8 text-center border-4 border-teal-600 shadow-2xl">
                     <p
                       className="text-xl font-medium leading-relaxed"
                       style={{ fontFamily: "Poltawski Nowy" }}

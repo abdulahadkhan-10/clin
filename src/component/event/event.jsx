@@ -29,15 +29,8 @@ const EventsPage = () => {
       {/* LIVE + WEBINAR */}
       <div className="flex justify-center mb-4">
         <div className="flex items-center gap-2">
-          <img src="/camera.png" className="w-12 h-12" />
-          <div>
-            <p className="bg-[#34C759] text-white text-xs px-2 py-1 rounded-t-md w-fit mx-auto font-bold">
-              LIVE
-            </p>
-            <p className="bg-[#007BFF] text-white text-xs px-2 py-1 rounded-b-md w-fit mx-auto -mt-1 font-bold">
-              WEBINAR
-            </p>
-          </div>
+          <img src="/p1.png" className="w-65 h-25" />
+
         </div>
       </div>
 
@@ -86,15 +79,8 @@ const EventsPage = () => {
       {/* LIVE + WEBINAR */}
       <div className="flex justify-center mb-4">
         <div className="flex items-center gap-2">
-          <img src="/camera.png" className="w-12 h-12" />
-          <div>
-            <p className="bg-[#34C759] text-white text-xs px-2 py-1 rounded-t-md w-fit mx-auto font-bold">
-              LIVE
-            </p>
-            <p className="bg-[#007BFF] text-white text-xs px-2 py-1 rounded-b-md w-fit mx-auto -mt-1 font-bold">
-              WEBINAR
-            </p>
-          </div>
+          <img src="/p1.png" className="w-65 h-25" />
+
         </div>
       </div>
 
