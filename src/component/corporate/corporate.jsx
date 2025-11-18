@@ -13,22 +13,14 @@ export default function Corporate() {
 
       {/* TABS */}
      <div className="flex mb-8">
-        <button 
-          className="bg-green-500 text-white font-semibold px-12 py-4 rounded-l-lg text-lg relative z-10"
-          style={{
-            clipPath: 'polygon(0 0, calc(100% - 5px) 0, 80% 100%, 0 100%)'
-          }}
-        >
-          Popular
-        </button>
-        <button 
-          className="bg-teal-600 text-white font-semibold px-12 py-4 rounded-r-lg text-lg -ml-9"
-          style={{
-            clipPath: 'polygon(30px 0, 100% 0, 100% 100%, 0 100%)'
-          }}
-        >
-          Services
-        </button>
+    <div className="flex justify-start mb-5">
+  <img 
+    src="/button.png"
+    alt="Courses Banner"
+    className="w-95 h-auto"
+  />
+</div>
+
       </div>
     <div className="flex flex-wrap justify-center gap-6 mt-8">
         {/* CARD 1 */}

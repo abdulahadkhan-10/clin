@@ -13,7 +13,7 @@ export default function SoftSkills() {
 
       {/* TABS */}
       <div className="flex gap-0 mb-8 w-full max-w-md">
-        <button
+        {/* <button
           className="bg-green-500 text-white font-semibold px-6 sm:px-10 py-3 rounded-l-lg text-base sm:text-lg relative z-10"
           style={{
             clipPath: "polygon(0 0, calc(100% - 8px) 0, 80% 100%, 0 100%)",
@@ -29,7 +29,15 @@ export default function SoftSkills() {
           }}
         >
           Services
-        </button>
+        </button> */}
+        <div className="flex justify-start mb-5">
+  <img 
+    src="/button.png"
+    alt="Courses Banner"
+    className="w-95 h-auto"
+  />
+</div>
+
       </div>
 
       {/* COURSE CARD */}

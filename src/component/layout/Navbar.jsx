@@ -31,10 +31,10 @@ const Navbar = () => {
 
   return (
     <nav className="w-full bg-white relative z-[10000] shadow-md">
-      <div className="w-full mx-auto shadow-md flex gap-4 relative">
+      <div className="w-full shadow-md flex gap-4 relative">
 
         {/* LOGO */}
-        <div className="py-2 pl-2 ml-4 flex-shrink-0">
+        <div className="py-1 pl-2 ml-4 flex-shrink-0">
           <Image
             src="/logo.png"
             alt="ClinXcel Logo"
@@ -80,9 +80,9 @@ const Navbar = () => {
   }}
 >
 
-          <div className="flex items-center justify-between">
+          <div className="flex items-center">
             {/* Desktop Menu */}
-            <ul className="hidden md:flex ml-97 items-center space-x-10 text-white font-semibold text-lg mx-auto">
+            <ul className="hidden md:flex ml-70 items-center space-x-10 text-white font-semibold text-lg mx-auto">
 
               <li><Link href="/" className="hover:text-gray-200">Home</Link></li>
               <li><Link href="/about" className="hover:text-gray-200">About Us</Link></li>
