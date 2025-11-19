@@ -30,24 +30,24 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="w-full bg-white relative z-[10000] shadow-md">
+    <nav className="w-full relative z-[10000] shadow-md">
       <div className="w-full shadow-md flex gap-4 relative">
 
         {/* LOGO */}
         <div className="py-1 pl-2 ml-4 flex-shrink-0">
           <Image
-            src="/logo.png"
+            src="/logo3.png"
             alt="ClinXcel Logo"
             width={130}
             height={100}
-            className="object-contain"
+    
           />
         </div>
-        <li>
+  
      {servicesOpen && (
                   <div
                     ref={dropdownRef}
-                    className="absolute top-8 mt-15 ml-200 -translate-x-1/2
+                    className="absolute top-8 mt-15 ml-300 -translate-x-1/2
                                bg-white rounded-lg shadow-xl py-3 min-w-[280px] z-[20000]"
                   >
                     <Link
@@ -70,7 +70,7 @@ const Navbar = () => {
                     </Link>
                   </div>
                 )}
-              </li>
+       
         {/* GRADIENT NAVBAR */}
 <div
   className="flex-1 py-8 md:py-8 px-12 relative"
@@ -82,7 +82,7 @@ const Navbar = () => {
 
           <div className="flex items-center">
             {/* Desktop Menu */}
-            <ul className="hidden md:flex ml-70 items-center space-x-10 text-white font-semibold text-lg mx-auto">
+            <ul className="hidden md:flex mr-10 items-center space-x-10 text-white font-semibold text-lg mx-auto">
 
               <li><Link href="/" className="hover:text-gray-200">Home</Link></li>
               <li><Link href="/about" className="hover:text-gray-200">About Us</Link></li>

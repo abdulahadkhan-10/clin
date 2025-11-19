@@ -29,7 +29,7 @@ const EventsPage = () => {
       {/* LIVE + WEBINAR */}
       <div className="flex justify-center mb-4">
         <div className="flex items-center gap-2">
-          <img src="/p1.png" className="w-65 h-25" />
+          <img src="/p1.png" className="w-70 h-25" />
 
         </div>
       </div>
@@ -79,7 +79,7 @@ const EventsPage = () => {
       {/* LIVE + WEBINAR */}
       <div className="flex justify-center mb-4">
         <div className="flex items-center gap-2">
-          <img src="/p1.png" className="w-65 h-25" />
+          <img src="/p1.png" className="w-70 h-25" />
 
         </div>
       </div>

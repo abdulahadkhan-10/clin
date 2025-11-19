@@ -1,10 +1,6 @@
 "use client";
 import React from "react";
-
-
-
 // ------------------------- WHY CHOOSE US -------------------------
-// ------------------------- WHY CHOOSE US & MISSION/VISION -------------------------
 const WhyChooseUs = () => {
   return (
     <div className="relative w-full bg-white py-12 px-6 sm:px-10">
@@ -111,84 +107,41 @@ const WhyChooseUs = () => {
 };
 
 // ------------------------- FOUNDER MESSAGE -------------------------
+
 const FounderMessage = () => {
-return (
-  <div className="w-full bg-white py-20">   {/* ← BACKGROUND OUTSIDE THE CARD */}
+  return (
+    <div className="w-full bg-white py-20 flex justify-center">
+      
+      <div className="relative w-[1000px] h-[420px] rounded-3xl overflow-hidden group shadow-xl">
 
-    <div className="group flip-card mx-auto">
+        {/* Background Image */}
+        <img
+          src="/Front.jpg"
+          alt="Founder"
+          className="w-full h-full object-cover rounded-3xl transition-transform duration-700 group-hover:scale-105"
+        />
 
-      <div className="flip-card-inner">
+        {/* Overlay (appears on hover) */}
+        <div className="absolute inset-0 bg-[#6AB365] backdrop-blur-md opacity-0 group-hover:opacity-100 
+                        transition-all duration-700 p-10 flex flex-col justify-center text-center text-white">
 
-        {/* FRONT */}
-        <div className="flip-card-front">
-          <img
-            src="/Front.jpg"
-            alt="Front"
-            className="w-full h-full object-cover"
-          />
-        </div>
+          <p className="text-[16px] leading-relaxed text-justify font-serif mb-8">
+ A competent professional with around 21 + years of rich experience in diverse domains encompassing pharma, healthcare, corporate and leadership training, quality management, audit support and business development. Currently leading ClinXcel for providing E2E training solutions to increase employability skills for aspiring candidates. Providing upskilling and cross skilling to the corporate employees as a part of continous learning. Almas has worked with esteemed organizations such as Wipro Pvt Ltd, Tata Consultancy Services (TCS), Cognizant Technology Solutions, SIRO Clinpharm, CREMA, Spanco International, and Wadia  hospital. Certified Lead Auditor in QMS (ISO 9001:2008) & (ISO 22000). Certified ICH-GCP trainer by TCS. Certified (TTT) from NPTEL. Almas has expertise in conducting leadership training, mid-level and team member trainings on business communication, strategic planning, emotional intelligence, decision making etc to optimize human resources for better productivity and workplace harmony. Almas has trained more than 50,000 associates across 100 + organizations from a wide range of industries including educational institutes, pharma, healthcare and medical devices.
 
-        {/* BACK */}
-        <div className="flip-card-back">
-          <div className="w-full h-full bg-green-600 text-white p-10 flex flex-col justify-center text-center">
-         
+          </p>
 
-            <p className="text-[16px] leading-relaxed font-serif mb-8">
-              A competent professional with around 21 + years of rich experience in diverse domains encompassing pharma, healthcare, corporate and leadership training, quality management, audit support and business development. Currently leading ClinXcel for providing E2E training solutions to increase employability skills for aspiring candidates. Providing upskilling and cross skilling to the corporate employees as a part of continous learning. Almas has worked with esteemed organizations such as Wipro Pvt Ltd, Tata Consultancy Services (TCS), Cognizant Technology Solutions, SIRO Clinpharm, CREMA, Spanco International, and Wadia  hospital. Certified Lead Auditor in QMS (ISO 9001:2008) & (ISO 22000). Certified ICH-GCP trainer by TCS. Certified (TTT) from NPTEL. Almas has expertise in conducting leadership training, mid-level and team member trainings on business communication, strategic planning, emotional intelligence, decision making etc to optimize human resources for better productivity and workplace harmony. Almas has trained more than 50,000 associates across 100 + organizations from a wide range of industries including educational institutes, pharma, healthcare and medical devices.
-            </p>
-
-            <div className="flex justify-center space-x-6">
-              <i className="ri-mail-fill text-3xl"></i>
-              <i className="ri-facebook-box-fill text-3xl"></i>
-              <i className="ri-linkedin-box-fill text-3xl"></i>
-            </div>
+          <div className="flex justify-center gap-6 mt-4">
+            <i className="ri-mail-fill text-3xl"></i>
+            <i className="ri-facebook-box-fill text-3xl"></i>
+            <i className="ri-linkedin-box-fill text-3xl"></i>
           </div>
         </div>
 
       </div>
 
-      <style jsx>{`
-        .flip-card {
-          width: 1000px;
-          height: 400px;
-          perspective: 1200px;
-        }
-
-        .flip-card-inner {
-          width: 100%;
-          height: 100%;
-          position: relative;
-          transform-style: preserve-3d;
-          transition: transform 0.9s ease;
-        }
-
-        .group:hover .flip-card-inner {
-          transform: rotateY(180deg);
-        }
-
-        .flip-card-front,
-        .flip-card-back {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-          // border-radius: 18px;
-          overflow: hidden;
-          backface-visibility: hidden;
-          -webkit-backface-visibility: hidden;
-        }
-
-        .flip-card-back {
-          transform: rotateY(180deg);
-        }
-      `}</style>
-
     </div>
-  </div>
-);
-};
-
+  );
+}
 
 // ------------------------- ABOUT PAGE -------------------------
 const AboutPage = () => {
@@ -204,7 +157,7 @@ const AboutPage = () => {
   </h1>
 
   {/* Description */}
-  <p className="text-lg sm:text-xl leading-relaxed max-w-full">
+  <p className="text-lg sm:text-xl text-justify leading-relaxed max-w-full">
     At <span className="font-semibold">ClinXcel</span>, we are a dedicated team of
     industry and training experts with over 20 years of experience in the
     clinical research domain. Our mission is to build a highly skilled workforce

@@ -17,10 +17,9 @@ const Footer = () => {
   return (
     <footer
       className="bg-gradient-to-r from-[#58C73F] to-[#237C92] text-white pt-16 pb-0 mt-12 relative overflow-hidden"
-      style={{ fontFamily: "'Poltawski Nowy', serif" }}
-    >
+      >
       {/* --- Main Footer Content --- */}
-      <div className="container mx-auto ml-10 px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 relative z-10 pb-20 text-lg">
+      <div className="container mx-auto ml-6 px-15 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 relative z-10 pb-20 text-lg">
 
         {/* Address & Contact */}
         <div className="text-center sm:text-left">
@@ -60,7 +59,7 @@ const Footer = () => {
         </div>
 
         {/* Useful Links */}
-        <div className="text-center sm:text-left">
+        <div className="text-center ml-6 sm:text-left">
           <h3 className="text-2xl font-bold mb-4">Useful Links</h3>
           <ul className="space-y-3 text-lg font-semibold">
             <li>
@@ -104,7 +103,7 @@ const Footer = () => {
         </div>
 
         {/* Newsletter */}
-        <div className="text-center sm:text-left">
+        <div className="text-center ml-1 sm:text-left">
           <h3 className="text-2xl font-bold mb-4">Our Newsletter</h3>
           <div className="text-lg font-medium leading-relaxed">
             <p>
@@ -116,16 +115,16 @@ const Footer = () => {
       </div>
 
       {/* --- Copyright Section --- */}
-      <div className="bg-black text-white py-5 text-base font-semibold">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
+      <div className="bg-black text-white py-2 text-base font-semibold">
+        <div className="max-w-9xl mx-auto flex items-center justify-between px-5">
 
           {/* Centered Footer Text */}
           <div className="flex-1 flex justify-center">
-            <p className="text-center text-lg">
+            <p className="text-center ml-25 text-1xl">
               © Copyright{" "}
               <Link
                 href="/"
-                className="font-bold text-[#22D3EE] hover:text-[#1BB3C9]"
+                className="font-semibold text-[#22D3EE] hover:text-[#1BB3C9]"
               >
                 ClinXcel
               </Link>{" "}

@@ -3,118 +3,84 @@ import React from "react";
 import Image from "next/image";
 
 export default function Corporate() {
+  const cards = [
+    {
+      duration: "1 year",
+      img: "training1.png",
+      title: "Empower Teams With ClinXcel’s Industry-Ready Training",
+      desc: "Eligibility : Graduation / Post-Graduation in Life Sciences / Pharmaceutical Sciences , Medical , Dental Sc"
+    },
+    {
+      duration: "4 weeks",
+      img: "corp1.jpg",
+      title: "Medical Writing",
+      desc: "Eligibility : Post-Graduation in Life Sciences / Pharmaceutical Sciences , Graduation in Medical , Dental"
+    },
+    {
+      duration: "4 weeks",
+      img: "corp2.jpg",
+      title: "Clinical Research",
+      desc: "Eligibility : Graduation / Post-Graduation in Life Sciences / Pharmaceutical Sciences , Medical , Dental Sc"
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-white px-25 py-10">
+    <div className="min-h-screen bg-white px-6 py-10">
 
       {/* PAGE TITLE */}
-      <h1 className="text-[50px] font-bold text-black mb-6">
-      Corporate
+      <h1 className="text-[50px] font-bold text-black text-left pl-10 sm:pl-20">
+        Corporate
       </h1>
 
-      {/* TABS */}
-     <div className="flex mb-8">
-    <div className="flex justify-start mb-5">
-  <img 
-    src="/button.png"
-    alt="Courses Banner"
-    className="w-95 h-auto"
-  />
-</div>
-
+      {/* BUTTON IMAGE */}
+      <div className="flex justify-start pl-10 sm:pl-20 mt-1">
+        <img src="/button.png" alt="button" className="w-72 h-auto" />
       </div>
-    <div className="flex flex-wrap justify-center gap-6 mt-8">
-        {/* CARD 1 */}
-        <div
-          className="relative text-white shadow-2xl flex flex-col items-center justify-between px-5 pt-5 pb-6 rounded-3xl"
-          style={{
-            backgroundColor: "#1a1a1aee",
-            width: "min(90vw, 320px)",
-          }}
-        >
-          {/* Duration Badge */}
-          <div className="absolute top-3 right-3 bg-gradient-to-r from-green-400 to-teal-400 text-white text-xs font-bold px-4 py-1.5 rounded-md shadow-md">
-            1 year
-          </div>
 
-          <div className="w-full flex justify-center mb-4">
-            <img
-              src="training.png"
-              alt="Training"
-              className="rounded-2xl w-full h-44 object-cover"
-            />
-          </div>
+      {/* CARD GRID */}
+      <div className="flex flex-wrap justify-center gap-10 mt-10">
 
-          <div className="mt-3 text-center px-2">
-            <h3 className="text-lg font-bold mb-2 leading-tight" style={{ color: "#7BC67E" }}>
-              Empower Teams With ClinXcel's Industry-Ready Training
-            </h3>
-            <p className="text-xs italic font-medium leading-relaxed text-white opacity-90 text-left">
-              Eligibility: Graduation / Post-Graduation in Life Sciences & Pharmaceutical Sciences.
-            </p>
-          </div>
-        </div>
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className="
+              bg-white rounded-3xl shadow-lg overflow-hidden w-[330px]
+              flex flex-col
+              transition-all duration-300 
+              hover:-translate-y-2 hover:shadow-2xl
+            "
+          >
+            {/* IMAGE WRAPPER */}
+            <div className="relative w-full h-56 overflow-hidden">
+              <img
+                src={card.img}
+                alt={card.title}
+                className="
+                  w-full h-full object-cover 
+                  transition-transform duration-500 
+                  hover:scale-110
+                "
+              />
 
-        {/* CARD 2 */}
-        <div
-          className="relative text-white shadow-2xl flex flex-col items-center justify-between px-5 pt-5 pb-6 rounded-3xl"
-          style={{
-            backgroundColor: "#1a1a1aee",
-            width: "min(90vw, 320px)",
-          }}
-        >
-          {/* Duration Badge */}
-          <div className="absolute top-3 right-3 bg-gradient-to-r from-green-400 to-teal-400 text-white text-xs font-bold px-4 py-1.5 rounded-md shadow-md">
-            4 weeks
-          </div>
+              {/* DURATION BADGE */}
+              <div className="absolute top-3 right-3 bg-[#6ECCDD] text-white text-xs font-bold px-3 py-1 rounded-lg">
+                {card.duration}
+              </div>
+            </div>
 
-          <div className="w-full flex justify-center mb-4">
-            <img
-              src="corp1.jpg"
-              alt="Medical Writing"
-              className="rounded-2xl w-full h-44 object-cover"
-            />
-          </div>
+            {/* BOTTOM CONTENT SECTION */}
+            <div className="bg-[#1E1E1E] text-center px-4 py-5 flex-1 flex flex-col">
+              <h3 className="text-lg font-bold text-[#58AF65] leading-tight">
+                {card.title}
+              </h3>
 
-          <div className="mt-3 text-center px-2">
-            <h3 className="text-lg font-bold mb-2 leading-tight" style={{ color: "#7BC67E" }}>
-              Medical Writing
-            </h3>
-            <p className="text-xs italic font-medium leading-relaxed text-white opacity-90 text-left">
-              Eligibility : Post-Graduation in life Sciences/ Pharmaceutical Sciences , Graduation in Medical , Dental
-            </p>
+              <p className="text-sm text-white mt-3 leading-relaxed flex-1">
+                {card.desc}
+              </p>
+            </div>
           </div>
-        </div>
+        ))}
 
-        {/* CARD 3 */}
-        <div
-          className="relative text-white shadow-2xl flex flex-col items-center justify-between px-5 pt-5 pb-6 rounded-3xl"
-          style={{
-            backgroundColor: "#1a1a1aee",
-            width: "min(90vw, 320px)",
-          }}
-        >
-          {/* Duration Badge */}
-          <div className="absolute top-3 right-3 bg-gradient-to-r from-green-400 to-teal-400 text-white text-xs font-bold px-4 py-1.5 rounded-md shadow-md">
-            4 weeks
-          </div>
-
-          <div className="w-full flex justify-center mb-4">
-            <img
-              src="corp2.jpg"
-              alt="Clinical Research"
-              className="rounded-2xl w-full h-44 object-cover"
-            />
-          </div>
-
-          <div className="mt-3 text-center px-2">
-            <h3 className="text-lg font-bold mb-2 leading-tight" style={{ color: "#7BC67E" }}>
-              Clinical Research
-            </h3>
-            <p className="text-xs italic font-medium leading-relaxed text-white opacity-90 text-left">
-              Eligibility : Graduation / Post-Graduation in Life Sciences / Pharmaceutical Sciences , Medical , Dental Sc
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -4,12 +4,21 @@ import Image from "next/image";
 
 export default function SoftSkills() {
   return (
-    <div className="min-h-screen bg-white px-6 sm:px-12 lg:px-20 py-10">
+    <div className="min-h-screen bg-white px-6 sm:px-12 lg:px-20 py-8">
 
       {/* PAGE TITLE */}
-      <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-bold text-black mb-6">
-        Soft-Skills
-      </h1>
+<h1 className="text-[50px] font-bold text-black ml-6">
+Soft - Skills
+</h1>
+
+{/* BUTTON IMAGE BELOW THE HEADING */}
+<div className="flex justify-start ml-2">
+  <img 
+    src="/button.png"
+    alt="Courses Banner"
+    className="w-95 h-auto"
+  />
+</div>
 
       {/* TABS */}
       <div className="flex gap-0 mb-8 w-full max-w-md">
@@ -30,19 +39,13 @@ export default function SoftSkills() {
         >
           Services
         </button> */}
-        <div className="flex justify-start mb-5">
-  <img 
-    src="/button.png"
-    alt="Courses Banner"
-    className="w-95 h-auto"
-  />
-</div>
+       
 
       </div>
 
       {/* COURSE CARD */}
       <div
-        className="w-full max-w-5xl mx-auto rounded-2xl p-6 sm:p-8 relative flex flex-col lg:flex-row items-start lg:items-center gap-6 shadow-md"
+        className="w-full max-w-5xl mx-auto rounded-2xl p-6 sm:p-8 relative flex flex-col lg:flex-row mr-75 items-start lg:items-center gap-6 shadow-md"
         style={{
           background: "linear-gradient(180deg, #64C55D, #0FA3B1)",
         }}

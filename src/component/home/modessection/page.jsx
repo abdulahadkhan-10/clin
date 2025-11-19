@@ -29,14 +29,14 @@ export default function ModesSection() {
         
         {/* Title */}
         <h2
-          className="text-6xl font-bold text-gray-900 inline-block pb-3 border-b-4 border-gray-900 mb-16"
+          className="text-6xl font-bold text-gray-900 inline-block pb-3 border-b-4 border-gray-900"
           style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}
         >
           Modes
         </h2>
 
         {/* Grid - SAME size on all screens */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 place-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 place-items-center">
           {modes.map((mode) => (
             <div
               key={mode.id}

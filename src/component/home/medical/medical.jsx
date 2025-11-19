@@ -7,22 +7,10 @@ export default function MedicalBanner() {
   const [isMounted, setIsMounted] = useState(false);
 
   const slides = [
-    {
-      image: "/image1.png",
-      lines: ["WELCOME TO", "CLINXCEL"],
-    },
-    {
-      image: "/image2.png",
-      lines: ["SHAPING THE", "NEXT ERA OF", "PHARMA GROWTH"],
-    },
-    {
-      image: "/image3.png",
-      lines: ["YOUR", "WELLNESS", "IS OUR", "PRIORITY"],
-    },
-    {
-      image: "/image4.png",
-      lines: ["EXPLORING", "THE FUTURE OF", "HEALTH & SCIENCE"],
-    },
+    { image: "/image1.png", lines: ["WELCOME TO", "CLINXCEL"] },
+    { image: "/image2.png", lines: ["SHAPING THE", "NEXT ERA OF", "PHARMA GROWTH"] },
+    { image: "/image3.png", lines: ["YOUR", "WELLNESS", "IS OUR", "PRIORITY"] },
+    { image: "/image4.png", lines: ["EXPLORING", "THE FUTURE OF", "HEALTH & SCIENCE"] },
   ];
 
   useEffect(() => {
@@ -30,7 +18,6 @@ export default function MedicalBanner() {
   }, []);
 
   useEffect(() => {
-    
     if (!isMounted) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % slides.length);
@@ -41,7 +28,7 @@ export default function MedicalBanner() {
   if (!isMounted) {
     return (
       <div
-        className="relative w-full overflow-hidden shadow-xl mt-8 md:mt-12 mb-8 md:mb-16 min-h-[350px] md:min-h-[450px] bg-cover bg-center"
+        className="relative w-full overflow-hidden shadow-xl min-h-[450px] bg-cover bg-center"
         style={{ backgroundImage: `url('${slides[0].image}')` }}
       >
         <div className="absolute inset-0 bg-black opacity-20"></div>
@@ -66,7 +53,7 @@ export default function MedicalBanner() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden shadow-xl mt-8 md:mt-12 mb-8 md:mb-16">
+    <div className="relative w-full overflow-hidden mt-5 shadow-xl min-h-[550px]">
       {/* === Background Slideshow === */}
       <div className="absolute inset-0 z-0">
         {slides.map((slide, index) => (
@@ -77,16 +64,16 @@ export default function MedicalBanner() {
             } bg-cover bg-center`}
             style={{ backgroundImage: `url('${slide.image}')` }}
           >
-            {/* lighter overlay for image clarity */}
             <div className="absolute inset-0 bg-black opacity-25"></div>
           </div>
         ))}
       </div>
 
       {/* === Banner Content === */}
-      <div className="relative flex flex-col min-h-[350px] md:min-h-[450px] md:flex-row">
+      <div className="relative flex flex-col min-h-[550px] md:flex-row">
+        
         {/* ================= MOBILE VIEW ================= */}
-        <div className="block md:hidden relative w-full p-6 sm:p-8 flex flex-col justify-center text-white z-20">
+        <div className="block md:hidden relative w-full p-6 sm:p-8 flex flex-col justify-center text-white z-20 mt-50 min-h-[460px]">
           <div
             className="absolute inset-0 z-0"
             style={{
@@ -123,14 +110,14 @@ export default function MedicalBanner() {
 
         {/* ================= DESKTOP VIEW ================= */}
         <div
-          className="hidden md:flex relative w-[55%] p-10 lg:p-14 flex-col justify-center text-white z-20 backdrop-blur-[5px]"
+          className="hidden md:flex relative w-[35%] p-10 lg:p-14 flex-col justify-center text-white z-20 backdrop-blur-[5px] min-h-[500px]"
           style={{
             clipPath: "polygon(0 0, 90% 0, 80% 50%, 90% 100%, 0 100%)",
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-[#68c07e]/80 via-[#469d8b]/75 to-[#1a6e87]/70 opacity-[0.9] z-0"></div>
 
-          <div className="relative z-10 translate-x-[-10px] -translate-y-[60px] text-left">
+          <div className="relative z-10 -translate-y-[40px] translate-x-[-10px] text-left">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
@@ -154,8 +141,8 @@ export default function MedicalBanner() {
           </div>
         </div>
 
-        {/* === Right Section Placeholder === */}
-        <div className="relative w-full md:w-[45%] min-h-[250px] md:min-h-full"></div>
+        {/* === Right Side (Unused spacing) === */}
+        <div className="relative w-full md:w-[45%] min-h-[575px] mt-10"></div>
       </div>
 
       {/* === Slider Dots === */}
