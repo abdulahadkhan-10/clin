@@ -3,7 +3,7 @@ import React from "react";
 
 export default function MissionVision() {
   return (
-    <div className="w-full max-w-6xl mx-auto mt-20 space-y-14 ml-15 md:ml-35">
+    <div className="py-12 px-4 bg-white ml-20 mt-10 mr-15 item-justify-center">
 
       {/* Dark Gray Top Divider */}
       <div className="border-t border-gray-700"></div>
