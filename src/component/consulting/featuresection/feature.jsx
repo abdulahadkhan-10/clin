@@ -50,16 +50,16 @@ const FeaturesSection = () => {
 
   return (
     <div
-      className="min-h-screen py-12 px-4 sm:px-6 lg:px-8"
+      className="min-h-screen py-8 sm:py-10 lg:py-12 px-3 sm:px-6 lg:px-8"
       style={{
         background: "linear-gradient(to bottom right, #c8e6c9, #b2dfdb)",
       }}
     >
       <div className="max-w-8xl mx-auto">
         {/* Header */}
-        <div className="flex justify-center lg:justify-start py-8">
+        <div className="flex justify-center lg:justify-start py-4 sm:py-6 lg:py-8 px-2 sm:px-0">
           <div
-            className="rounded-[52px] px-6 sm:px-8 py-4 sm:py-6 flex items-center justify-center"
+            className="rounded-[32px] sm:rounded-[42px] lg:rounded-[52px] px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6 flex items-center justify-center"
             style={{
               backgroundColor: "#71C589",
               width: "100%",
@@ -68,11 +68,11 @@ const FeaturesSection = () => {
             }}
           >
             <h2
-              className="text-black font-bold"
+              className="text-black font-bold text-center"
               style={{
                 fontFamily: "'Poltawski Nowy', serif",
-                fontSize: "clamp(28px, 6vw, 64px)",
-                lineHeight: "100%",
+                fontSize: "clamp(24px, 5vw, 64px)",
+                lineHeight: "110%",
               }}
             >
               Some Features !!!
@@ -81,20 +81,20 @@ const FeaturesSection = () => {
         </div>
 
         {/* Accordion Items */}
-        <div className="space-y-0 mt-10 sm:mt-16 pl-0 sm:pl-5 w-full">
+        <div className="space-y-0 mt-6 sm:mt-10 lg:mt-16 pl-0 sm:pl-3 lg:pl-5 w-full">
           {features.map((feature, index) => (
             <div key={index} className="border-b-2 border-white">
               <button
                 onClick={() => toggleAccordion(index)}
-                className="w-full text-left p-4 sm:p-5 flex flex-wrap sm:flex-nowrap items-center justify-between transition-all duration-200 hover:brightness-110"
+                className="w-full text-left p-3 sm:p-4 lg:p-5 flex items-start sm:items-center justify-between gap-3 transition-all duration-200 hover:brightness-110"
                 style={{ backgroundColor: "#129EA0" }}
               >
-                <span className="text-white font-normal text-sm sm:text-base md:text-lg pr-4 leading-snug sm:leading-normal">
+                <span className="text-white font-normal text-xs sm:text-sm md:text-base lg:text-lg leading-tight sm:leading-snug lg:leading-normal flex-1">
                   {feature.title}
                 </span>
-                <div className="flex-shrink-0 mt-2 sm:mt-0">
+                <div className="flex-shrink-0 pt-0.5 sm:pt-0">
                   <svg
-                    className={`w-5 h-5 sm:w-6 sm:h-6 text-white transition-transform duration-300 ${
+                    className={`w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white transition-transform duration-300 ${
                       openIndex === index ? "rotate-45" : ""
                     }`}
                     fill="none"
@@ -114,11 +114,11 @@ const FeaturesSection = () => {
               {/* Accordion Content */}
               <div
                 className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? "max-h-96" : "max-h-0"
+                  openIndex === index ? "max-h-[500px]" : "max-h-0"
                 }`}
                 style={{ backgroundColor: "#129EA0" }}
               >
-                <div className="p-4 sm:p-5 text-white text-sm sm:text-base md:text-lg leading-relaxed">
+                <div className="p-3 sm:p-4 lg:p-5 text-white text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed">
                   {feature.content}
                 </div>
               </div>

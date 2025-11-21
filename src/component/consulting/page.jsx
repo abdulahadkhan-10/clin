@@ -55,17 +55,16 @@ export default function PharmacovigilanceConsulting() {
   };
 
   return (
-    <div className="min-h-screen bg-white px-25 py-10">
+    <div className="min-h-screen bg-white px-4 sm:px-6 md:px-10 lg:px-16 xl:px-25 py-6 sm:py-8 lg:py-10">
       <div className="">
-
         {/* HEADER */}
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-black mt-2 text-left">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-black mt-2 text-left">
           Pharmacovigilance Consulting
         </h1>
 
         {/* INTRO SECTION */}
-        <div className="flex flex-col lg:flex-row gap-8 mb-10 items-center">
-          <p className="flex-1 text-lg sm:text-xl text-gray-800 leading-relaxed text-justify">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 mb-8 sm:mb-10 items-center mt-4 sm:mt-6">
+          <p className="flex-1 text-sm sm:text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed text-justify">
             At ClinXcel, we provide comprehensive global Pharmacovigilance
             Consulting services designed to ensure regulatory compliance,
             enhance productivity, and achieve strategic Drug Safety outcomes.
@@ -76,59 +75,48 @@ export default function PharmacovigilanceConsulting() {
             organization.
           </p>
 
-          <div className="flex-1 max-w-md mx-auto">
+          <div className="flex-1 w-full max-w-md mx-auto">
             <img
               src="/pharConsult.jpg"
-              className="w-full h-full rounded-xl shadow-xl object-cover"
+              className="w-full h-auto rounded-xl shadow-xl object-cover"
               alt="Consulting"
             />
           </div>
         </div>
 
         {/* SOME FEATURES TITLE */}
-{/* SOME FEATURES TITLE (Exactly like your screenshot) */}
-<div className="relative w-full mt-10 mb-10">
-
-  {/* Left Decorative Image
-  <img
-    src="/d1.png"
-    alt="Decorative"
-    className="absolute left-0 top-1/2 -translate-y-1/2 w-40 opacity-80 pointer-events-none"
-  /> */}
-
-  {/* Green Bar */}
-  <div className="bg-[#7CBF8A] w-full py-3 rounded-md shadow-md flex justify-center">
-    <h2 className="text-3xl font-extrabold text-white tracking-wide">
-      Some Features
-    </h2>
-  </div>
-</div>
-
+        <div className="relative w-full mt-6 sm:mt-8 lg:mt-10 mb-6 sm:mb-8 lg:mb-10">
+          {/* Green Bar */}
+          <div className="bg-[#7CBF8A] w-full py-2.5 sm:py-3 lg:py-4 rounded-md shadow-md flex justify-center">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-wide text-center px-4">
+              Some Features
+            </h2>
+          </div>
+        </div>
 
         {/* GRID LAYOUT — INDEPENDENT COLUMNS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
           {/* LEFT COLUMN */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4 sm:gap-5 lg:gap-6">
             {features.slice(0, 4).map((f) => (
               <div key={f.id}>
                 {/* Button */}
                 <button
                   onClick={() => toggleFeature(f.id)}
-                  className="w-full bg-[#89D284] text-black px-6 py-5 rounded-xl shadow hover:shadow-lg transition-all flex justify-between items-center"
+                  className="w-full bg-[#89D284] text-black px-4 sm:px-5 lg:px-6 py-3.5 sm:py-4 lg:py-5 rounded-xl shadow hover:shadow-lg transition-all flex justify-between items-center gap-3"
                 >
-                  <span className="font-semibold text-lg sm:text-[19px] text-left">
+                  <span className="font-semibold text-sm sm:text-base md:text-lg lg:text-[19px] text-left leading-tight">
                     {f.title}
                   </span>
-                  <span className="text-3xl font-bold text-gray-700">
+                  <span className="text-2xl sm:text-3xl font-bold text-gray-700 flex-shrink-0">
                     {openFeature === f.id ? "−" : "+"}
                   </span>
                 </button>
 
                 {/* INSTANT OPEN SECTION */}
                 {openFeature === f.id && (
-                  <div className="bg-green-50 p-5 rounded-xl border border-[#7ED957] mt-2 shadow-sm">
-                    <p className="text-gray-700 text-[17px] leading-relaxed">
+                  <div className="bg-green-50 p-4 sm:p-5 rounded-xl border border-[#7ED957] mt-2 shadow-sm">
+                    <p className="text-gray-700 text-sm sm:text-base lg:text-[17px] leading-relaxed">
                       {f.content}
                     </p>
                   </div>
@@ -138,26 +126,26 @@ export default function PharmacovigilanceConsulting() {
           </div>
 
           {/* RIGHT COLUMN */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4 sm:gap-5 lg:gap-6">
             {features.slice(4, 7).map((f) => (
               <div key={f.id}>
                 {/* Button */}
                 <button
                   onClick={() => toggleFeature(f.id)}
-                  className="w-full bg-[#89D284] text-black px-6 py-5 rounded-xl shadow hover:shadow-lg transition-all flex justify-between items-center"
+                  className="w-full bg-[#89D284] text-black px-4 sm:px-5 lg:px-6 py-3.5 sm:py-4 lg:py-5 rounded-xl shadow hover:shadow-lg transition-all flex justify-between items-center gap-3"
                 >
-                  <span className="font-semibold text-lg sm:text-[19px]">
+                  <span className="font-semibold text-sm sm:text-base md:text-lg lg:text-[19px] text-left leading-tight">
                     {f.title}
                   </span>
-                  <span className="text-3xl font-bold text-gray-700">
+                  <span className="text-2xl sm:text-3xl font-bold text-gray-700 flex-shrink-0">
                     {openFeature === f.id ? "−" : "+"}
                   </span>
                 </button>
 
                 {/* INSTANT OPEN SECTION */}
                 {openFeature === f.id && (
-                  <div className="bg-green-50 p-5 rounded-xl border border-[#7ED957] mt-2 shadow-sm">
-                    <p className="text-gray-700 text-[17px] leading-relaxed">
+                  <div className="bg-green-50 p-4 sm:p-5 rounded-xl border border-[#7ED957] mt-2 shadow-sm">
+                    <p className="text-gray-700 text-sm sm:text-base lg:text-[17px] leading-relaxed">
                       {f.content}
                     </p>
                   </div>
@@ -165,7 +153,6 @@ export default function PharmacovigilanceConsulting() {
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </div>

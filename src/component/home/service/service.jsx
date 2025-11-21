@@ -87,8 +87,8 @@ export default function Services() {
 
   if (!isMounted) {
     return (
-      <section className="py-10 px-6">
-        <h2 className="text-4xl italic font-extrabold">Services</h2>
+      <section className="py-6 sm:py-8 lg:py-10 px-4 sm:px-6">
+        <h2 className="text-3xl sm:text-4xl italic font-extrabold">Services</h2>
       </section>
     );
   }
@@ -97,32 +97,32 @@ export default function Services() {
 
   return (
     <section
-      className="py-16 px-6 md:px-16 overflow-hidden bg-gradient-to-b from-gray-50 to-white"
+      className="py-10 sm:py-12 md:py-14 lg:py-16 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden bg-gradient-to-b from-gray-50 to-white"
       style={{ fontFamily: "Times New Roman" }}
     >
       {/* HEADING with animation */}
-           <div className="mb-10">
-        <h2 className="text-4xl sm:text-5xl ml-10 md:text-6xl italic font-bold text-black relative">
+      <div className="mb-6 sm:mb-8 lg:mb-10 px-2 sm:px-4 md:px-6 lg:px-10">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic font-bold text-black relative inline-block">
           Services
-          <span className="absolute left-0 -bottom-3 w-50 h-[4px] bg-[#0B132B] rounded-full"></span>
+          <span className="absolute left-0 -bottom-2 sm:-bottom-3 w-32 sm:w-40 md:w-50 h-[3px] sm:h-[4px] bg-[#0B132B] rounded-full"></span>
         </h2>
       </div>
-    
 
       {/* CARD SCROLLER */}
       <div
         ref={scrollRef}
-        className="flex gap-8 overflow-hidden no-scrollbar"
+        className="flex gap-4 sm:gap-6 md:gap-8 overflow-hidden no-scrollbar"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
         {scrollingCourses.map((course, index) => (
           <motion.div
             key={index}
-            className="flex-shrink-0 shadow-xl hover:shadow-2xl transition-all duration-500 bg-black rounded-[25px] overflow-hidden group relative"
+            className="flex-shrink-0 shadow-xl hover:shadow-2xl transition-all duration-500 bg-black rounded-[20px] sm:rounded-[25px] overflow-hidden group relative"
             style={{
-              width: "320px",
-              height: "420px",
+              width: "280px",
+              minWidth: "280px",
+              height: "380px",
             }}
             whileHover={{ 
               y: -10,
@@ -131,30 +131,30 @@ export default function Services() {
             }}
           >
             {/* Gradient overlay on hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none rounded-[25px]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none rounded-[20px] sm:rounded-[25px]" />
 
             {/* Image Container */}
             <div
               className="relative overflow-hidden"
               style={{
-                height: "240px",
+                height: "210px",
                 width: "100%",
               }}
             >
               <motion.img
                 src={course.img}
                 alt={course.title}
-                className="w-full h-full object-cover rounded-t-[25px]"
+                className="w-full h-full object-cover rounded-t-[20px] sm:rounded-t-[25px]"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               />
 
               {/* Duration Badge */}
               <motion.div
-                className="absolute top-4 right-4 text-white font-semibold px-4 py-2 text-sm backdrop-blur-sm"
+                className="absolute top-3 sm:top-4 right-3 sm:right-4 text-white font-semibold px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm backdrop-blur-sm"
                 style={{
                   backgroundColor: "rgba(28, 163, 163, 0.95)",
-                  borderRadius: "12px",
+                  borderRadius: "10px",
                   boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
                 }}
                 initial={{ scale: 0, opacity: 0 }}
@@ -182,17 +182,17 @@ export default function Services() {
 
             {/* Content Section */}
             <div
-              className="bg-gradient-to-br from-gray-900 to-black rounded-b-[25px] relative"
+              className="bg-gradient-to-br from-gray-900 to-black rounded-b-[20px] sm:rounded-b-[25px] relative"
               style={{
-                height: "180px",
-                padding: "20px",
+                height: "170px",
+                padding: "16px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
               }}
             >
               {/* Animated border glow */}
-              <div className="absolute inset-0 rounded-b-[25px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              <div className="absolute inset-0 rounded-b-[20px] sm:rounded-b-[25px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 style={{
                   background: "linear-gradient(45deg, #58B95C, #1CA3A3)",
                   filter: "blur(20px)",
@@ -202,10 +202,10 @@ export default function Services() {
 
               <div className="relative z-10">
                 <motion.h3
-                  className="font-bold mb-3 leading-tight"
+                  className="font-bold mb-2 sm:mb-3 leading-tight"
                   style={{
                     color: "#58B95C",
-                    fontSize: "19px",
+                    fontSize: "17px",
                   }}
                   whileHover={{ scale: 1.03 }}
                   transition={{ duration: 0.2 }}
@@ -216,7 +216,7 @@ export default function Services() {
                 <p
                   className="text-gray-300 leading-relaxed"
                   style={{
-                    fontSize: "13px",
+                    fontSize: "12px",
                   }}
                 >
                   {course.desc}
@@ -225,15 +225,22 @@ export default function Services() {
 
               {/* Decorative corner accent */}
               <div 
-                className="absolute bottom-4 right-4 w-12 h-12 opacity-10 group-hover:opacity-20 transition-opacity duration-500"
+                className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 w-10 sm:w-12 h-10 sm:h-12 opacity-10 group-hover:opacity-20 transition-opacity duration-500"
                 style={{
                   background: "linear-gradient(135deg, #58B95C 0%, transparent 70%)",
-                  borderRadius: "0 0 25px 0",
+                  borderRadius: "0 0 20px 0",
                 }}
               />
             </div>
           </motion.div>
         ))}
+      </div>
+
+      {/* Touch/Swipe indicator for mobile */}
+      <div className="mt-6 sm:mt-8 text-center md:hidden">
+        <p className="text-sm text-gray-500 italic">
+          Swipe to explore more courses →
+        </p>
       </div>
 
       <style jsx>{`
@@ -242,6 +249,13 @@ export default function Services() {
         }
         .no-scrollbar {
           scrollbar-width: none;
+        }
+        
+        @media (max-width: 640px) {
+          .no-scrollbar {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+          }
         }
       `}</style>
     </section>

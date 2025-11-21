@@ -25,17 +25,17 @@ export default function WhyClinxcel() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="w-full bg-white rounded-2xl p-8 md:p-14 
+      className="w-full bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-10 lg:p-14 
                  flex flex-col md:flex-row items-center md:items-start 
-                 gap-8 shadow-lg"
+                 gap-6 sm:gap-8 shadow-lg"
     >
       {/* Left Section */}
-      <div className="flex-1 ml-0 md:ml-15 space-y-6">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+      <div className="flex-1 ml-0 md:ml-8 lg:ml-15 space-y-4 sm:space-y-5 lg:space-y-6">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
           Why <span className="text-[#89D284]">CLINXCEL?</span>
         </h2>
 
-        <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
+        <p className="text-gray-700 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
           At ClinXcel, we are a dedicated team of industry and training experts
           with over <span className="font-semibold text-green-700">20 years of experience</span> 
           in the clinical research domain.
@@ -49,12 +49,15 @@ export default function WhyClinxcel() {
         </p>
 
         <button
-          className="px-8 py-4 text-lg font-semibold text-[#006467] 
+          className="px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 
+                     text-base sm:text-lg md:text-xl font-semibold text-[#006467] 
                      bg-[#89D284]
-                     rounded-xl shadow-md hover:shadow-lg 
+                     rounded-lg sm:rounded-xl shadow-md hover:shadow-lg 
                      hover:bg-green-600
                      cursor-pointer
-                     transition-all duration-300"
+                     transition-all duration-300
+                     w-full sm:w-auto
+                     mt-2 sm:mt-4"
           onClick={() => router.push("/about")}
         >
           Know more
@@ -62,19 +65,20 @@ export default function WhyClinxcel() {
       </div>
 
       {/* Right Section — Simple Scroll Animation */}
-      <div ref={imageRef} className="flex-1 flex justify-center">
+      <div ref={imageRef} className="flex-1 flex justify-center items-center w-full">
         <motion.div
           style={{
             scale: scaleImage,
             opacity: opacityImage,
           }}
+          className="w-full max-w-[200px] sm:max-w-[240px] md:max-w-[270px] lg:max-w-[300px]"
         >
           <Image
             src="/image 200.png"
             alt="ClinXcel Graphic"
-            width={270}
-            height={300}
-            className="object-contain drop-shadow-xl"
+            width={300}
+            height={330}
+            className="object-contain drop-shadow-xl w-full h-auto"
           />
         </motion.div>
       </div>
