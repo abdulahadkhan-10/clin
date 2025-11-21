@@ -237,11 +237,11 @@ export default function Services() {
       </div>
 
       {/* Touch/Swipe indicator for mobile */}
-      <div className="mt-6 sm:mt-8 text-center md:hidden">
+      {/* <div className="mt-6 sm:mt-8 text-center md:hidden">
         <p className="text-sm text-gray-500 italic">
           Swipe to explore more courses →
         </p>
-      </div>
+      </div> */}
 
       <style jsx>{`
         .no-scrollbar::-webkit-scrollbar {

@@ -50,9 +50,9 @@ const BlogsPage = () => {
       {/* Main Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 xs:px-5 sm:px-6 py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20">
         {/* Page Title */}
-        <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-extrabold text-black mb-8 xs:mb-10 sm:mb-12 lg:mb-14">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 ml-2 sm:ml-3 md:ml-5 mb-4 sm:mb-5 md:mb-6 relative inline-block">
           Blogs
-        </h1>
+        </h2>
 
         {/* Blog Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 xs:gap-7 sm:gap-8 md:gap-10 lg:gap-12 max-w-5xl mx-auto">

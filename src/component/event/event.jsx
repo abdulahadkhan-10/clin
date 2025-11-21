@@ -12,10 +12,10 @@ const EventsPage = () => {
     <div className="flex flex-col items-center bg-white min-h-screen py-10">
 
       {/* ========= HEADER ========= */}
-      <div className="w-full text-center">
-        <h1 className="text-5xl font-extrabold text-green-700 tracking-wide">
+      <div className="w-full bg-white py-6 sm:py-8 md:py-10 lg:py-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 text-black">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 ml-2 sm:ml-3 md:ml-5 mb-4 sm:mb-5 md:mb-6 relative inline-block">
           Events
-        </h1>
+        </h2>
       </div>
 
       {/* ======= EVENTS SECTION ======= */}

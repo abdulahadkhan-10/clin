@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function ModesSection() {
   const modes = [
@@ -23,10 +23,29 @@ export default function ModesSection() {
     },
   ];
 
+  // ✅ Mobile flip functionality
+  useEffect(() => {
+    const cards = document.querySelectorAll(".flip-card");
+
+    const toggleFlip = function () {
+      this.classList.toggle("flip-mobile");
+    };
+
+    cards.forEach((card) => {
+      card.addEventListener("click", toggleFlip);
+    });
+
+    return () => {
+      cards.forEach((card) => {
+        card.removeEventListener("click", toggleFlip);
+      });
+    };
+  }, []);
+
   return (
     <div className="py-12 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Title */}
         <h2
           className="text-6xl font-bold text-gray-900 inline-block pb-3 border-b-4 border-gray-900"
@@ -35,15 +54,15 @@ export default function ModesSection() {
           Modes
         </h2>
 
-        {/* Grid - SAME size on all screens */}
+        {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 place-items-center">
           {modes.map((mode) => (
             <div
               key={mode.id}
-              className="group w-full h-[28rem]"
+              className="group w-full h-[28rem] flip-card"
               style={{ perspective: "1400px" }}
             >
-              <div className="relative w-full h-full duration-700 transform-style preserve-3d group-hover:rotate-y-180">
+              <div className="relative w-full h-full duration-700 transform-style preserve-3d group-hover:rotate-y-180 flip-wrapper">
 
                 {/* FRONT */}
                 <div className="absolute w-full h-full backface-hidden flex items-center justify-center">
@@ -77,25 +96,28 @@ export default function ModesSection() {
 
       {/* Hexagon Clip Path */}
       <style>{`
-        .clip-hex {
-          clip-path: polygon(
-            25% 6.7%,
-            75% 6.7%,
-            100% 50%,
-            75% 93.3%,
-            25% 93.3%,
-            0% 50%
-          
-          );
-        }
-        .preserve-3d {
-          transform-style: preserve-3d;
-        }
-          
-        .backface-hidden {
-          backface-visibility: hidden;
-        }
-      `}</style>
+  .clip-hex {
+    clip-path: polygon(
+      25% 6.7%,
+      75% 6.7%,
+      100% 50%,
+      75% 93.3%,
+      25% 93.3%,
+      0% 50%
+    );
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  /* MOBILE TAP FLIP */
+  .flip-mobile .flip-wrapper {
+    transform: rotateY(180deg);
+  }
+`}</style>
     </div>
   );
 }

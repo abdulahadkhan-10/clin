@@ -53,10 +53,12 @@ export default function TestimonialsSection() {
         <div className="w-full mb-8 sm:mb-12 lg:mb-16 xl:mb-20">
           <div className="relative flex items-center overflow-hidden">
             {/* Full Width Green Gradient Background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#76CD61] via-[#5BC179] to-[#3EAD89] shadow-lg h-[50px] sm:h-[60px] lg:h-[80px]"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#76CD61] via-[#5BC179] to-[#3EAD89] shadow-lg h-[75px] sm:h-[60px] lg:h-[80px]"></div>
+
             
             {/* Content Container */}
-            <div className="relative w-full flex flex-col sm:flex-row items-start sm:items-center px-0 sm:px-8 md:px-16 lg:px-32 xl:px-60">
+            <div className="relative w-full flex flex-row items-center px-0 sm:px-8 md:px-16 lg:px-32 xl:px-60">
+
               {/* Testimonials Text */}
               <div className="px-4 sm:px-6 lg:px-10 py-3 sm:py-4 lg:py-5 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white z-10 whitespace-nowrap">
                 Testimonials
@@ -65,15 +67,23 @@ export default function TestimonialsSection() {
               {/* White Arrow Shape */}
               <div className="relative ml-0 sm:ml-4 lg:ml-8 mt-2 sm:mt-0 w-full sm:w-auto">
                 {/* Arrow pointing right - Hidden on mobile */}
-                <div className="relative bg-white shadow-lg px-4 sm:px-8 md:px-12 lg:px-20 py-3 sm:py-4 lg:py-5 flex items-center w-full sm:min-w-[280px] md:min-w-[320px] lg:min-w-[350px]">
+                <div className="relative bg-white shadow-lg px-2 sm:px-8 md:px-12 lg:px-20 
+py-2 sm:py-4 lg:py-5 flex items-center 
+w-auto max-w-full
+min-w-[180px] sm:min-w-[280px] lg:min-w-[350px]">
+
                   {/* Left arrow point - Hidden on mobile */}
-                  <div className="hidden sm:block absolute -left-5 md:-left-6 lg:-left-7 top-1/2 -translate-y-1/2 w-0 h-0 
-                                  border-t-[25px] md:border-t-[30px] lg:border-t-[35px] border-t-transparent
-                                  border-r-[20px] md:border-r-[25px] lg:border-r-[30px] border-r-white
-                                  border-b-[25px] md:border-b-[30px] lg:border-b-[35px] border-b-transparent">
-                  </div>
+                  <div className="absolute -left-3 sm:-left-5 md:-left-6 lg:-left-7 top-1/2 -translate-y-1/2 w-0 h-0 
+border-t-[16px] sm:border-t-[25px] md:border-t-[30px] lg:border-t-[35px] border-t-transparent
+border-r-[12px] sm:border-r-[20px] md:border-r-[25px] lg:border-r-[30px] border-r-white
+border-b-[16px] sm:border-b-[25px] md:border-b-[30px] lg:border-b-[35px] border-b-transparent"/>
+
                   
-                  <span className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-gray-800 text-center sm:text-left w-full sm:whitespace-nowrap">
+                  <span className="text-[11px] xs:text-sm sm:text-base md:text-lg lg:text-xl 
+font-semibold text-gray-800 
+text-center sm:text-left 
+w-full whitespace-normal leading-tight">
+
                     Hear from those who trusted us
                   </span>
                 </div>

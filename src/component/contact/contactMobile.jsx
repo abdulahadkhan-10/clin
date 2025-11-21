@@ -21,20 +21,14 @@ const ContactMobile = () => {
   return (
     <div className="block md:hidden bg-gradient-to-b from-blue-100 to-green-100">
       {/* Header */}
-      <div className="relative mx-4 my-6 overflow-hidden rounded-lg">
-        <img
-          src="image 180.png"
-          alt="Contact Header"
-          className="w-full h-36 object-cover"
-        />
-        <div className="absolute inset-0 bg-blue-900/40"></div>
-        <h1 className="absolute inset-0 flex items-center justify-center text-3xl font-bold text-white drop-shadow-md">
+      <div className=" py-8">
+       <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 ml-2 sm:ml-3 md:ml-5 mb-4 sm:mb-5 md:mb-6 relative inline-block">
           Contact Us
-        </h1>
+        </h2>
       </div>
 
       {/* Description */}
-      <div className="relative text-white text-center mx-4 my-8">
+      {/* <div className="relative text-white text-center mx-4 my-8">
         <img
           src="/Rectangle 7358.png"
           alt="Description Background"
@@ -54,7 +48,7 @@ const ContactMobile = () => {
             growing demands of the life sciences and healthcare industries.
           </p>
         </div>
-      </div>
+      </div> */}
 
       {/* Contact Info */}
       <div className="mx-4 bg-[#5FC4CC] p-6 rounded-2xl shadow-lg border-4 border-white mb-10">

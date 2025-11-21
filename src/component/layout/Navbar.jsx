@@ -123,7 +123,7 @@ const Navbar = () => {
 
       {/* MOBILE MENU */}
       {menuOpen && (
-        <div className="md:hidden mt-2 bg-white rounded-xl shadow-lg text-center py-4 sm:py-6 space-y-3 sm:space-y-4 font-semibold text-sm sm:text-base mx-3">
+        <div className="md:hidden mt-2 bg-white rounded-xl shadow-lg text-center py-4 sm:py-6 space-y-3 sm:space-y-4 font-semibold text-sm sm:text-base mx-3 text-black relative z-[20000]">
           <Link href="/" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] transition-colors">
             Home
           </Link>

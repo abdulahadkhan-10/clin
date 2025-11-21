@@ -25,20 +25,22 @@ export default function Corporate() {
   ];
 
   return (
-    <div className="min-h-screen bg-white px-6 py-10">
-
-      {/* PAGE TITLE */}
-      <h1 className="text-[50px] font-bold text-black text-left pl-10 sm:pl-20">
-        Corporate
-      </h1>
-
-      {/* BUTTON IMAGE */}
-      <div className="flex justify-start pl-10 sm:pl-20 mt-1">
-        <img src="/button.png" alt="button" className="w-72 h-auto" />
-      </div>
+    <section className="py-10 sm:py-12 md:py-16 px-3 sm:px-4 md:px-6 bg-gradient-to-b from-white via-gray-50 to-white">
+      <div className="max-w-7xl mx-auto">
+        {/* Header with Animation */}
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 ml-2 sm:ml-3 md:ml-5 mb-4 sm:mb-5 md:mb-6 relative inline-block">
+          Corporate
+        </h2>
+ 
+        <img 
+          src="/button.png"
+          alt="Courses Banner"
+          className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] mb-4 sm:mb-5 h-auto"
+        />
 
       {/* CARD GRID */}
-      <div className="flex flex-wrap justify-center gap-10 mt-10">
+      <div className="flex flex-wrap justify-center mt-10">
+        <div className="flex flex-wrap justify-center gap-10 max-w-[1200px]"></div>
 
         {cards.map((card, index) => (
           <div
@@ -83,5 +85,6 @@ export default function Corporate() {
 
       </div>
     </div>
+    </section>
   );
 }

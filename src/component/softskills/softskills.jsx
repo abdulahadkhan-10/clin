@@ -4,21 +4,18 @@ import Image from "next/image";
 
 export default function SoftSkills() {
   return (
-    <div className="min-h-screen bg-white px-6 sm:px-12 lg:px-20 py-8">
-
-      {/* PAGE TITLE */}
-<h1 className="text-[50px] font-bold text-black ml-6">
-Soft - Skills
-</h1>
-
-{/* BUTTON IMAGE BELOW THE HEADING */}
-<div className="flex justify-start ml-2">
-  <img 
-    src="/button.png"
-    alt="Courses Banner"
-    className="w-95 h-auto"
-  />
-</div>
+   <section className="py-10 sm:py-12 md:py-16 px-3 sm:px-4 md:px-6 bg-gradient-to-b from-white via-gray-50 to-white">
+      <div className="max-w-7xl mx-auto">
+        {/* Header with Animation */}
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 ml-2 sm:ml-3 md:ml-5 mb-4 sm:mb-5 md:mb-6 relative inline-block">
+          Soft Skills
+        </h2>
+ 
+        <img 
+          src="/button.png"
+          alt="Courses Banner"
+          className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] mb-4 sm:mb-5 h-auto"
+        />
 
       {/* TABS */}
       <div className="flex gap-0 mb-8 w-full max-w-md">
@@ -79,5 +76,6 @@ Soft - Skills
         </div>
       </div>
     </div>
+    </section>
   );
 }

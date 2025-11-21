@@ -174,9 +174,9 @@ const AboutPage = () => {
       <div className="w-full bg-white py-6 sm:py-8 md:py-10 lg:py-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 text-black">
 
         {/* Title */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 sm:mb-4 md:mb-5 lg:mb-6">
-          About
-        </h1>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 ml-2 sm:ml-3 md:ml-5 mb-4 sm:mb-5 md:mb-6 relative inline-block">
+          About Us
+        </h2>
 
         {/* Description */}
         <p className="text-sm sm:text-base md:text-lg lg:text-xl text-justify leading-relaxed max-w-full">
