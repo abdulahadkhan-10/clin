@@ -1,187 +1,409 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { createPortal } from "react-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const [academicsOpen, setAcademicsOpen] = useState(false);
 
-  const dropdownRef = useRef(null);
-  const buttonRef = useRef(null);
-  const containerRef = useRef(null);
+  const servicesBtnRef = useRef(null);
+  const aboutBtnRef = useRef(null);
+  const academicsBtnRef = useRef(null);
 
-  // Close dropdown when clicking outside
+  const navRef = useRef(null);
+
+  const servicesDropRef = useRef(null);
+  const aboutDropRef = useRef(null);
+  const academicsDropRef = useRef(null);
+
+  const [servicesPos, setServicesPos] = useState({ left: 0, top: 0, width: 260 });
+  const [aboutPos, setAboutPos] = useState({ left: 0, top: 0, width: 200 });
+  const [academicsPos, setAcademicsPos] = useState({ left: 0, top: 0, width: 260 });
+
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(e.target) &&
-        !buttonRef.current?.contains(e.target)
-      ) {
+    setMounted(true);
+  }, []);
+
+  const computePosition = (btnEl, width = 260) => {
+    if (!btnEl) return { left: 0, top: 0 };
+
+    const btnRect = btnEl.getBoundingClientRect();
+
+    const left = Math.round(btnRect.left + btnRect.width / 2 - width / 2);
+    const top = Math.round(btnRect.bottom + 8);
+
+    return { left, top };
+  };
+
+  const toggleServices = () => {
+    if (!servicesOpen) {
+      setTimeout(() => {
+        const pos = computePosition(servicesBtnRef.current, 260);
+        setServicesPos({ ...pos, width: 260 });
+        setServicesOpen(true);
+      }, 0);
+      setAboutOpen(false);
+      setAcademicsOpen(false);
+    } else {
+      setServicesOpen(false);
+    }
+  };
+
+  const toggleAbout = () => {
+    if (!aboutOpen) {
+      setTimeout(() => {
+        const pos = computePosition(aboutBtnRef.current, 200);
+        setAboutPos({ ...pos, width: 200 });
+        setAboutOpen(true);
+      }, 0);
+      setServicesOpen(false);
+      setAcademicsOpen(false);
+    } else {
+      setAboutOpen(false);
+    }
+  };
+
+  const toggleAcademics = () => {
+    if (!academicsOpen) {
+      setTimeout(() => {
+        const pos = computePosition(academicsBtnRef.current, 260);
+        setAcademicsPos({ ...pos, width: 260 });
+        setAcademicsOpen(true);
+      }, 0);
+      setServicesOpen(false);
+      setAboutOpen(false);
+    } else {
+      setAcademicsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    const handleDocClick = (e) => {
+      if (!navRef.current) return;
+      
+      // Check if click is outside nav and outside all dropdowns
+      const clickedOutsideNav = !navRef.current.contains(e.target);
+      const clickedOutsideServices = servicesDropRef.current && !servicesDropRef.current.contains(e.target);
+      const clickedOutsideAbout = aboutDropRef.current && !aboutDropRef.current.contains(e.target);
+      const clickedOutsideAcademics = academicsDropRef.current && !academicsDropRef.current.contains(e.target);
+      
+      if (clickedOutsideNav && clickedOutsideServices && clickedOutsideAbout && clickedOutsideAcademics) {
         setServicesOpen(false);
+        setAboutOpen(false);
+        setAcademicsOpen(false);
       }
     };
 
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, []);
+    const handleResize = () => {
+      setServicesOpen(false);
+      setAboutOpen(false);
+      setAcademicsOpen(false);
+    };
+
+    document.addEventListener("click", handleDocClick);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      document.removeEventListener("click", handleDocClick);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [servicesOpen, aboutOpen, academicsOpen]);
 
   return (
-    <nav className="w-full relative z-[10000] shadow-md">
-      <div className="w-full shadow-md flex gap-2 sm:gap-4 relative">
+    <>
+      <nav ref={navRef} className="w-full relative shadow-md" style={{ zIndex: 1000 }}>
+        <div className="w-full shadow-md flex gap-2 sm:gap-4 relative">
 
-        {/* LOGO */}
-        <div className="py-1 pl-1 sm:pl-2 ml-2 sm:ml-4 flex-shrink-0">
-          <Image
-            src="/logo3.png"
-            alt="ClinXcel Logo"
-            width={100}
-            height={75}
-            className="w-[80px] h-auto sm:w-[100px] md:w-[130px]"
-          />
-        </div>
-  
-        {servicesOpen && (
+          {/* LOGO */}
+          <div className="py-1 pl-1 sm:pl-2 ml-2 sm:ml-4 flex-shrink-0">
+  <img
+    src="/logo3.png"   
+    alt="ClinXcel Logo"
+    className="w-[80px] h-[60px] sm:w-[100px] sm:h-[75px] md:w-[130px] md:h-[97px] object-contain"
+  />
+</div>
+
+
+          {/* GRADIENT NAVBAR */}
           <div
-            ref={dropdownRef}
-            className="absolute top-8 mt-12 sm:mt-14 md:mt-15 left-1/2 -translate-x-1/2
-                       bg-white rounded-lg shadow-xl py-3 min-w-[240px] sm:min-w-[260px] md:min-w-[280px] z-[20000]"
+            className="flex-1 py-4 sm:py-6 md:py-8 px-4 sm:px-8 md:px-12 relative"
+            style={{
+              background: "linear-gradient(to right, #72CB64, #058DAF)",
+              clipPath: "polygon(3% 0, 100% 0, 100% 100%, 0% 100%, 0 95%)",
+            }}
           >
-            {/* <Link
-              href="/consulting"
-              className="block px-4 sm:px-5 py-2 text-sm sm:text-base text-black hover:bg-gray-100"
-              onClick={() => setServicesOpen(false)}
-            >
-              Pharmacovigilance Consulting
-            </Link> */}
-            <Link
-              href="/corporate"
-              className="block px-4 sm:px-5 py-2 text-sm sm:text-base text-black hover:bg-gray-100"
-              onClick={() => setServicesOpen(false)}
-            >
-              Corporate Training
-            </Link>
-            <Link
-              href="/soft-skills"
-              className="block px-4 sm:px-5 py-2 text-sm sm:text-base text-black hover:bg-gray-100"
-              onClick={() => setServicesOpen(false)}
-            >
-              Soft Skills Training
-            </Link>
+            <div className="flex items-center justify-end md:justify-center">
+              <ul className="hidden md:flex items-center space-x-6 lg:space-x-10 text-white font-semibold text-base lg:text-lg mx-auto relative">
+
+                <li>
+                  <a href="/" className="hover:text-gray-200 cursor-pointer">
+                    Home
+                  </a>
+                </li>
+
+                {/* ABOUT US */}
+                <li className="relative">
+                  <button
+                    ref={aboutBtnRef}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleAbout();
+                    }}
+                    className="flex items-center gap-1 hover:text-gray-200"
+                  >
+                    About Us
+                    <ChevronDown
+                      size={18}
+                      className={`${aboutOpen ? "rotate-180" : "rotate-0"} transition-transform`}
+                    />
+                  </button>
+                </li>
+
+                <li>
+                  <a href="/event" className="hover:text-gray-200 cursor-pointer">
+                    Events
+                  </a>
+                </li>
+
+                <li>
+                  <a href="/consulting" className="hover:text-gray-200 cursor-pointer">
+                    Consulting
+                  </a>
+                </li>
+
+                {/* SERVICES */}
+                <li className="relative">
+                  <button
+                    ref={servicesBtnRef}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleServices();
+                    }}
+                    className="flex items-center gap-1 hover:text-gray-200"
+                  >
+                    Services
+                    <ChevronDown
+                      size={18}
+                      className={`${servicesOpen ? "rotate-180" : "rotate-0"} transition-transform`}
+                    />
+                  </button>
+                </li>
+
+                {/* ACADEMICS */}
+                <li className="relative">
+                  <button
+                    ref={academicsBtnRef}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleAcademics();
+                    }}
+                    className="flex items-center gap-1 hover:text-gray-200"
+                  >
+                    Academics
+                    <ChevronDown
+                      size={18}
+                      className={`${academicsOpen ? "rotate-180" : "rotate-0"} transition-transform`}
+                    />
+                  </button>
+                </li>
+
+                <li>
+                  <a href="/blog" className="hover:text-gray-200 cursor-pointer">
+                    Blogs
+                  </a>
+                </li>
+
+                <li>
+                  <a href="/careers" className="hover:text-gray-200 cursor-pointer">
+                    Careers
+                  </a>
+                </li>
+
+                <li>
+                  <a href="/contact" className="hover:text-gray-200 cursor-pointer">
+                    Contact
+                  </a>
+                </li>
+
+              </ul>
+
+              <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden text-white">
+                {menuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        {/* MOBILE MENU */}
+        {menuOpen && (
+          <div className="md:hidden mt-2 bg-white rounded-xl shadow-lg text-center py-4 sm:py-6 space-y-3 font-semibold text-sm mx-3 text-black z-[20000]">
+
+            <a href="/" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] cursor-pointer">
+              Home
+            </a>
+
+            <details>
+              <summary className="flex justify-center items-center gap-1 py-1 hover:text-[#058DAF] cursor-pointer">
+                About Us <ChevronDown size={16} />
+              </summary>
+              <div className="mt-2 space-y-2">
+                <a href="/about" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
+                  About Us
+                </a>
+                <a href="/team" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
+                  Our Team
+                </a>
+              </div>
+            </details>
+
+            <a href="/event" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] cursor-pointer">
+              Events
+            </a>
+
+            <a href="/consulting" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] cursor-pointer">
+              Consulting
+            </a>
+
+            <details>
+              <summary className="flex justify-center items-center gap-1 py-1 hover:text-[#058DAF] cursor-pointer">
+                Services <ChevronDown size={16} />
+              </summary>
+              <div className="mt-2 space-y-2">
+                <a href="/consulting" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
+                  Pharmacovigilance Consulting
+                </a>
+                <a href="/corporate" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
+                  Corporate Training
+                </a>
+                <a href="/soft-skills" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
+                  Soft Skills Training
+                </a>
+              </div>
+            </details>
+
+            <details>
+              <summary className="flex justify-center items-center gap-1 py-1 hover:text-[#058DAF] cursor-pointer">
+                Academics <ChevronDown size={16} />
+              </summary>
+              <div className="mt-2 space-y-2">
+                <a href="/academics" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
+                  Domain Courses
+                </a>
+                <a href="/Communication" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
+                  Communication
+                </a>
+                <a href="/internshipprograms" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
+                  Internship Programs
+                </a>
+                <a href="/placemementassistance" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
+                  Placement Assistance
+                </a>
+              </div>
+            </details>
+
+            <a href="/blog" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] cursor-pointer">
+              Blogs
+            </a>
+
+            <a href="/careers" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] cursor-pointer">
+              Careers
+            </a>
+
+            <a href="/contact" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] cursor-pointer">
+              Contact
+            </a>
+
           </div>
         )}
-       
-        {/* GRADIENT NAVBAR */}
+      </nav>
+
+      {/* PORTALED DROPDOWNS */}
+      {mounted && aboutOpen && createPortal(
         <div
-          className="flex-1 py-4 sm:py-6 md:py-8 px-4 sm:px-8 md:px-12 relative"
+          ref={aboutDropRef}
           style={{
-            background: "linear-gradient(to right, #72CB64, #058DAF)",
-            clipPath: "polygon(6% 0, 100% 0, 100% 100%, 0% 100%, 0 95%)",
+            position: "fixed",
+            left: aboutPos.left,
+            top: aboutPos.top,
+            width: aboutPos.width,
+            zIndex: 999999,
           }}
+          className="bg-white rounded-lg shadow-xl py-3"
+          onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex items-center justify-end md:justify-center">
-            {/* Desktop Menu */}
-            <ul className="hidden md:flex items-center space-x-6 lg:space-x-10 text-white font-semibold text-base lg:text-lg mx-auto">
-              <li><Link href="/" className="hover:text-gray-200 transition-colors">Home</Link></li>
-              <li><Link href="/about" className="hover:text-gray-200 transition-colors">About Us</Link></li>
-              <li><Link href="/event" className="hover:text-gray-200 transition-colors">Events</Link></li>
-              <li><Link href="/consulting" className="hover:text-gray-200 transition-colors">Pharmacovigilance Consulting</Link></li>
-
-              {/* SERVICES DROPDOWN */}
-              <li className="relative" ref={containerRef}>
-                <button
-                  ref={buttonRef}
-                  onClick={() => setServicesOpen((prev) => !prev)}
-                  className="flex items-center gap-1 hover:text-gray-200 transition-colors"
-                >
-                  Services
-                  <ChevronDown
-                    size={18}
-                    className={`${servicesOpen ? "rotate-180" : "rotate-0"} transition-transform`}
-                  />
-                </button>
-              </li>
-
-              
-              <li><Link href="/blog" className="hover:text-gray-200 transition-colors">Blogs</Link></li>
-              <li><Link href="/academics" className="hover:text-gray-200 transition-colors">Academics</Link></li>
-              <li><Link href="/contact" className="hover:text-gray-200 transition-colors">Contact</Link></li>
-            </ul>
-
-            {/* Mobile Hamburger */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden text-white"
-              aria-label="Toggle menu"
-            >
-              {menuOpen ? <X size={24} className="sm:w-7 sm:h-7" /> : <Menu size={24} className="sm:w-7 sm:h-7" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* MOBILE MENU */}
-      {menuOpen && (
-        <div className="md:hidden mt-2 bg-white rounded-xl shadow-lg text-center py-4 sm:py-6 space-y-3 sm:space-y-4 font-semibold text-sm sm:text-base mx-3 text-black relative z-[20000]">
-          <Link href="/" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] transition-colors">
-            Home
-          </Link>
-          <Link href="/about" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] transition-colors">
+          <a href="/about" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
             About Us
-          </Link>
-          <Link href="/event" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] transition-colors">
-            Events
-          </Link>
-          <Link href="/consulting" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] transition-colors">
-            Pharmacovigilance Consulting
-          </Link>
-
-          <details className="cursor-pointer">
-            <summary className="flex justify-center items-center gap-1 py-1 hover:text-[#058DAF] transition-colors">
-              Services
-              <ChevronDown size={16} className="inline" />
-            </summary>
-            <div className="mt-2 sm:mt-3 space-y-2">
-              {/* <Link 
-                href="/consulting" 
-                className="block py-2 text-xs sm:text-sm hover:bg-gray-100 transition-colors"
-                onClick={() => setMenuOpen(false)}
-              >
-                Pharmacovigilance Consulting
-              </Link> */}
-              <Link 
-                href="/corporate" 
-                className="block py-2 text-xs sm:text-sm hover:bg-gray-100 transition-colors"
-                onClick={() => setMenuOpen(false)}
-              >
-                Corporate Training
-              </Link>
-              <Link 
-                href="/soft-skills" 
-                className="block py-2 text-xs sm:text-sm hover:bg-gray-100 transition-colors"
-                onClick={() => setMenuOpen(false)}
-              >
-                Soft Skills Training
-              </Link>
-            </div>
-          </details>
-
-          <Link href="/blog" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] transition-colors">
-            Blogs
-          </Link>
-          <Link href="/academics" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] transition-colors">
-            Academics
-          </Link>
-          <Link href="/contact" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] transition-colors">
-            Contact
-          </Link>
-        </div>
+          </a>
+          <a href="/team" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
+            Our Team
+          </a>
+        </div>,
+        document.body
       )}
-    </nav>
+
+      {mounted && servicesOpen && createPortal(
+        <div
+          ref={servicesDropRef}
+          style={{
+            position: "fixed",
+            left: servicesPos.left,
+            top: servicesPos.top,
+            width: servicesPos.width,
+            zIndex: 999999,
+          }}
+          className="bg-white rounded-lg shadow-xl py-3"
+          onClick={(e) => e.stopPropagation()}
+        >
+           <a href="/consulting" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
+            Pharmacovigilance Consulting
+          </a>
+          <a href="/corporate" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
+            Corporate Training
+          </a>
+          <a href="/soft-skills" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
+            Soft Skills Training
+          </a>
+        </div>,
+        document.body
+      )}
+
+      {mounted && academicsOpen && createPortal(
+        <div
+          ref={academicsDropRef}
+          style={{
+            position: "fixed",
+            left: academicsPos.left,
+            top: academicsPos.top,
+            width: academicsPos.width,
+            zIndex: 999999,
+          }}
+          className="bg-white rounded-lg shadow-xl py-3"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <a href="/academics" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
+            Domain Courses
+          </a>
+          <a href="/Communication" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
+            Communication
+          </a>
+          <a href="/internshipprograms" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
+            Internship Programs
+          </a>
+          <a href="/placemementassistance" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
+            Placement Assistance
+          </a>
+        </div>,
+        document.body
+      )}
+    </>
   );
 };
 
-export default Navbar;
+export default Navbar

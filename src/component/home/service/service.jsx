@@ -4,36 +4,6 @@ import { motion } from "framer-motion";
 
 const courses = [
   {
-    title: "Medical Writing",
-    duration: "4 Weeks",
-    img: "/medicalwriting.png",
-    desc: "Eligibility : Post-Graduation in Life Sciences / Pharmaceutical Sciences , Graduation in Medical , Dental",
-  },
-  {
-    title: "Clinical Data Management",
-    duration: "5 Weeks",
-    img: "/clinicaldata.png",
-    desc: "Eligibility : Graduation / Post-Graduation in Life Sciences / Pharmaceutical Sciences , Medical , Dental",
-  },
-  {
-    title: "Regulatory Affairs",
-    duration: "4 Weeks",
-    img: "/regulatory.png",
-    desc: "Eligibility : Graduation / Post-Graduation in Life Sciences / Pharmaceutical Sciences , Medical , Dental",
-  },
-  {
-    title: "Signal Detection & Medical Review",
-    duration: "3 Weeks",
-    img: "/signalreview.png",
-    desc: "Eligibility : Freshers and Life Science Professionals / Medical , Dental",
-  },
-  {
-    title: "Empower Teams With ClinXcel's Industry-Ready Training",
-    duration: "1 Year",
-    img: "/training.png",
-    desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences",
-  },
-  {
     title: "Clinical Research",
     duration: "4 Weeks",
     img: "/clinicalresearch.png",
@@ -46,11 +16,43 @@ const courses = [
     desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences / Medical , Dental",
   },
   {
-    title: "Soft Skills Training Modules by ClinXcel",
-    duration: "4 Weeks",
-    img: "/softskills.png",
-    desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences",
+    title: "Clinical Data Management",
+    duration: "5 Weeks",
+    img: "/clinicaldata.png",
+    desc: "Eligibility : Graduation / Post-Graduation in Life Sciences / Pharmaceutical Sciences , Medical , Dental",
   },
+   {
+    title: "Medical Writing",
+    duration: "4 Weeks",
+    img: "/medicalwriting.png",
+    desc: "Eligibility : Post-Graduation in Life Sciences / Pharmaceutical Sciences , Graduation in Medical , Dental",
+  },
+  {
+    title: "Regulatory Affairs",
+    duration: "4 Weeks",
+    img: "/regulatory.png",
+    desc: "Eligibility : Graduation / Post-Graduation in Life Sciences / Pharmaceutical Sciences , Medical , Dental",
+  },
+  // {
+  //   title: "Signal Detection & Medical Review",
+  //   duration: "3 Weeks",
+  //   img: "/signalreview.png",
+  //   desc: "Eligibility : Freshers and Life Science Professionals / Medical , Dental",
+  // },
+  // {
+  //   title: "Empower Teams With ClinXcel's Industry-Ready Training",
+  //   duration: "1 Year",
+  //   img: "/training.png",
+  //   desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences",
+  // },
+
+
+  // {
+  //   title: "Soft Skills Training Modules by ClinXcel",
+  //   duration: "4 Weeks",
+  //   img: "/softskills.png",
+  //   desc: "Eligibility : Graduation / Post-Graduation in Life & Pharmaceutical Sciences",
+  // },
 ];
 
 export default function Services() {

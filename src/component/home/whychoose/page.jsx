@@ -78,7 +78,7 @@ export default function WhyClinxcel() {
             alt="ClinXcel Graphic"
             width={300}
             height={330}
-            className="object-contain drop-shadow-xl w-full h-auto"
+            className="object-contain drop-shadow-xl w-full h-auto scale-x-[-1]"
           />
         </motion.div>
       </div>

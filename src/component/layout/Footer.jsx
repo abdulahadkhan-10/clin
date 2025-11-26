@@ -25,7 +25,7 @@ const Footer = () => {
           <div className="flex justify-center sm:justify-start mb-4 sm:mb-6">
             <Link href="/">
               <Image
-                src="/logo1.png"
+                src="/logo3.png"
                 alt="ClinXcel Logo"
                 width={120}
                 height={120}
@@ -46,7 +46,7 @@ const Footer = () => {
               className="flex justify-center sm:justify-start items-center gap-2 hover:text-black transition"
             >
               <Phone size={18} className="sm:w-5 sm:h-5" /> 
-              <span className="text-xs sm:text-sm md:text-base">8369919288 / 7021235702</span>
+              <span className="text-xs sm:text-sm md:text-base">8369919288 / 9167242009</span>
             </a>
 
             <a
@@ -54,7 +54,7 @@ const Footer = () => {
               className="flex justify-center sm:justify-start items-center gap-2 hover:text-black transition"
             >
               <Mail size={18} className="sm:w-5 sm:h-5" /> 
-              <span className="text-xs sm:text-sm md:text-base">info@clinexcel.in</span>
+              <span className="text-xs sm:text-sm md:text-base">info@clinxcel.in</span>
             </a>
           </div>
         </div>

@@ -27,6 +27,7 @@ export default function MedicalBanner() {
 
   if (!isMounted) {
     return (
+
       <div
         className="relative w-full overflow-hidden shadow-xl min-h-[350px] sm:min-h-[400px] md:min-h-[450px] bg-cover bg-center"
         style={{ backgroundImage: `url('${slides[0].image}')` }}
@@ -68,6 +69,36 @@ export default function MedicalBanner() {
           </div>
         ))}
       </div>
+
+      {/* === LEFT / RIGHT ARROW BUTTONS === */}
+<button
+  onClick={(e) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) =>
+      prev === 0 ? slides.length - 1 : prev - 1
+    );
+  }}
+  className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-30
+             bg-white/20 hover:bg-white/30 text-white 
+             backdrop-blur-md rounded-full w-10 h-10 flex items-center justify-center
+             transition-all duration-300 border border-white/40"
+>
+  ‹
+</button>
+
+<button
+  onClick={(e) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev + 1) % slides.length);
+  }}
+  className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-30
+             bg-white/20 hover:bg-white/30 text-white
+             backdrop-blur-md rounded-full w-10 h-10 flex items-center justify-center
+             transition-all duration-300 border border-white/40"
+>
+  ›
+</button>
+
 
       {/* === Banner Content === */}
       <div className="relative flex flex-col min-h-[400px] sm:min-h-[480px] md:min-h-[550px] md:flex-row">
@@ -160,4 +191,4 @@ export default function MedicalBanner() {
       </div>
     </div>
   );
-}
+} 
