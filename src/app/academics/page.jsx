@@ -1,4 +1,4 @@
-import CoursesSection from "@/component/courses/courses";
+import CoursesSection from "@/component/academics/academics";
 export default function Home() {
   return (
    <CoursesSection/>

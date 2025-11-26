@@ -8,9 +8,9 @@ export default function MedicalBanner() {
 
   const slides = [
     { image: "/image1.png", lines: ["WELCOME TO", "CLINXCEL"] },
-    { image: "/image2.png", lines: ["SHAPING THE", "NEXT ERA OF", "PHARMA GROWTH"] },
-    { image: "/image3.png", lines: ["YOUR", "WELLNESS", "IS OUR", "PRIORITY"] },
-    { image: "/image4.png", lines: ["EXPLORING", "THE FUTURE OF", "HEALTH & SCIENCE"] },
+    { image: "/image2.png", lines: ["SHAPING THE","NEXT ERA OF","INTELLIGENT SAFETY","SURVEILLANCE"] },
+    { image: "/image3.png", lines: ["TURNING", "SAFETY DATA", "INTO SMART", "INSIGHTS"] },
+    { image: "/image4.png", lines: ["DRIVING SMARTER","PHARMACOVIGILANCE THROUGH","EXPERTISE & INNOVATION"] },
   ];
 
   useEffect(() => {

@@ -50,13 +50,13 @@ const Navbar = () => {
             className="absolute top-8 mt-12 sm:mt-14 md:mt-15 left-1/2 -translate-x-1/2
                        bg-white rounded-lg shadow-xl py-3 min-w-[240px] sm:min-w-[260px] md:min-w-[280px] z-[20000]"
           >
-            <Link
+            {/* <Link
               href="/consulting"
               className="block px-4 sm:px-5 py-2 text-sm sm:text-base text-black hover:bg-gray-100"
               onClick={() => setServicesOpen(false)}
             >
               Pharmacovigilance Consulting
-            </Link>
+            </Link> */}
             <Link
               href="/corporate"
               className="block px-4 sm:px-5 py-2 text-sm sm:text-base text-black hover:bg-gray-100"
@@ -88,6 +88,7 @@ const Navbar = () => {
               <li><Link href="/" className="hover:text-gray-200 transition-colors">Home</Link></li>
               <li><Link href="/about" className="hover:text-gray-200 transition-colors">About Us</Link></li>
               <li><Link href="/event" className="hover:text-gray-200 transition-colors">Events</Link></li>
+              <li><Link href="/consulting" className="hover:text-gray-200 transition-colors">Pharmacovigilance Consulting</Link></li>
 
               {/* SERVICES DROPDOWN */}
               <li className="relative" ref={containerRef}>
@@ -104,8 +105,9 @@ const Navbar = () => {
                 </button>
               </li>
 
+              
               <li><Link href="/blog" className="hover:text-gray-200 transition-colors">Blogs</Link></li>
-              <li><Link href="/courses" className="hover:text-gray-200 transition-colors">Courses</Link></li>
+              <li><Link href="/academics" className="hover:text-gray-200 transition-colors">Academics</Link></li>
               <li><Link href="/contact" className="hover:text-gray-200 transition-colors">Contact</Link></li>
             </ul>
 
@@ -133,6 +135,9 @@ const Navbar = () => {
           <Link href="/event" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] transition-colors">
             Events
           </Link>
+          <Link href="/consulting" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] transition-colors">
+            Pharmacovigilance Consulting
+          </Link>
 
           <details className="cursor-pointer">
             <summary className="flex justify-center items-center gap-1 py-1 hover:text-[#058DAF] transition-colors">
@@ -140,13 +145,13 @@ const Navbar = () => {
               <ChevronDown size={16} className="inline" />
             </summary>
             <div className="mt-2 sm:mt-3 space-y-2">
-              <Link 
+              {/* <Link 
                 href="/consulting" 
                 className="block py-2 text-xs sm:text-sm hover:bg-gray-100 transition-colors"
                 onClick={() => setMenuOpen(false)}
               >
                 Pharmacovigilance Consulting
-              </Link>
+              </Link> */}
               <Link 
                 href="/corporate" 
                 className="block py-2 text-xs sm:text-sm hover:bg-gray-100 transition-colors"
@@ -167,8 +172,8 @@ const Navbar = () => {
           <Link href="/blog" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] transition-colors">
             Blogs
           </Link>
-          <Link href="/courses" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] transition-colors">
-            Courses
+          <Link href="/academics" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] transition-colors">
+            Academics
           </Link>
           <Link href="/contact" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-[#058DAF] transition-colors">
             Contact
