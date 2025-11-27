@@ -141,9 +141,14 @@ export default function MedicalBanner() {
 
         {/* ================= DESKTOP VIEW ================= */}
         <div
-          className="hidden md:flex relative w-[35%] lg:w-[38%] xl:w-[35%] p-8 lg:p-10 xl:p-14 flex-col justify-center text-white z-20 backdrop-blur-[5px] min-h-[480px] lg:min-h-[500px]"
+          className="hidden md:flex relative w-[55%] lg:w-[57%] xl:w-[55%]   w-[45%] lg:w-[48%] xl:w-[45%] w-[35%] lg:w-[38%] xl:w-[35%] p-8 lg:p-10 xl:p-14 flex-col justify-center text-white z-20 backdrop-blur-[5px] min-h-[480px] lg:min-h-[500px]"
           style={{
-            clipPath: "polygon(0 0, 90% 0, 80% 50%, 90% 100%, 0 100%)",
+            clipPath: "polygon(0 0, 100% 0, 92% 50%, 100% 100%, 0 100%)"
+
+
+
+,
+
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-[#68c07e]/80 via-[#469d8b]/75 to-[#1a6e87]/70 opacity-[0.9] z-0"></div>

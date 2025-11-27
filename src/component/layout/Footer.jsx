@@ -25,10 +25,10 @@ const Footer = () => {
           <div className="flex justify-center sm:justify-start mb-4 sm:mb-6">
             <Link href="/">
               <Image
-                src="/logo3.png"
+                src="/logo3.5.png"
                 alt="ClinXcel Logo"
-                width={120}
-                height={120}
+                width={200}
+                height={20}
                 className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[135px] md:h-[135px] rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
               />
             </Link>

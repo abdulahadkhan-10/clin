@@ -84,12 +84,12 @@ export default function PharmacovigilanceConsulting() {
           </div>
         </div>
 
-        {/* SOME FEATURES TITLE */}
+        {/* TITLE */}
         <div className="relative w-full mt-6 sm:mt-8 lg:mt-10 mb-6 sm:mb-8 lg:mb-10">
           {/* Green Bar */}
           <div className="bg-[#7CBF8A] w-full py-2.5 sm:py-3 lg:py-4 rounded-md shadow-md flex justify-center">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-wide text-center px-4">
-              Some Features
+              Our services
             </h2>
           </div>
         </div>

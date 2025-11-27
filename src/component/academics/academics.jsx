@@ -57,7 +57,7 @@ export default function CoursesSection() {
       <div className="max-w-7xl mx-auto">
         {/* Header with Animation */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 ml-2 sm:ml-3 md:ml-5 mb-4 sm:mb-5 md:mb-6 relative inline-block">
-          Academics
+          Services
         </h2>
 
         <img

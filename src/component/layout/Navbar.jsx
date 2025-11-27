@@ -31,11 +31,14 @@ const Navbar = () => {
   }, []);
 
   const computePosition = (btnEl, width = 260) => {
-    if (!btnEl) return { left: 0, top: 0 };
+    if (!btnEl || !navRef.current) return { left: 0, top: 0 };
 
     const btnRect = btnEl.getBoundingClientRect();
 
+    // Center horizontally under the button
     const left = Math.round(btnRect.left + btnRect.width / 2 - width / 2);
+
+    // Position dropdown just below the button
     const top = Math.round(btnRect.bottom + 8);
 
     return { left, top };
@@ -118,28 +121,29 @@ const Navbar = () => {
   return (
     <>
       <nav ref={navRef} className="w-full relative shadow-md" style={{ zIndex: 1000 }}>
+        <div id="dropdown-root" className="absolute left-0 top-0 w-full h-full pointer-events-none" />
+
         <div className="w-full shadow-md flex gap-2 sm:gap-4 relative">
 
           {/* LOGO */}
-          <div className="py-1 pl-1 sm:pl-2 ml-2 sm:ml-4 flex-shrink-0">
-  <img
-    src="/logo3.png"   
-    alt="ClinXcel Logo"
-    className="w-[80px] h-[60px] sm:w-[100px] sm:h-[75px] md:w-[130px] md:h-[97px] object-contain"
-  />
-</div>
-
+           <div className="py-1 pl-1 sm:pl-2 ml-1 sm:ml-2 md:ml-3 lg:ml-4 flex-shrink-0">
+            <img
+              src="/logo3.png"
+              alt="ClinXcel Logo"
+              className="w-[90px] h-[65px] sm:w-[110px] sm:h-[80px] md:w-[120px] md:h-[90px] lg:w-[140px] lg:h-[105px] xl:w-[170px] xl:h-[125px] object-contain"
+            />
+           </div>
 
           {/* GRADIENT NAVBAR */}
           <div
-            className="flex-1 py-4 sm:py-6 md:py-8 px-4 sm:px-8 md:px-12 relative"
+            className="flex-1 py-4 sm:py-6 md:py-8 px-4 sm:px-6 md:px-8 lg:px-12 relative"
             style={{
               background: "linear-gradient(to right, #72CB64, #058DAF)",
               clipPath: "polygon(3% 0, 100% 0, 100% 100%, 0% 100%, 0 95%)",
             }}
           >
             <div className="flex items-center justify-end md:justify-center">
-              <ul className="hidden md:flex items-center space-x-6 lg:space-x-10 text-white font-semibold text-base lg:text-lg mx-auto relative">
+              <ul className="hidden md:flex items-center space-x-2 lg:space-x-4 xl:space-x-6 2xl:space-x-10 text-white font-semibold text-sm lg:text-base xl:text-lg mx-auto relative whitespace-nowrap">
 
                 <li>
                   <a href="/" className="hover:text-gray-200 cursor-pointer">
@@ -173,7 +177,7 @@ const Navbar = () => {
 
                 <li>
                   <a href="/consulting" className="hover:text-gray-200 cursor-pointer">
-                    Consulting
+                    Pharmacovigilance
                   </a>
                 </li>
 
@@ -257,7 +261,7 @@ const Navbar = () => {
                 <a href="/about" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
                   About Us
                 </a>
-                <a href="/team" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
+                <a href="" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
                   Our Team
                 </a>
               </div>
@@ -296,13 +300,13 @@ const Navbar = () => {
                 <a href="/academics" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
                   Domain Courses
                 </a>
-                <a href="/Communication" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
+                <a href="" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
                   Communication
                 </a>
-                <a href="/internshipprograms" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
+                <a href="" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
                   Internship Programs
                 </a>
-                <a href="/placemementassistance" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
+                <a href="" onClick={() => setMenuOpen(false)} className="block py-2 hover:bg-gray-100 cursor-pointer">
                   Placement Assistance
                 </a>
               </div>
@@ -330,6 +334,7 @@ const Navbar = () => {
           ref={aboutDropRef}
           style={{
             position: "fixed",
+            pointerEvents: "auto",
             left: aboutPos.left,
             top: aboutPos.top,
             width: aboutPos.width,
@@ -341,7 +346,7 @@ const Navbar = () => {
           <a href="/about" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
             About Us
           </a>
-          <a href="/team" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
+          <a href="" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
             Our Team
           </a>
         </div>,
@@ -390,13 +395,13 @@ const Navbar = () => {
           <a href="/academics" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
             Domain Courses
           </a>
-          <a href="/Communication" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
+          <a href="" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
             Communication
           </a>
-          <a href="/internshipprograms" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
+          <a href="" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
             Internship Programs
           </a>
-          <a href="/placemementassistance" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
+          <a href="" className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer">
             Placement Assistance
           </a>
         </div>,
@@ -406,4 +411,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar
+export default Navbar;
